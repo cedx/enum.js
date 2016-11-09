@@ -7,7 +7,7 @@
   "bugs": "https://github.com/cedx/enum.js/issues",
   "license": "Apache-2.0",
   "repository": "cedx/enum.js",
-  "version": "1.0.0",
+  "version": "0.1.0",
 
   "jsnext:main": "./src/index",
   "main": "./lib/index",
