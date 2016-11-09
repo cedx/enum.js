@@ -10,6 +10,7 @@ export class Enum {
    * @return {object} The newly created enumeration.
    */
   static create(typeDef, typeName = '') {
+    /* eslint require-jsdoc: "off" */
     let enumType = class {
       constructor() { console.log(this.constructor.name); throw new TypeError('This type is not instantiable.'); }
       static isDefined(value) { return Enum.isDefined(enumType, value); }
@@ -18,8 +19,8 @@ export class Enum {
       static getValues() { return Enum.getValues(enumType); }
     };
 
-    if(typeName.length) enumType.constructor.name = typeName;
-    for(let prop in typeDef) enumType[prop] = typeDef[prop];
+    if (typeName.length) enumType.constructor.name = typeName;
+    for (let prop in typeDef) enumType[prop] = typeDef[prop];
     return Object.freeze(enumType);
   }
 
