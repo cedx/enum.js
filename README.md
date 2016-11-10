@@ -1,5 +1,5 @@
 # Enums for JS
-![Release](https://img.shields.io/npm/v/@cedx/enum.svg) ![License](https://img.shields.io/npm/l/@cedx/enum.svg) ![Downloads](https://img.shields.io/npm/dt/@cedx/enum.svg) ![Dependencies](https://img.shields.io/david/cedx/enum.svg) ![Code quality](https://img.shields.io/codacy/grade/5886b7627a5947e58f51f11e9814fc56.svg) ![Build](https://img.shields.io/travis/cedx/enum.js.svg)
+![Release](https://img.shields.io/npm/v/@cedx/enum.svg) ![License](https://img.shields.io/npm/l/@cedx/enum.svg) ![Downloads](https://img.shields.io/npm/dt/@cedx/enum.svg) ![Dependencies](https://img.shields.io/david/cedx/enum.svg) ![Code quality](https://img.shields.io/codacy/grade/ff5ef8040fb6456b934f8bac502747f5.svg) ![Build](https://img.shields.io/travis/cedx/enum.js.svg)
 
 Yet another implementation of enumerated types for [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript).
 

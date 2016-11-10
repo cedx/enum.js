@@ -10,8 +10,8 @@ export class Enum {
    * @return {object} The newly created enumeration.
    */
   static create(typeDef, typeName = '') {
-    /* eslint require-jsdoc: "off" */
     let enumType = class {
+      /* eslint require-jsdoc: "off" */
       constructor() { console.log(this.constructor.name); throw new TypeError('This type is not instantiable.'); }
       static isDefined(value) { return Enum.isDefined(enumType, value); }
       static getName(value) { return Enum.getName(enumType, value); }

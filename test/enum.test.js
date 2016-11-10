@@ -60,12 +60,12 @@ describe('Enum', () => {
    * @test {Enum.getName}
    */
   describe('.getName()', () => {
-    it('should return a null reference with a non-object JSON string', () => {
+    it('should return an empty string for unknown values', () => {
       assert.equal(SampleEnum.getName('TWO'), '');
       assert.equal(SampleEnum.getName(3.1), '');
     });
 
-    it('should return an empty instance with an empty JSON object', () => {
+    it('should return the name for known values', () => {
       assert.equal(SampleEnum.getName(false), 'ZERO');
       assert.equal(SampleEnum.getName(1), 'ONE');
       assert.equal(SampleEnum.getName('two'), 'TWO');
@@ -77,8 +77,13 @@ describe('Enum', () => {
    * @test {Enum.getNames}
    */
   describe('.getNames()', () => {
-    it('should return a null reference with a non-object JSON string', () => {
-      assert.equal(SampleEnum.getNames(), ['ZERO', 'ONE', 'TWO', 'THREE']);
+    it('should return the names of the enumerable properties', () => {
+      let names = SampleEnum.getNames();
+      assert.equal(names.length, 4);
+      assert.equal(names[0], 'ZERO');
+      assert.equal(names[1], 'ONE');
+      assert.equal(names[2], 'TWO');
+      assert.equal(names[3], 'THREE');
     });
   });
 
@@ -86,8 +91,13 @@ describe('Enum', () => {
    * @test {Enum.getValues}
    */
   describe('.getValues()', () => {
-    it('should return a null reference with a non-object JSON string', () => {
-      assert.equal(SampleEnum.getValues(), [false, 1, 'two', 3.0]);
+    it('should return the values of the enumerable properties', () => {
+      let values = SampleEnum.getValues();
+      assert.equal(values.length, 4);
+      assert.strictEqual(values[0], false);
+      assert.strictEqual(values[1], 1);
+      assert.strictEqual(values[2], 'two');
+      assert.strictEqual(values[3], 3.0);
     });
   });
 });
