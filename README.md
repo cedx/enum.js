@@ -41,7 +41,7 @@ const DayOfWeek = Enum.create({
 
 The [`Enum.create()`](https://github.com/cedx/enum.js/blob/master/src/Enum.js) method adds a private constructor to the enumerated type: it prohibits its instantiation.
 
-Thus, the obtained enumeration can only contain static members. You should only use constants, and possibly methods.
+Thus, the obtained enumeration can only contain static members. You should only use named constants as its source values.
 
 ### Work with the enumeration
 Check whether a value is defined among the enumerated type:
