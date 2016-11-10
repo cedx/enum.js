@@ -31,6 +31,10 @@ describe('Enum', () => {
       assert.throws(() => new SampleEnum(), TypeError);
     });
 
+    it('should create types that are immutable', () => {
+      assert.ok(Object.isFrozen(SampleEnum));
+    });
+
     it('should create types having the `Enum` mixins', () => {
       assert.equal(typeof SampleEnum.isDefined, 'function');
       assert.equal(typeof SampleEnum.getName, 'function');
