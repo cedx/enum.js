@@ -39,9 +39,11 @@ const DayOfWeek = Enum.create({
 });
 ```
 
-The [`Enum.create()`](https://github.com/cedx/enum.js/blob/master/src/Enum.js) method creates an anonymous class from the specified object. This class has the same values as the provided object, and some helper methods.
+The [`Enum.create()`](https://github.com/cedx/enum.js/blob/master/src/Enum.js) method creates an anonymous class from the specified object. This class has the same values as the provided object, and some additional helper methods.
 
 The created class has a constructor throwing an `Error`: it prohibits its instantiation. Thus, the obtained enumeration can only contain static members. You should only use named constants as its source values.
+
+The enumeration is also freezed to prevent any attempt at modifying its shape.
 
 ### Work with the enumeration
 Check whether a value is defined among the enumerated type:
