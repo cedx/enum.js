@@ -26,18 +26,18 @@ describe('Enum', () => {
   /**
    * @test {Enum.create}
    */
-  /*
   describe('.create()', () => {
     it('should create types that are not instantiable', () => {
       assert.throws(() => new SampleEnum(), TypeError);
     });
 
-    it('should return an empty instance with an empty JSON object', () => {
+    it('should create types having the `Enum` mixins', () => {
+      assert.equal(typeof SampleEnum.isDefined, 'function');
+      assert.equal(typeof SampleEnum.getName, 'function');
+      assert.equal(typeof SampleEnum.getNames, 'function');
+      assert.equal(typeof SampleEnum.getValues, 'function');
     });
-
-    it('should return an initialized instance with a non-empty JSON object', () => {
-    });
-  });*/
+  });
 
   /**
    * @test {Enum.isDefined}
