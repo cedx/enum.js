@@ -1,9 +1,9 @@
 # Enums for JS
-![Release](https://img.shields.io/npm/v/@cedx/enum.svg) ![License](https://img.shields.io/npm/l/@cedx/enum.svg) ![Downloads](https://img.shields.io/npm/dt/@cedx/enum.svg) ![Dependencies](https://img.shields.io/david/cedx/enum.svg) ![Code quality](https://img.shields.io/codacy/grade/ff5ef8040fb6456b934f8bac502747f5.svg) ![Build](https://img.shields.io/travis/cedx/enum.js.svg)
+![Release](https://img.shields.io/npm/v/@cedx/enum.svg) ![License](https://img.shields.io/npm/l/@cedx/enum.svg) ![Downloads](https://img.shields.io/npm/dt/@cedx/enum.svg) ![Dependencies](https://img.shields.io/david/cedx/enum.js.svg) ![Code quality](https://img.shields.io/codacy/grade/ff5ef8040fb6456b934f8bac502747f5.svg) ![Build](https://img.shields.io/travis/cedx/enum.js.svg)
 
 Yet another implementation of enumerated types for [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript).
 
-This implementation does not try to reproduce the semantics of traditional enumerations, like the ones found in C# or Java languages.
+This implementation does not try to reproduce the semantics of traditional enumerations, like the ones found in C# or Java languages. It just gives a set of static methods to ease working with the values of an object literal representing an enumerated type.
 
 ## Requirements
 The latest [Node.js](https://nodejs.org) and [NPM](https://www.npmjs.com) versions.
@@ -39,9 +39,9 @@ const DayOfWeek = Enum.create({
 });
 ```
 
-The [`Enum.create()`](https://github.com/cedx/enum.js/blob/master/src/Enum.js) method adds a private constructor to the enumerated type: it prohibits its instantiation.
+The [`Enum.create()`](https://github.com/cedx/enum.js/blob/master/src/Enum.js) method creates an anonymous class from the specified object. This class has the same values as the provided object, and some helper methods.
 
-Thus, the obtained enumeration can only contain static members. You should only use named constants as its source values.
+The created class has a constructor throwing an `Error`: it prohibits its instantiation. Thus, the obtained enumeration can only contain static members. You should only use named constants as its source values.
 
 ### Work with the enumeration
 Check whether a value is defined among the enumerated type:
