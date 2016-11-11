@@ -19,7 +19,7 @@ $ npm install --save @cedx/enum
 ## Usage
 
 ### Create the enumeration
-Just use the `Enum.create()` method on an object literal:
+Just use the `Enum.create()` method with an object literal containing scalar values:
 
 ```javascript
 const {Enum} = require('@cedx/enum');
