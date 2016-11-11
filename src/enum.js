@@ -18,7 +18,11 @@ export class Enum {
       static getValues() { return Enum.getValues(enumType); }
     };
 
-    for (let prop in typeDef) enumType[prop] = typeDef[prop];
+    for (let prop in typeDef) {
+      let type = typeof typeDef[prop];
+      if (type == 'boolean' || type == 'number' || type == 'string') enumType[prop] = typeDef[prop];
+    }
+
     return Object.freeze(enumType);
   }
 

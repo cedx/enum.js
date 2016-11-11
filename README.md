@@ -7,7 +7,7 @@ This implementation does not try to reproduce the semantics of traditional enume
 
 ## Requirements
 The latest [Node.js](https://nodejs.org) and [NPM](https://www.npmjs.com) versions.
-If you plan to play with the sources, you will also need the [Gulp.js](http://gulpjs.com/) latest version.
+If you plan to play with the sources, you will also need the latest [Gulp.js](http://gulpjs.com/) version.
 
 ## Installing via [npm](https://www.npmjs.com)
 From a command prompt, run:
@@ -41,9 +41,7 @@ const DayOfWeek = Enum.create({
 
 The [`Enum.create()`](https://github.com/cedx/enum.js/blob/master/src/Enum.js) method creates an anonymous class from the specified object. This class has the same values as the provided object, and some additional helper methods.
 
-The created class has a constructor throwing an `Error`: it prohibits its instantiation. Thus, the obtained enumeration can only contain static members. You should only use named constants as its source values.
-
-The enumeration is also freezed to prevent any attempt at modifying its shape.
+The created class has a constructor throwing an `Error`: it prohibits its instantiation. This class is also freezed to prevent any attempt at modifying its shape.
 
 ### Work with the enumeration
 Check whether a value is defined among the enumerated type:
