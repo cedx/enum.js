@@ -9,13 +9,14 @@ export class Enum {
    * @return {object} The newly created enumeration.
    */
   static create(typeDef) {
-    /* eslint require-jsdoc: "off" */
     let enumType = class {
+      /* eslint-disable require-jsdoc */
       constructor() { throw new TypeError('This type is not instantiable.'); }
       static isDefined(value) { return Enum.isDefined(enumType, value); }
       static getName(value) { return Enum.getName(enumType, value); }
       static getNames() { return Enum.getNames(enumType); }
       static getValues() { return Enum.getValues(enumType); }
+      /* eslint-enable require-jsdoc */
     };
 
     for (let prop in typeDef) {
