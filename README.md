@@ -69,7 +69,7 @@ DayOfWeek.getValues();
 ```
 
 ## See Also
-- [API Reference](http://dev.belin.io/enum.js)
+- [API Reference](https://cedx.github.io/enum.js)
 - [Code Quality](https://www.codacy.com/app/cedx/enum-js)
 - [Continuous Integration](https://travis-ci.org/cedx/enum.js)
 
