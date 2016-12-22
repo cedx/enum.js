@@ -68,10 +68,10 @@ DayOfWeek.getValues();
 // [0, 1, 2, 3, 4, 5, 6]
 ```
 
-## See Also
-- [API Reference](https://cedx.github.io/enum.js)
-- [Code Quality](https://www.codacy.com/app/cedx/enum-js)
-- [Continuous Integration](https://travis-ci.org/cedx/enum.js)
+## See also
+- [API reference](https://cedx.github.io/enum.js)
+- [Code coverage](https://coveralls.io/github/cedx/enum.js)
+- [Continuous integration](https://travis-ci.org/cedx/enum.js)
 
 ## License
 [Enums for JS](https://github.com/cedx/enum.js) is distributed under the Apache License, version 2.0.
