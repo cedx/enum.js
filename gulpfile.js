@@ -1,6 +1,6 @@
 'use strict';
 
-const child = require('child_process');
+const childProcess = require('child_process');
 const del = require('del');
 const gulp = require('gulp');
 const loadPlugins = require('gulp-load-plugins');
@@ -124,7 +124,7 @@ gulp.task('test:setup', () => new Promise(resolve => {
  * @return {Promise<string>} The command output when it is finally terminated.
  */
 function _exec(command, options = {}) {
-  return new Promise((resolve, reject) => child.exec(command, options, (err, stdout) => {
+  return new Promise((resolve, reject) => childProcess.exec(command, options, (err, stdout) => {
     if (err) reject(err);
     else resolve(stdout.trim());
   }));
