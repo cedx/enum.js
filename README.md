@@ -6,8 +6,8 @@ Yet another implementation of enumerated types for [JavaScript](https://develope
 This implementation does not try to reproduce the semantics of traditional enumerations, like the ones found in C# or Java languages. It just gives a set of static methods to ease working with the values of an object literal representing an enumerated type.
 
 ## Requirements
-The latest [Node.js](https://nodejs.org) and [NPM](https://www.npmjs.com) versions.
-If you plan to play with the sources, you will also need the latest [Gulp.js](http://gulpjs.com/) version.
+The latest [Node.js](https://nodejs.org) and [npm](https://www.npmjs.com) versions.
+If you plan to play with the sources, you will also need the latest [Gulp.js](http://gulpjs.com) version.
 
 ## Installing via [npm](https://www.npmjs.com)
 From a command prompt, run:
