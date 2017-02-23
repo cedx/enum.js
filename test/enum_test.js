@@ -1,6 +1,6 @@
 'use strict';
 
-import assert from 'assert';
+import {expect} from 'chai';
 import {Enum} from '../src/index';
 
 /**
@@ -31,18 +31,18 @@ describe('Enum', () => {
    */
   describe('.create()', () => {
     it('should create types that are not instantiable', () => {
-      assert.throws(() => new SampleEnum(), TypeError);
+      expect(() => new SampleEnum()).to.throw(TypeError);
     });
 
     it('should create types that are immutable', () => {
-      assert.ok(Object.isFrozen(SampleEnum));
+      expect(SampleEnum).to.be.frozen;
     });
 
     it('should create types having the `Enum` mixins', () => {
-      assert.equal(typeof SampleEnum.isDefined, 'function');
-      assert.equal(typeof SampleEnum.getName, 'function');
-      assert.equal(typeof SampleEnum.getNames, 'function');
-      assert.equal(typeof SampleEnum.getValues, 'function');
+      expect(SampleEnum.isDefined).to.be.a('function');
+      expect(SampleEnum.getName).to.be.a('function');
+      expect(SampleEnum.getNames).to.be.a('function');
+      expect(SampleEnum.getValues).to.be.a('function');
     });
   });
 
@@ -51,15 +51,15 @@ describe('Enum', () => {
    */
   describe('.isDefined()', () => {
     it('should return `false` for unknown values', () => {
-      assert.ok(!SampleEnum.isDefined('TWO'));
-      assert.ok(!SampleEnum.isDefined(3.1));
+      expect(SampleEnum.isDefined('TWO')).to.be.false;
+      expect(SampleEnum.isDefined(3.1)).to.be.false;
     });
 
     it('should return `true` for known values', () => {
-      assert.ok(SampleEnum.isDefined(false));
-      assert.ok(SampleEnum.isDefined(1));
-      assert.ok(SampleEnum.isDefined('two'));
-      assert.ok(SampleEnum.isDefined(3.0));
+      expect(SampleEnum.isDefined(false)).to.be.true;
+      expect(SampleEnum.isDefined(1)).to.be.true;
+      expect(SampleEnum.isDefined('two')).to.be.true;
+      expect(SampleEnum.isDefined(3.0)).to.be.true;
     });
   });
 
@@ -68,15 +68,15 @@ describe('Enum', () => {
    */
   describe('.getName()', () => {
     it('should return an empty string for unknown values', () => {
-      assert.equal(SampleEnum.getName('TWO'), '');
-      assert.equal(SampleEnum.getName(3.1), '');
+      expect(SampleEnum.getName('TWO')).to.be.empty;
+      expect(SampleEnum.getName(3.1)).to.be.empty;
     });
 
     it('should return the name for known values', () => {
-      assert.equal(SampleEnum.getName(false), 'ZERO');
-      assert.equal(SampleEnum.getName(1), 'ONE');
-      assert.equal(SampleEnum.getName('two'), 'TWO');
-      assert.equal(SampleEnum.getName(3.0), 'THREE');
+      expect(SampleEnum.getName(false)).to.equal('ZERO');
+      expect(SampleEnum.getName(1)).to.equal('ONE');
+      expect(SampleEnum.getName('two')).to.equal('TWO');
+      expect(SampleEnum.getName(3.0)).to.equal('THREE');
     });
   });
 
@@ -86,11 +86,11 @@ describe('Enum', () => {
   describe('.getNames()', () => {
     it('should return the names of the enumerable properties', () => {
       let names = SampleEnum.getNames();
-      assert.equal(names.length, 4);
-      assert.equal(names[0], 'ZERO');
-      assert.equal(names[1], 'ONE');
-      assert.equal(names[2], 'TWO');
-      assert.equal(names[3], 'THREE');
+      expect(names).to.have.length.of(4);
+      expect(names[0]).to.equal('ZERO');
+      expect(names[1]).to.equal('ONE');
+      expect(names[2]).to.equal('TWO');
+      expect(names[3]).to.equal('THREE');
     });
   });
 
@@ -100,11 +100,11 @@ describe('Enum', () => {
   describe('.getValues()', () => {
     it('should return the values of the enumerable properties', () => {
       let values = SampleEnum.getValues();
-      assert.equal(values.length, 4);
-      assert.strictEqual(values[0], false);
-      assert.strictEqual(values[1], 1);
-      assert.strictEqual(values[2], 'two');
-      assert.strictEqual(values[3], 3.0);
+      expect(values).to.have.length.of(4);
+      expect(values[0]).to.be.false;
+      expect(values[1]).to.equal(1);
+      expect(values[2]).to.equal('two');
+      expect(values[3]).to.equal(3.0);
     });
   });
 });
