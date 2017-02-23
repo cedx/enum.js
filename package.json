@@ -28,7 +28,7 @@
     "nyc": "^10.1.2"
   },
   "engines": {
-    "node": ">=6.9.0"
+    "node": ">=6.10.0"
   },
   "keywords": [
     "enum",
