@@ -1,6 +1,6 @@
 'use strict';
 
-const childProcess = require('child_process');
+const child_process = require('child_process');
 const del = require('del');
 const gulp = require('gulp');
 const loadPlugins = require('gulp-load-plugins');
@@ -48,16 +48,16 @@ gulp.task('clean', () => del('var/**/*'));
  * Sends the results of the code coverage.
  */
 gulp.task('coverage', ['test'], () => {
-  let executable = path.join('node_modules/.bin', process.platform == 'win32' ? 'coveralls.cmd' : 'coveralls');
+  let executable = path.normalize('node_modules/.bin/coveralls');
   return _exec(`${executable} --file=var/lcov.info`);
 });
 
 /**
  * Builds the documentation.
  */
-gulp.task('doc', () => {
-  let executable = path.join('node_modules/.bin', process.platform == 'win32' ? 'esdoc.cmd' : 'esdoc');
-  return del('doc/api').then(() => _exec(executable));
+gulp.task('doc', async () => {
+  await del('doc/api');
+  return _exec(path.normalize('node_modules/.bin/esdoc'));
 });
 
 /**
@@ -81,20 +81,21 @@ gulp.task('lint', () => gulp.src(['*.js', 'src/**/*.js', 'test/**/*.js'])
  * Runs the unit tests.
  */
 gulp.task('test', () => {
-  let executable = path.join('node_modules/.bin', process.platform == 'win32' ? 'nyc.cmd' : 'nyc');
-  let testRunner = path.join('node_modules/.bin', process.platform == 'win32' ? 'mocha.cmd' : 'mocha');
-  return _exec(`${executable} --report-dir=var --reporter=lcovonly ${testRunner} --compilers babel-register`).then(console.log);
+  let instrumenter = path.normalize('node_modules/.bin/nyc');
+  let runner = path.normalize('node_modules/.bin/mocha');
+  return _exec(`${instrumenter} --report-dir=var --reporter=lcovonly ${runner} --compilers js:babel-register`);
 });
 
 /**
  * Runs a command and returns its output.
- * @param {string} command The command to run, with space-separated arguments.
+ * @param {string} command The command to run.
+ * @param {string[]} [args] The command arguments.
  * @param {object} [options] The settings to customize how the process is spawned.
- * @return {Promise<string>} The command output when it is finally terminated.
+ * @return {Promise} Completes when the command is finally terminated.
  */
-function _exec(command, options = {}) {
-  return new Promise((resolve, reject) => childProcess.exec(command, options, (err, stdout) => {
-    if (err) reject(err);
-    else resolve(stdout.trim());
-  }));
+function _exec(command, args = [], options = {shell: true, stdio: 'inherit'}) {
+  return new Promise((resolve, reject) => child_process
+    .spawn(command, args, options)
+    .on('close', code => code ? reject() : resolve())
+  );
 }
