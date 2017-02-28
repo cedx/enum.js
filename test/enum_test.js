@@ -86,7 +86,7 @@ describe('Enum', () => {
   describe('.getNames()', () => {
     it('should return the names of the enumerable properties', () => {
       let names = SampleEnum.getNames();
-      expect(names).to.have.length.of(4);
+      expect(names).to.have.lengthOf(4);
       expect(names[0]).to.equal('ZERO');
       expect(names[1]).to.equal('ONE');
       expect(names[2]).to.equal('TWO');
@@ -100,7 +100,7 @@ describe('Enum', () => {
   describe('.getValues()', () => {
     it('should return the values of the enumerable properties', () => {
       let values = SampleEnum.getValues();
-      expect(values).to.have.length.of(4);
+      expect(values).to.have.lengthOf(4);
       expect(values[0]).to.be.false;
       expect(values[1]).to.equal(1);
       expect(values[2]).to.equal('two');
