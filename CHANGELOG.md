@@ -1,6 +1,9 @@
 # Changelog
 This file contains highlights of what changes on each version of the [Enums for JS](https://github.com/cedx/enum.js) library.
 
+## Version 2.0.1
+- Fixed the build system.
+
 ## Version 2.0.0
 - Breaking change: raised the required [Node.js](https://nodejs.org) version.
 - Breaking change: using ES2017 features, like async/await functions.
