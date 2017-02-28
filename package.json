@@ -7,7 +7,7 @@
   "bugs": "https://github.com/cedx/enum.js/issues",
   "license": "Apache-2.0",
   "repository": "cedx/enum.js",
-  "version": "1.3.0",
+  "version": "2.0.0",
 
   "jsnext:main": "./src/index",
   "main": "./lib/index",
@@ -40,6 +40,6 @@
   "scripts": {
     "coverage": "coveralls --file=var/lcov.info",
     "prepublish": "gulp build",
-    "test": "nyc --report-dir=var --reporter=lcovonly mocha --compilers babel-register"
+    "test": "nyc --report-dir=var --reporter=lcovonly mocha --compilers js:babel-register"
   }
 }
