@@ -39,7 +39,7 @@ const DayOfWeek = Enum.create({
 });
 ```
 
-The [`Enum.create()`](https://github.com/cedx/enum.js/blob/master/src/Enum.js) method creates an anonymous class from the specified object. This class has the same values as the provided object, and some additional helper methods.
+The [`Enum.create()`](https://github.com/cedx/enum.js/blob/master/src/enum.js) method creates an anonymous class from the specified object. This class has the same values as the provided object, and some additional helper methods.
 
 The created class has a constructor throwing an `Error`: it prohibits its instantiation. This class is also freezed to prevent any attempt at modifying its shape.
 
