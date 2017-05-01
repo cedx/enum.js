@@ -1,6 +1,10 @@
 # Changelog
 This file contains highlights of what changes on each version of the [Enums for JS](https://github.com/cedx/enum.js) library.
 
+## Version 2.2.0
+- Added support for the [Node Security Platform](https://nodesecurity.io) reports.
+- Updated the package dependencies.
+
 ## Version 2.1.0
 - Updated the package dependencies.
 
