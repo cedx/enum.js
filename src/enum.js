@@ -63,6 +63,6 @@ export class Enum {
    * @return {Array} An array that contains the values of the constants in the specified enumeration.
    */
   static getValues(enumType) {
-    return Enum.getNames(enumType).map(name => enumType[name]);
+    return Object.values(enumType);
   }
 }
