@@ -32,7 +32,7 @@ describe('Enum', () => {
    */
   describe('.create()', () => {
     it('should create types that are not instantiable', () => {
-      expect(() => new SampleEnum()).to.throw(TypeError);
+      expect(() => new SampleEnum).to.throw(TypeError);
     });
 
     it('should create types that are immutable', () => {
