@@ -1,17 +1,14 @@
 {
-  "description": "A simple implementation of enumerated types.",
-  "homepage": "https://github.com/cedx/enum.js",
-  "name": "@cedx/enum",
-
   "author": "Cédric Belin <cedric@belin.io>",
   "bugs": "https://github.com/cedx/enum.js/issues",
+  "description": "A simple implementation of enumerated types.",
+  "homepage": "https://github.com/cedx/enum.js",
   "license": "Apache-2.0",
-  "repository": "cedx/enum.js",
-  "version": "2.2.1",
-
   "main": "./lib/index",
   "module": "./src/index",
-
+  "name": "@cedx/enum",
+  "repository": "cedx/enum.js",
+  "version": "2.2.1",
   "devDependencies": {
     "@cedx/coveralls": "^1.0.2",
     "@cedx/gulp-david": "^7.0.1",
