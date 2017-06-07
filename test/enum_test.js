@@ -14,12 +14,10 @@ import {Enum} from '../src/index';
  * @property {number} THREE The fourth enumerated value.
  */
 const SampleEnum = Enum.create({
-  /* eslint-disable sort-keys */
   ZERO: false,
   ONE: 1,
   TWO: 'two',
   THREE: 3.0
-  /* eslint-enable sort-keys */
 });
 
 /**
