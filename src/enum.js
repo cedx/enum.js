@@ -34,7 +34,7 @@ export class Enum {
    * @return {boolean} `true` if a constant in the specified enumeration has the specified value, otherwise `false`.
    */
   static isDefined(enumType, value) {
-    return Enum.getValues(enumType).indexOf(value) >= 0;
+    return Enum.getValues(enumType).includes(value);
   }
 
   /**
