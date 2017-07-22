@@ -1,8 +1,7 @@
 'use strict';
 
-import {expect} from 'chai';
-import {describe, it} from 'mocha';
-import {Enum} from '../src/index';
+const {expect} = require('chai');
+const {Enum} = require('../lib');
 
 /**
  * A sample enumeration.
