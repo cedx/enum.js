@@ -1,6 +1,0 @@
-{
-  "comments": false,
-  "presets": [
-    ["env", {"targets": {"browsers": "> 2%", "node": "8.0"}}]
-  ]
-}
