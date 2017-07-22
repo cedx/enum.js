@@ -1,6 +1,10 @@
 # Changelog
 This file contains highlights of what changes on each version of the [Enums for JS](https://github.com/cedx/enum.js) library.
 
+## Version 2.4.0
+- Removed the dependency on [Babel](https://babeljs.io) compiler.
+- Updated the package dependencies.
+
 ## Version 2.3.0
 - Updated the package dependencies.
 

@@ -22,7 +22,7 @@ $ npm install --save @cedx/enum
 Just use the `Enum.create()` method with an object literal containing scalar values:
 
 ```javascript
-import {Enum} from '@cedx/enum';
+const {Enum} = require('@cedx/enum');
 
 /**
  * Specifies the day of the week.
