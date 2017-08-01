@@ -11,6 +11,7 @@
       "brand": {
         "description": "Yet another implementation of enumerated types for JavaScript.",
         "logo": "web/favicon.ico",
+        "repository": "https://github.com/cedx/enum.js",
         "title": "Enums for JS"
       }
     }}
