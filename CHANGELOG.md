@@ -2,6 +2,7 @@
 This file contains highlights of what changes on each version of the [Enums for JS](https://github.com/cedx/enum.js) library.
 
 ## Version 3.0.0
+- Added the `assert()` method.
 - Added the `coerce()` method.
 - Added the `getEntries()` method.
 - Added the `getIndex()` method.

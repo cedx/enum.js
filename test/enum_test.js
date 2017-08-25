@@ -25,6 +25,24 @@ const SampleEnum = Enum.create({
 describe('Enum', () => {
 
   /**
+   * @test {Enum.assert}
+   */
+  describe('.assert()', () => {
+    it('should return the specified value if it is a known one', () => {
+      expect(SampleEnum.assert(false)).to.equal(SampleEnum.ZERO);
+      expect(SampleEnum.assert(1)).to.equal(SampleEnum.ONE);
+      expect(SampleEnum.assert('two')).to.equal(SampleEnum.TWO);
+      expect(SampleEnum.assert(3.0)).to.equal(SampleEnum.THREE);
+    });
+
+    it('should throw an exception if it is an unknown value', () => {
+      expect(() => SampleEnum.assert('')).to.throw(TypeError);
+      expect(() => SampleEnum.assert('TWO')).to.throw(TypeError);
+      expect(() => SampleEnum.assert(3.1)).to.throw(TypeError);
+    });
+  });
+
+  /**
    * @test {Enum.create}
    */
   describe('.create()', () => {
@@ -37,6 +55,7 @@ describe('Enum', () => {
     });
 
     it('should create types having the `Enum` mixins', () => {
+      expect(SampleEnum.assert).to.be.a('function');
       expect(SampleEnum.coerce).to.be.a('function');
       expect(SampleEnum.isDefined).to.be.a('function');
       expect(SampleEnum.getEntries).to.be.a('function');
