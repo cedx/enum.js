@@ -37,12 +37,31 @@ describe('Enum', () => {
     });
 
     it('should create types having the `Enum` mixins', () => {
+      expect(SampleEnum.coerce).to.be.a('function');
       expect(SampleEnum.isDefined).to.be.a('function');
       expect(SampleEnum.getEntries).to.be.a('function');
       expect(SampleEnum.getIndex).to.be.a('function');
       expect(SampleEnum.getName).to.be.a('function');
       expect(SampleEnum.getNames).to.be.a('function');
       expect(SampleEnum.getValues).to.be.a('function');
+    });
+  });
+
+  /**
+   * @test {Enum.coerce}
+   */
+  describe('.coerce()', () => {
+    it('should return the specified value if it is a known one', () => {
+      expect(SampleEnum.coerce(false)).to.equal(SampleEnum.ZERO);
+      expect(SampleEnum.coerce(1)).to.equal(SampleEnum.ONE);
+      expect(SampleEnum.coerce('two')).to.equal(SampleEnum.TWO);
+      expect(SampleEnum.coerce(3.0)).to.equal(SampleEnum.THREE);
+    });
+
+    it('should return the default value if it is an unknown one', () => {
+      expect(SampleEnum.coerce('')).to.be.null;
+      expect(SampleEnum.coerce('TWO', false)).to.be.false;
+      expect(SampleEnum.coerce(3.1, SampleEnum.ZERO)).to.equal(SampleEnum.ZERO);
     });
   });
 
