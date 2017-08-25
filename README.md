@@ -19,7 +19,7 @@ $ npm install --save @cedx/enum
 ## Usage
 
 ### Create the enumeration
-Just use the `Enum.create()` method with an object literal containing scalar values:
+Just use the `Enum.create()` method with an object literal containing scalar values (e.g. only booleans, numbers and strings):
 
 ```javascript
 const {Enum} = require('@cedx/enum');
@@ -47,20 +47,41 @@ The created class has a constructor throwing a `TypeError`: it prohibits its ins
 Check whether a value is defined among the enumerated type:
 
 ```javascript
-DayOfWeek.isDefined(DayOfWeek.TUESDAY); // true
-DayOfWeek.isDefined('Foo'); // false
+DayOfWeek.isDefined(DayOfWeek.SUNDAY); // true
+DayOfWeek.isDefined('foo'); // false
+```
+
+Ensure that a value is defined among the enumerated type:
+
+```javascript
+DayOfWeek.assert(DayOfWeek.MONDAY); // DayOfWeek.MONDAY
+DayOfWeek.assert('foo'); // (throws TypeError)
+
+DayOfWeek.coerce(DayOfWeek.MONDAY); // DayOfWeek.MONDAY
+DayOfWeek.coerce('bar'); // null
+DayOfWeek.coerce('baz', DayOfWeek.TUESDAY); // DayOfWeek.TUESDAY
+```
+
+Get the zero-based position of a value in the enumerated type declaration:
+
+```javascript
+DayOfWeek.getIndex(DayOfWeek.WEDNESDAY); // 3
+DayOfWeek.getIndex('foo'); // -1
 ```
 
 Get the name associated to an enumerated value:
 
 ```javascript
-DayOfWeek.getName(DayOfWeek.TUESDAY); // "TUESDAY"
-DayOfWeek.getName('Bar'); // "" (empty)
+DayOfWeek.getName(DayOfWeek.THURSDAY); // "THURSDAY"
+DayOfWeek.getName('foo'); // "" (empty)
 ```
 
 Get information about the enumerated type:
 
 ```javascript
+DayOfWeek.getEntries();
+// [["SUNDAY", 0], ["MONDAY", 1], ["TUESDAY", 2], ["WEDNESDAY", 3], ["THURSDAY", 4], ["FRIDAY", 5], ["SATURDAY", 6]]
+
 DayOfWeek.getNames();
 // ["SUNDAY", "MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY"]
 
