@@ -7,7 +7,7 @@
   "main": "./lib/index",
   "name": "@cedx/enum",
   "repository": "cedx/enum.js",
-  "version": "2.4.0",
+  "version": "3.0.0",
   "devDependencies": {
     "@cedx/coveralls": "^3.1.0",
     "@cedx/gulp-david": "^9.0.0",
