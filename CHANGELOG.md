@@ -2,6 +2,7 @@
 This file contains highlights of what changes on each version of the [Enums for JS](https://github.com/cedx/enum.js) library.
 
 ## Version 3.0.0
+- Added the `getIndex()` method.
 
 ## Version 2.4.0
 - Removed the dependency on [Babel](https://babeljs.io) compiler.
