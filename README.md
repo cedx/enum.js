@@ -95,4 +95,4 @@ DayOfWeek.getValues();
 - [Continuous integration](https://travis-ci.org/cedx/enum.js)
 
 ## License
-[Enums for JS](https://github.com/cedx/enum.js) is distributed under the Apache License, version 2.0.
+[Enums for JS](https://github.com/cedx/enum.js) is distributed under the MIT License.

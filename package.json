@@ -3,7 +3,7 @@
   "bugs": "https://github.com/cedx/enum.js/issues",
   "description": "A simple implementation of enumerated types.",
   "homepage": "https://github.com/cedx/enum.js",
-  "license": "Apache-2.0",
+  "license": "MIT",
   "main": "./lib/index",
   "name": "@cedx/enum",
   "repository": "cedx/enum.js",
