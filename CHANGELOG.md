@@ -3,6 +3,7 @@ This file contains highlights of what changes on each version of the [Enums for 
 
 ## Version 3.1.0
 - Changed licensing for the [MIT License](https://opensource.org/licenses/MIT).
+- Updated the package dependencies.
 
 ## Version 3.0.0
 - Added the `assert()` method.
