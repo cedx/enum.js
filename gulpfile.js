@@ -56,7 +56,14 @@ gulp.task('lint', () => gulp.src(['*.js', 'lib/**/*.js', 'test/**/*.js'])
 /**
  * Runs the unit tests.
  */
-gulp.task('test', () => _exec('node_modules/.bin/nyc', [normalize('node_modules/.bin/mocha')]));
+gulp.task('test', ['test:browser', 'test:vm']);
+
+gulp.task('test:browser', () => {
+  if (process.platform == 'win32') process.env.FIREFOX_BIN = 'firefox.exe';
+  return _exec('node_modules/.bin/karma', ['start', '--single-run']);
+});
+
+gulp.task('test:vm', () => _exec('node_modules/.bin/nyc', [normalize('node_modules/.bin/mocha')]));
 
 /**
  * Spawns a new process using the specified command.
