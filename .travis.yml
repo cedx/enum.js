@@ -1,9 +1,10 @@
 dist: trusty
-language: node_js
 sudo: false
 
-env: NODE_ENV="test"
+language: node_js
 node_js: 8
+
+env: NODE_ENV="test"
 notifications:
   email: false
 
