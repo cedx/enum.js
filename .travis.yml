@@ -8,5 +8,4 @@ env: NODE_ENV="test"
 notifications:
   email: false
 
-script: npm test
 after_success: npm run coverage
