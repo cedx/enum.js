@@ -29,13 +29,13 @@ const {Enum} = require('@cedx/enum');
  * @type {object}
  */
 const DayOfWeek = Enum.create({
-  SUNDAY: 0,
-  MONDAY: 1,
-  TUESDAY: 2,
-  WEDNESDAY: 3,
-  THURSDAY: 4,
-  FRIDAY: 5,
-  SATURDAY: 6
+  sunday: 0,
+  monday: 1,
+  tuesday: 2,
+  wednesday: 3,
+  thursday: 4,
+  friday: 5,
+  saturday: 6
 });
 ```
 
@@ -47,32 +47,32 @@ The created class has a constructor throwing a `TypeError`: it prohibits its ins
 Check whether a value is defined among the enumerated type:
 
 ```javascript
-DayOfWeek.isDefined(DayOfWeek.SUNDAY); // true
+DayOfWeek.isDefined(DayOfWeek.sunday); // true
 DayOfWeek.isDefined('foo'); // false
 ```
 
 Ensure that a value is defined among the enumerated type:
 
 ```javascript
-DayOfWeek.assert(DayOfWeek.MONDAY); // DayOfWeek.MONDAY
+DayOfWeek.assert(DayOfWeek.monday); // DayOfWeek.monday
 DayOfWeek.assert('foo'); // (throws TypeError)
 
-DayOfWeek.coerce(DayOfWeek.MONDAY); // DayOfWeek.MONDAY
+DayOfWeek.coerce(DayOfWeek.monday); // DayOfWeek.monday
 DayOfWeek.coerce('bar'); // null
-DayOfWeek.coerce('baz', DayOfWeek.TUESDAY); // DayOfWeek.TUESDAY
+DayOfWeek.coerce('baz', DayOfWeek.tuesday); // DayOfWeek.tuesday
 ```
 
 Get the zero-based position of a value in the enumerated type declaration:
 
 ```javascript
-DayOfWeek.getIndex(DayOfWeek.WEDNESDAY); // 3
+DayOfWeek.getIndex(DayOfWeek.wednesday); // 3
 DayOfWeek.getIndex('foo'); // -1
 ```
 
 Get the name associated to an enumerated value:
 
 ```javascript
-DayOfWeek.getName(DayOfWeek.THURSDAY); // "THURSDAY"
+DayOfWeek.getName(DayOfWeek.thursday); // "thursday"
 DayOfWeek.getName('foo'); // "" (empty)
 ```
 
@@ -80,10 +80,10 @@ Get information about the enumerated type:
 
 ```javascript
 DayOfWeek.getEntries();
-// [["SUNDAY", 0], ["MONDAY", 1], ["TUESDAY", 2], ["WEDNESDAY", 3], ["THURSDAY", 4], ["FRIDAY", 5], ["SATURDAY", 6]]
+// [["sunday", 0], ["monday", 1], ["tuesday", 2], ["wednesday", 3], ["thursday", 4], ["friday", 5], ["saturday", 6]]
 
 DayOfWeek.getNames();
-// ["SUNDAY", "MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY"]
+// ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"]
 
 DayOfWeek.getValues();
 // [0, 1, 2, 3, 4, 5, 6]
