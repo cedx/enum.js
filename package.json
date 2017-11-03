@@ -9,7 +9,7 @@
   "repository": "cedx/enum.js",
   "version": "3.2.0",
   "devDependencies": {
-    "@cedx/coveralls": "^5.0.0",
+    "@cedx/coveralls": "^5.1.0",
     "@cedx/gulp-david": "^11.0.0",
     "browserify": "^14.4.0",
     "chai": "^4.1.2",
