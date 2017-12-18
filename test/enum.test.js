@@ -1,7 +1,7 @@
 'use strict';
 
 const {expect} = require('chai');
-const {Enum} = require('../lib');
+const {Enum} = require('../lib/index.js');
 
 /**
  * A sample enumeration.
