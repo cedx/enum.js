@@ -57,12 +57,12 @@ describe('Enum', () => {
     it('should create types having the `Enum` mixins', () => {
       expect(SampleEnum.assert).to.be.a('function');
       expect(SampleEnum.coerce).to.be.a('function');
+      expect(SampleEnum.entries).to.be.a('function');
       expect(SampleEnum.isDefined).to.be.a('function');
-      expect(SampleEnum.getEntries).to.be.a('function');
       expect(SampleEnum.getIndex).to.be.a('function');
       expect(SampleEnum.getName).to.be.a('function');
-      expect(SampleEnum.getNames).to.be.a('function');
-      expect(SampleEnum.getValues).to.be.a('function');
+      expect(SampleEnum.names).to.be.a('function');
+      expect(SampleEnum.values).to.be.a('function');
     });
   });
 
@@ -107,7 +107,7 @@ describe('Enum', () => {
    */
   describe('.getEntries()', () => {
     it('should return the pairs of names and values of the enumerated constants', () => {
-      let entries = SampleEnum.getEntries();
+      let entries = SampleEnum.entries();
       expect(entries).to.have.lengthOf(4);
       for (let entry of entries) expect(entry).to.be.an('array').and.have.lengthOf(2);
 
@@ -170,7 +170,7 @@ describe('Enum', () => {
    */
   describe('.getNames()', () => {
     it('should return the names of the enumerable properties', () => {
-      let names = SampleEnum.getNames();
+      let names = SampleEnum.names();
       expect(names).to.have.lengthOf(4);
       expect(names[0]).to.equal('ZERO');
       expect(names[1]).to.equal('ONE');
@@ -184,7 +184,7 @@ describe('Enum', () => {
    */
   describe('.getValues()', () => {
     it('should return the values of the enumerable properties', () => {
-      let values = SampleEnum.getValues();
+      let values = SampleEnum.values();
       expect(values).to.have.lengthOf(4);
       expect(values[0]).to.be.false;
       expect(values[1]).to.equal(1);
