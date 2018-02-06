@@ -10,7 +10,7 @@
       "test": {"source": "test"},
       "brand": {
         "description": "Yet another implementation of enumerated types for JavaScript.",
-        "logo": "www/favicon.ico",
+        "logo": "doc/img/favicon.ico",
         "repository": "https://github.com/cedx/enum.js",
         "title": "Enums for JS"
       }
