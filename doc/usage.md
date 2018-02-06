@@ -3,7 +3,7 @@ source: enum.js
 # Usage
 
 ## Create the enumeration
-Just use the `Enum.create()` method with an object literal containing scalar values (e.g. only booleans, numbers and strings):
+Just use the `Enum.create()` method with an object literal containing scalar values (i.e. only booleans, numbers and strings):
 
 ```javascript
 const {Enum} = require('@cedx/enum');
