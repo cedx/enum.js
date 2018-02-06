@@ -1,6 +1,11 @@
 # Changelog
 This file contains highlights of what changes on each version of the [Enums for JS](https://github.com/cedx/enum.js) library.
 
+## Version [3.3.0](https://github.com/cedx/enum.js/compare/v3.2.0...v3.3.0)
+- Added a user guide based on [MkDocs](http://www.mkdocs.org).
+- Updated the build system to [Gulp](https://gulpjs.com) version 4.
+- Updated the package dependencies.
+
 ## Version [3.2.0](https://github.com/cedx/enum.js/compare/v3.1.0...v3.2.0)
 - Added support for browser testing.
 - Updated the package dependencies.
