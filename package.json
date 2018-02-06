@@ -2,7 +2,7 @@
   "author": "Cédric Belin <cedric@belin.io>",
   "bugs": "https://github.com/cedx/enum.js/issues",
   "description": "A simple implementation of enumerated types.",
-  "homepage": "https://github.com/cedx/enum.js",
+  "homepage": "https://cedx.github.io/enum.js",
   "license": "MIT",
   "main": "./lib/index.js",
   "name": "@cedx/enum",
