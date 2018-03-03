@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = config => config.set({
-  browsers: ['Chrome'],
+  browsers: ['Firefox'],
   browserify: {debug: true},
   client: {mocha: {opts: true}},
   frameworks: ['browserify', 'mocha'],
