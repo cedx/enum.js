@@ -10,7 +10,7 @@ const {Enum} = require('@cedx/enum');
 
 /**
  * Specifies the day of the week.
- * @type {object}
+ * @type {Object}
  */
 const DayOfWeek = Enum.create({
   sunday: 0,

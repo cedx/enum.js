@@ -5,7 +5,7 @@ const {Enum} = require('../lib/index.js');
 
 /**
  * A sample enumeration.
- * @type {object}
+ * @type {Object}
  *
  * @property {boolean} ZERO The first enumerated value.
  * @property {number} ONE The second enumerated value.
