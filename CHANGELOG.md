@@ -1,5 +1,7 @@
 # Changelog
 
+## Version [4.1.0](https://github.com/cedx/enum.js/compare/v4.0.0...v4.1.0)
+
 ## Version [4.0.0](https://github.com/cedx/enum.js/compare/v3.3.0...v4.0.0)
 - Breaking change: dropped the `get` prefix from the `getEntries()`, `getNames()` and `getValues()` methods of the enumerated types.
 
