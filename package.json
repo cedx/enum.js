@@ -9,7 +9,7 @@
   "repository": "cedx/enum.js",
   "version": "4.1.0",
   "devDependencies": {
-    "@cedx/coveralls": "^5.1.0",
+    "@cedx/coveralls": "^6.0.0",
     "@cedx/gulp-david": "^11.0.0",
     "browserify": "^16.2.2",
     "chai": "^4.1.2",
@@ -29,7 +29,7 @@
     "watchify": "^3.11.0"
   },
   "engines": {
-    "node": ">=8.11.0"
+    "node": ">=10.5.0"
   },
   "keywords": [
     "enum",
