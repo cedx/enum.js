@@ -5,13 +5,13 @@ Before installing **Enums for JS**, you need to make sure you have [Node.js](htt
 and [npm](https://www.npmjs.com), the Node.js package manager, up and running.
 
 !!! warning
-    Enums for JS requires Node.js >= **10.5.0**.
+    Enums for JS requires Node.js >= **10.6.0**.
     
 You can verify if you're already good to go with the following commands:
 
 ```shell
 node --version
-# v10.5.0
+# v10.6.0
 
 npm --version
 # 6.1.0
