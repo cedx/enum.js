@@ -1,4 +1,3 @@
-/* eslint-disable line-comment-position, no-unused-vars */
 const {Enum} = require('@cedx/enum');
 
 /**
