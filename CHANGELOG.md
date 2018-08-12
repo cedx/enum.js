@@ -1,5 +1,13 @@
 # Changelog
 
+## Version [5.0.0](https://github.com/cedx/enum.js/compare/v4.1.0...v5.0.0)
+- Breaking change: ported the source code to [TypeScript](https://www.typescriptlang.org).
+- Breaking change: removed the `defaultValue` argument from the `Configuration.get()` method.
+- Breaking change: the `Configuration.fromEnvironment` is now asynchronous.
+- Added the `eventRequest` and `eventResponse` static properties to the `Client` class.
+- Replaced [ESDoc](https://esdoc.org) documentation generator by [TypeDoc](https://typedoc.org).
+- Updated the package dependencies.
+
 ## Version [4.1.0](https://github.com/cedx/enum.js/compare/v4.0.0...v4.1.0)
 - Updated the package dependencies.
 

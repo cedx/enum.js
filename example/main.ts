@@ -1,10 +1,11 @@
-const {Enum} = require('@cedx/enum');
+// @ts-ignore
+import {Enum} from '@cedx/enum';
 
 /**
  * Specifies the day of the week.
- * @type {Object}
  */
 const DayOfWeek = Enum.create({
+  /* tslint:disable: object-literal-sort-keys */
   sunday: 0,
   monday: 1,
   tuesday: 2,
@@ -12,12 +13,13 @@ const DayOfWeek = Enum.create({
   thursday: 4,
   friday: 5,
   saturday: 6
+  /* tslint:enable: object-literal-sort-keys */
 });
 
 /**
  * Works with the enumeration.
  */
-function main() {
+function main(): void {
   // Check whether a value is defined among the enumerated type.
   DayOfWeek.isDefined(DayOfWeek.sunday); // true
   DayOfWeek.isDefined('foo'); // false
