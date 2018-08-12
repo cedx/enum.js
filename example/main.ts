@@ -1,10 +1,8 @@
 // @ts-ignore
 import {Enum} from '@cedx/enum';
 
-/**
- * Specifies the day of the week.
- */
-const DayOfWeek = Enum.create({
+// tslint:disable:next-line: variable-name
+const DayOfWeek = Enum.create<number>({
   /* tslint:disable: object-literal-sort-keys */
   sunday: 0,
   monday: 1,
@@ -22,11 +20,11 @@ const DayOfWeek = Enum.create({
 function main(): void {
   // Check whether a value is defined among the enumerated type.
   DayOfWeek.isDefined(DayOfWeek.sunday); // true
-  DayOfWeek.isDefined('foo'); // false
+  DayOfWeek.isDefined(123); // false
 
   // Ensure that a value is defined among the enumerated type.
   DayOfWeek.assert(DayOfWeek.monday); // DayOfWeek.monday
-  DayOfWeek.assert('foo'); // (throws TypeError)
+  DayOfWeek.assert(123); // (throws TypeError)
 
   DayOfWeek.coerce(DayOfWeek.monday); // DayOfWeek.monday
   DayOfWeek.coerce('bar'); // null
@@ -34,11 +32,11 @@ function main(): void {
 
   // Get the zero-based position of a value in the enumerated type declaration.
   DayOfWeek.getIndex(DayOfWeek.wednesday); // 3
-  DayOfWeek.getIndex('foo'); // -1
+  DayOfWeek.getIndex(123); // -1
 
   // Get the name associated to an enumerated value.
   DayOfWeek.getName(DayOfWeek.thursday); // "thursday"
-  DayOfWeek.getName('foo'); // "" (empty)
+  DayOfWeek.getName(123); // "" (empty)
 
   // Get information about the enumerated type.
   DayOfWeek.entries();

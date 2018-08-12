@@ -1,17 +1,9 @@
 /* tslint:disable: no-unused-expression */
 import {expect} from 'chai';
-import {Enum, EnumType} from '../src';
+import {Enum} from '../src';
 
-/**
- * A sample enumeration.
- * @type {Object}
- *
- * @property {boolean} ZERO The first enumerated value.
- * @property {number} ONE The second enumerated value.
- * @property {string} TWO The third enumerated value.
- * @property {number} THREE The fourth enumerated value.
- */
-const SampleEnum: EnumType<any> = Enum.create<any>({
+// tslint:disable:next-line: variable-name
+const SampleEnum = Enum.create<any>({
   /* tslint:disable: object-literal-sort-keys */
   ZERO: false,
   ONE: 1,
@@ -80,7 +72,7 @@ describe('EnumTest', () => {
     });
 
     it('should return the default value if it is an unknown one', () => {
-      expect(SampleEnum.coerce('')).to.be.null;
+      expect(SampleEnum.coerce('')).to.be.undefined;
       expect(SampleEnum.coerce('TWO', false)).to.be.false;
       expect(SampleEnum.coerce(3.1, SampleEnum.ZERO)).to.equal(SampleEnum.ZERO);
     });
