@@ -1,1 +1,1 @@
-module.exports = require('./enum.js');
+export * from './enum';
