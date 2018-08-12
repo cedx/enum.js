@@ -1,16 +1,16 @@
 /**
  * Provides helper methods for enumerations.
  */
-class Enum {
+export abstract class Enum {
 
   /**
    * Returns the specified value if it exists in the specified enumeration, otherwise throws an exception.
-   * @param {Object} enumType An enumerated type.
-   * @param {*} value The value of a constant in the specified enumeration.
+   * @param enumType An enumerated type.
+   * @param value The value of a constant in the specified enumeration.
    * @return {*} The specified enumerated constant.
    * @throws {TypeError} No such constant was found.
    */
-  static assert(enumType, value) {
+  public static assert<T extends EnumValue = number>(enumType: EnumType<T>, value: T): T {
     if (Enum.isDefined(enumType, value)) return value;
     throw new TypeError(`Invalid enumerated value: ${value}`);
   }
@@ -20,21 +20,22 @@ class Enum {
    * @param {Object} typeDef An object defining the shape of the enumerated type.
    * @return {Object} The newly created enumeration.
    */
-  static create(typeDef) {
-    let enumType = class {
+  public static create<T extends EnumValue = number>(typeDef: EnumType<T>): EnumType<T> {
+    // @ts-ignore
+    const enumType: EnumType<T> = class {
       constructor() { throw new TypeError('This type is not instantiable.'); }
-      static assert(value) { return Enum.assert(enumType, value); }
-      static coerce(value, defaultValue = null) { return Enum.coerce(enumType, value, defaultValue); }
-      static entries() { return Enum.getEntries(enumType); }
-      static isDefined(value) { return Enum.isDefined(enumType, value); }
-      static getIndex(value) { return Enum.getIndex(enumType, value); }
-      static getName(value) { return Enum.getName(enumType, value); }
-      static names() { return Enum.getNames(enumType); }
-      static values() { return Enum.getValues(enumType); }
+      public static assert(value: T): T { return Enum.assert(enumType, value); }
+      public static coerce(value: T, defaultValue?: T): T | undefined { return Enum.coerce(enumType, value, defaultValue); }
+      public static entries(): Array<[string, T]> { return Enum.getEntries(enumType); }
+      public static isDefined(value: T): boolean { return Enum.isDefined(enumType, value); }
+      public static getIndex(value: T): number { return Enum.getIndex(enumType, value); }
+      public static getName(value: T): string { return Enum.getName(enumType, value); }
+      public static names(): string[] { return Enum.getNames(enumType); }
+      public static values(): T[] { return Enum.getValues(enumType); }
     };
 
-    for (let [key, value] of Object.entries(typeDef)) {
-      let type = typeof value;
+    for (const [key, value] of Object.entries(typeDef)) {
+      const type = typeof value;
       if (type == 'boolean' || type == 'number' || type == 'string') enumType[key] = value;
     }
 
@@ -43,73 +44,86 @@ class Enum {
 
   /**
    * Returns the specified value if it exists in the specified enumeration, otherwise returns the given default value.
-   * @param {Object} enumType An enumerated type.
-   * @param {*} value The value of a constant in the specified enumeration.
-   * @param {*} [defaultValue] The default value to return if the specified constant does not exist.
-   * @return {*} The specified enumerated constant, or the default value if no such constant is found.
+   * @param enumType An enumerated type.
+   * @param value The value of a constant in the specified enumeration.
+   * @param defaultValue The default value to return if the specified constant does not exist.
+   * @return The specified enumerated constant, or the default value if no such constant is found.
    */
-  static coerce(enumType, value, defaultValue = null) {
+  public static coerce<T extends EnumValue = number>(enumType: EnumType<T>, value: T, defaultValue?: T): T | undefined {
     return Enum.isDefined(enumType, value) ? value : defaultValue;
   }
 
   /**
    * Gets an indication whether a constant with a specified value exists in the specified enumeration.
-   * @param {Object} enumType An enumerated type.
-   * @param {*} value The value of a constant in the specified enumeration.
-   * @return {boolean} `true` if a constant in the specified enumeration has the specified value, otherwise `false`.
+   * @param enumType An enumerated type.
+   * @param value The value of a constant in the specified enumeration.
+   * @return `true` if a constant in the specified enumeration has the specified value, otherwise `false`.
    */
-  static isDefined(enumType, value) {
+  public static isDefined<T extends EnumValue = number>(enumType: EnumType<T>, value: T): boolean {
     return Enum.getValues(enumType).includes(value);
   }
 
   /**
    * Gets an array of the `[name, value]` pairs of the constants in the specified enumeration.
-   * @param {Object} enumType An enumerated type.
-   * @return {Array} An array that contains the `[name, value]` pairs of the constants in the specified enumeration.
+   * @param enumType An enumerated type.
+   * @return An array that contains the `[name, value]` pairs of the constants in the specified enumeration.
    */
-  static getEntries(enumType) {
+  public static getEntries<T extends EnumValue = number>(enumType: EnumType<T>): Array<[string, T]> {
     return Object.entries(enumType);
   }
 
   /**
    * Gets the zero-based position of the constant in the specified enumeration that has the specified value.
-   * @param {Object} enumType An enumerated type.
-   * @param {*} value The value of a constant in the specified enumeration.
-   * @return {number} The zero-based position of the constant that has the specified value, or `-1` if no such constant is found.
+   * @param enumType An enumerated type.
+   * @param value The value of a constant in the specified enumeration.
+   * @return The zero-based position of the constant that has the specified value, or `-1` if no such constant is found.
    */
-  static getIndex(enumType, value) {
+  public static getIndex<T extends EnumValue = number>(enumType: EnumType<T>, value: T): number {
     return Enum.getValues(enumType).indexOf(value);
   }
 
   /**
    * Gets the name of the constant in the specified enumeration that has the specified value.
-   * @param {Object} enumType An enumerated type.
-   * @param {*} value The value of a constant in the specified enumeration.
-   * @return {string} A string containing the name of the constant that has the specified value, or an empty string if no such constant is found.
+   * @param enumType An enumerated type.
+   * @param value The value of a constant in the specified enumeration.
+   * @return A string containing the name of the constant that has the specified value, or an empty string if no such constant is found.
    */
-  static getName(enumType, value) {
-    let index = Enum.getIndex(enumType, value);
+  public static getName<T extends EnumValue = number>(enumType: EnumType<T>, value: T): string {
+    const index = Enum.getIndex(enumType, value);
     return index >= 0 ? Enum.getNames(enumType)[index] : '';
   }
 
   /**
    * Gets an array of the names of the constants in the specified enumeration.
-   * @param {Object} enumType An enumerated type.
-   * @return {string[]} An array that contains the names of the constants in the specified enumeration.
+   * @param enumType An enumerated type.
+   * @return An array that contains the names of the constants in the specified enumeration.
    */
-  static getNames(enumType) {
+  public static getNames<T extends EnumValue = number>(enumType: EnumType<T>): string[] {
     return Object.keys(enumType);
   }
 
   /**
    * Gets an array of the values of the constants in the specified enumeration.
-   * @param {Object} enumType An enumerated type.
-   * @return {Array} An array that contains the values of the constants in the specified enumeration.
+   * @param enumType An enumerated type.
+   * @return An array that contains the values of the constants in the specified enumeration.
    */
-  static getValues(enumType) {
+  public static getValues<T extends EnumValue = number>(enumType: EnumType<T>): T[] {
     return Object.values(enumType);
   }
 }
 
-// Module exports.
-exports.Enum = Enum;
+/**
+ * Defines the shape of an enumerated value.
+ */
+type EnumValue = boolean | number | string;
+
+/**
+ * Defines the shape of an enumerated type.
+ */
+export interface EnumType<T extends EnumValue = number> {
+
+  /**
+   * Gets the enumerated value corresponding to the given key.
+   */
+  [key: string]: T;
+}

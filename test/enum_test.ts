@@ -1,5 +1,6 @@
-const {expect} = require('chai');
-const {Enum} = require('../lib/index.js');
+/* tslint:disable: no-unused-expression */
+import {expect} from 'chai';
+import {Enum, EnumType} from '../src';
 
 /**
  * A sample enumeration.
@@ -10,17 +11,19 @@ const {Enum} = require('../lib/index.js');
  * @property {string} TWO The third enumerated value.
  * @property {number} THREE The fourth enumerated value.
  */
-const SampleEnum = Enum.create({
+const SampleEnum: EnumType<any> = Enum.create<any>({
+  /* tslint:disable: object-literal-sort-keys */
   ZERO: false,
   ONE: 1,
   TWO: 'two',
   THREE: 3.0
+  /* tslint:enable: object-literal-sort-keys */
 });
 
 /**
- * @test {Enum}
+ * Tests the features of the `Enum` class.
  */
-describe('Enum', () => {
+describe('EnumTest', () => {
 
   /**
    * @test {Enum.assert}
@@ -45,6 +48,7 @@ describe('Enum', () => {
    */
   describe('.create()', () => {
     it('should create types that are not instantiable', () => {
+      // @ts-ignore
       expect(() => new SampleEnum).to.throw(TypeError);
     });
 
@@ -105,9 +109,9 @@ describe('Enum', () => {
    */
   describe('.getEntries()', () => {
     it('should return the pairs of names and values of the enumerated constants', () => {
-      let entries = SampleEnum.entries();
+      const entries = SampleEnum.entries();
       expect(entries).to.have.lengthOf(4);
-      for (let entry of entries) expect(entry).to.be.an('array').and.have.lengthOf(2);
+      for (const entry of entries) expect(entry).to.be.an('array').and.have.lengthOf(2);
 
       let [name, value] = entries[0];
       expect(name).to.equal('ZERO');
@@ -168,7 +172,7 @@ describe('Enum', () => {
    */
   describe('.getNames()', () => {
     it('should return the names of the enumerable properties', () => {
-      let names = SampleEnum.names();
+      const names = SampleEnum.names();
       expect(names).to.have.lengthOf(4);
       expect(names[0]).to.equal('ZERO');
       expect(names[1]).to.equal('ONE');
@@ -182,7 +186,7 @@ describe('Enum', () => {
    */
   describe('.getValues()', () => {
     it('should return the values of the enumerable properties', () => {
-      let values = SampleEnum.values();
+      const values = SampleEnum.values();
       expect(values).to.have.lengthOf(4);
       expect(values[0]).to.be.false;
       expect(values[1]).to.equal(1);
