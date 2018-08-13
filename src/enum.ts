@@ -31,7 +31,6 @@ export abstract class Enum<T extends EnumValue> {
    */
   public static create<T extends EnumValue>(typeDef: EnumLike<T>): Enum<T> {
     const enumType = new class extends Enum<T> {};
-
     for (const [key, value] of Object.entries(typeDef))
       if (typeDef.hasOwnProperty(key) && ['boolean', 'number', 'string'].includes(typeof value)) enumType[key] = value;
 
