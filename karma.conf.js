@@ -10,5 +10,6 @@ module.exports = config => config.set({
     'src/**/*.ts': ['karma-typescript', 'coverage'],
     'test/**/*.ts': ['karma-typescript']
   },
-  reporters: ['progress', 'karma-typescript']
+  reporters: ['progress', 'karma-typescript'],
+  singleRun: true
 });

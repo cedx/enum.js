@@ -27,8 +27,8 @@ function main(): void {
   DayOfWeek.assert(123); // (throws TypeError)
 
   DayOfWeek.coerce(DayOfWeek.monday); // DayOfWeek.monday
-  DayOfWeek.coerce('bar'); // null
-  DayOfWeek.coerce('baz', DayOfWeek.tuesday); // DayOfWeek.tuesday
+  DayOfWeek.coerce(123); // null
+  DayOfWeek.coerce(123, DayOfWeek.tuesday); // DayOfWeek.tuesday
 
   // Get the zero-based position of a value in the enumerated type declaration.
   DayOfWeek.getIndex(DayOfWeek.wednesday); // 3
