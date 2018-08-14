@@ -2,7 +2,7 @@
 
 ## Yet another implementation of enumerated types
 This implementation does not try to reproduce the semantics of traditional enumerations, like the ones found in C# or Java languages.
-It just gives a set of static methods to ease working with the values of an object literal representing an enumerated type.
+It just gives a factory method to ease working with the values of an object literal representing an enumerated type.
 
 ## Quick start
 Install the latest version of **Enums for JS** with [npm](https://www.npmjs.com):

@@ -6,13 +6,12 @@ source: enum.js
 Just use the `Enum.create()` method with an object literal containing scalar values (i.e. only booleans, numbers and strings):
 
 ```ts
-const {Enum} from '@cedx/enum');
+import {Enum} from '@cedx/enum';
 
 /**
  * Specifies the day of the week.
- * @type {Object}
  */
-const DayOfWeek = Enum.create({
+const DayOfWeek = Enum.create<number>({
   sunday: 0,
   monday: 1,
   tuesday: 2,
@@ -23,43 +22,45 @@ const DayOfWeek = Enum.create({
 });
 ```
 
-This method creates an anonymous class from the specified object.
-This class has the same values as the provided object, and some additional helper methods.
+This method creates an instance of an anonymous class from the enumerable properties of the specified object.
 
-The created class has a constructor throwing a `TypeError`: it prohibits its instantiation.
-This class is also freezed to prevent any attempt at modifying its shape.
+!!! warning
+    Only scalar values (Boolean, numbers, and strings) are retained
+    when iterating on the enumerable properties of the provided object.
+
+This instance has the same values as the provided object, and some additional helper methods. The new object is also freezed to prevent any attempt at modifying its shape.
 
 ## Work with the enumeration
 Check whether a value is defined among the enumerated type:
 
 ```ts
 DayOfWeek.isDefined(DayOfWeek.sunday); // true
-DayOfWeek.isDefined('foo'); // false
+DayOfWeek.isDefined(123); // false
 ```
 
 Ensure that a value is defined among the enumerated type:
 
 ```ts
 DayOfWeek.assert(DayOfWeek.monday); // DayOfWeek.monday
-DayOfWeek.assert('foo'); // (throws TypeError)
+DayOfWeek.assert(123); // (throws TypeError)
 
 DayOfWeek.coerce(DayOfWeek.monday); // DayOfWeek.monday
-DayOfWeek.coerce('bar'); // null
-DayOfWeek.coerce('baz', DayOfWeek.tuesday); // DayOfWeek.tuesday
+DayOfWeek.coerce(123); // undefined
+DayOfWeek.coerce(123, DayOfWeek.tuesday); // DayOfWeek.tuesday
 ```
 
 Get the zero-based position of a value in the enumerated type declaration:
 
 ```ts
 DayOfWeek.getIndex(DayOfWeek.wednesday); // 3
-DayOfWeek.getIndex('foo'); // -1
+DayOfWeek.getIndex(123); // -1
 ```
 
 Get the name associated to an enumerated value:
 
 ```ts
 DayOfWeek.getName(DayOfWeek.thursday); // "thursday"
-DayOfWeek.getName('foo'); // "" (empty)
+DayOfWeek.getName(123); // "" (empty)
 ```
 
 Get information about the enumerated type:
