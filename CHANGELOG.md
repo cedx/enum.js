@@ -2,6 +2,7 @@
 
 ## Version [5.0.0](https://github.com/cedx/enum.js/compare/v4.1.0...v5.0.0)
 - Breaking change: ported the source code to [TypeScript](https://www.typescriptlang.org).
+- Ported the unit tests to classes with experimental decorators.
 - Replaced [ESDoc](https://esdoc.org) documentation generator by [TypeDoc](https://typedoc.org).
 - Replaced [ESLint](https://eslint.org) static analyzer by [TSLint](https://palantir.github.io/tslint).
 - Updated the package dependencies.

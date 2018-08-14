@@ -38,8 +38,7 @@ const SampleEnum = Enum.create<any>({
    * @test {Enum.create}
    */
   @test public testCreate(): void {
-    // It should create types that are not instantiable.
-    // @ts-ignore
+    // @ts-ignore: it should create types that are not instantiable.
     expect(() => new SampleEnum).to.throw(TypeError);
 
     // It should create types that are immutable.
