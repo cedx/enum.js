@@ -29,7 +29,7 @@ export abstract class Enum<T extends EnumValue> {
    * @param typeDef An object defining the shape of the enumerated type.
    * @return The newly created enumeration.
    */
-  public static create<T extends EnumValue>(typeDef: EnumLike<T>): Enum<T> {
+  static create<T extends EnumValue>(typeDef: EnumLike<T>): Enum<T> {
     const enumType = new class extends Enum<T> {};
     for (const [key, value] of Object.entries(typeDef))
       if (typeDef.hasOwnProperty(key) && ['boolean', 'number', 'string'].includes(typeof value)) enumType[key] = value;
@@ -43,7 +43,7 @@ export abstract class Enum<T extends EnumValue> {
    * @return The specified enumerated constant.
    * @throws {TypeError} No such constant was found.
    */
-  public assert(value: T): T {
+  assert(value: T): T {
     if (this.isDefined(value)) return value;
     throw new TypeError(`Invalid enumerated value: ${value}`);
   }
@@ -54,7 +54,7 @@ export abstract class Enum<T extends EnumValue> {
    * @param defaultValue The default value to return if the specified constant does not exist.
    * @return The specified enumerated constant, or the default value if no such constant is found.
    */
-  public coerce(value: T, defaultValue?: T): T | undefined {
+  coerce(value: T, defaultValue?: T): T | undefined {
     return this.isDefined(value) ? value : defaultValue;
   }
 
@@ -62,7 +62,7 @@ export abstract class Enum<T extends EnumValue> {
    * Gets an array of the `[name, value]` pairs of the constants in the specified enumeration.
    * @return An array that contains the `[name, value]` pairs of the constants in the specified enumeration.
    */
-  public entries(): Array<[string, T]> {
+  entries(): Array<[string, T]> {
     return Object.entries(this);
   }
 
@@ -71,7 +71,7 @@ export abstract class Enum<T extends EnumValue> {
    * @param value The value of a constant in the specified enumeration.
    * @return `true` if a constant in the specified enumeration has the specified value, otherwise `false`.
    */
-  public isDefined(value: T): boolean {
+  isDefined(value: T): boolean {
     return this.values().includes(value);
   }
 
@@ -80,7 +80,7 @@ export abstract class Enum<T extends EnumValue> {
    * @param value The value of a constant in the specified enumeration.
    * @return The zero-based position of the constant that has the specified value, or `-1` if no such constant is found.
    */
-  public getIndex(value: T): number {
+  getIndex(value: T): number {
     return this.values().indexOf(value);
   }
 
@@ -89,7 +89,7 @@ export abstract class Enum<T extends EnumValue> {
    * @param value The value of a constant in the specified enumeration.
    * @return A string containing the name of the constant that has the specified value, or an empty string if no such constant is found.
    */
-  public getName(value: T): string {
+  getName(value: T): string {
     const index = this.getIndex(value);
     return index >= 0 ? this.names()[index] : '';
   }
@@ -98,7 +98,7 @@ export abstract class Enum<T extends EnumValue> {
    * Gets an array of the names of the constants in the specified enumeration.
    * @return An array that contains the names of the constants in the specified enumeration.
    */
-  public names(): string[] {
+  names(): string[] {
     return Object.keys(this);
   }
 
@@ -106,7 +106,7 @@ export abstract class Enum<T extends EnumValue> {
    * Gets an array of the values of the constants in the specified enumeration.
    * @return An array that contains the values of the constants in the specified enumeration.
    */
-  public values(): T[] {
+  values(): T[] {
     return Object.values(this);
   }
 }

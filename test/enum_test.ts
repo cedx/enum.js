@@ -21,7 +21,7 @@ const SampleEnum = Enum.create<any>({
   /**
    * @test {Enum#assert}
    */
-  @test public testAssert(): void {
+  @test testAssert(): void {
     // It should return the specified value if it is a known one.
     expect(SampleEnum.assert(false)).to.equal(SampleEnum.ZERO);
     expect(SampleEnum.assert(1)).to.equal(SampleEnum.ONE);
@@ -37,7 +37,7 @@ const SampleEnum = Enum.create<any>({
   /**
    * @test {Enum.create}
    */
-  @test public testCreate(): void {
+  @test testCreate(): void {
     // @ts-ignore: it should create types that are not instantiable.
     expect(() => new SampleEnum).to.throw(TypeError);
 
@@ -58,7 +58,7 @@ const SampleEnum = Enum.create<any>({
   /**
    * @test {Enum#coerce}
    */
-  @test public testCoerce(): void {
+  @test testCoerce(): void {
     // It should return the specified value if it is a known one.
     expect(SampleEnum.coerce(false)).to.equal(SampleEnum.ZERO);
     expect(SampleEnum.coerce(1)).to.equal(SampleEnum.ONE);
@@ -74,7 +74,7 @@ const SampleEnum = Enum.create<any>({
   /**
    * @test {Enum#entries}
    */
-  @test public testEntries(): void {
+  @test testEntries(): void {
     // It should return the pairs of names and values of the enumerated constants.
     const entries = SampleEnum.entries();
     expect(entries).to.have.lengthOf(4);
@@ -100,7 +100,7 @@ const SampleEnum = Enum.create<any>({
   /**
    * @test {Enum#getIndex}
    */
-  @test public testGetIndex(): void {
+  @test testGetIndex(): void {
     // It should return `-1` for unknown values.
     expect(SampleEnum.getIndex(0)).to.equal(-1);
     expect(SampleEnum.getIndex('TWO')).to.equal(-1);
@@ -116,7 +116,7 @@ const SampleEnum = Enum.create<any>({
   /**
    * @test {Enum#getName}
    */
-  @test public testGetName(): void {
+  @test testGetName(): void {
     // It should return an empty string for unknown values.
     expect(SampleEnum.getName(0)).to.be.empty;
     expect(SampleEnum.getName('TWO')).to.be.empty;
@@ -132,7 +132,7 @@ const SampleEnum = Enum.create<any>({
   /**
    * @test {Enum#isDefined}
    */
-  @test public testIsDefined(): void {
+  @test testIsDefined(): void {
     // It should return `false` for unknown values.
     expect(SampleEnum.isDefined(0)).to.be.false;
     expect(SampleEnum.isDefined('TWO')).to.be.false;
@@ -148,7 +148,7 @@ const SampleEnum = Enum.create<any>({
   /**
    * @test {Enum#names}
    */
-  @test public testNames(): void {
+  @test testNames(): void {
     // It should return the names of the enumerable properties.
     const names = SampleEnum.names();
     expect(names).to.have.lengthOf(4);
@@ -161,7 +161,7 @@ const SampleEnum = Enum.create<any>({
   /**
    * @test {Enum#values}
    */
-  @test public testValues(): void {
+  @test testValues(): void {
     // It should return the values of the enumerable properties.
     const values = SampleEnum.values();
     expect(values).to.have.lengthOf(4);
