@@ -19,7 +19,7 @@ const SampleEnum = Enum.create<any>({
 @suite class EnumTest {
 
   /**
-   * @test {Enum#assert}
+   * Tests the `Enum#assert()` method.
    */
   @test testAssert(): void {
     // It should return the specified value if it is a known one.
@@ -35,7 +35,7 @@ const SampleEnum = Enum.create<any>({
   }
 
   /**
-   * @test {Enum.create}
+   * Tests the `Enum.create()` method.
    */
   @test testCreate(): void {
     // @ts-ignore: it should create types that are not instantiable.
@@ -56,7 +56,7 @@ const SampleEnum = Enum.create<any>({
   }
 
   /**
-   * @test {Enum#coerce}
+   * Tests the `Enum#coerce()` method.
    */
   @test testCoerce(): void {
     // It should return the specified value if it is a known one.
@@ -72,7 +72,7 @@ const SampleEnum = Enum.create<any>({
   }
 
   /**
-   * @test {Enum#entries}
+   * Tests the `Enum#entries()` method.
    */
   @test testEntries(): void {
     // It should return the pairs of names and values of the enumerated constants.
@@ -98,7 +98,7 @@ const SampleEnum = Enum.create<any>({
   }
 
   /**
-   * @test {Enum#getIndex}
+   * Tests the `Enum#getIndex()` method.
    */
   @test testGetIndex(): void {
     // It should return `-1` for unknown values.
@@ -114,7 +114,7 @@ const SampleEnum = Enum.create<any>({
   }
 
   /**
-   * @test {Enum#getName}
+   * Tests the `Enum#getName()` method.
    */
   @test testGetName(): void {
     // It should return an empty string for unknown values.
@@ -130,7 +130,7 @@ const SampleEnum = Enum.create<any>({
   }
 
   /**
-   * @test {Enum#isDefined}
+   * Tests the `Enum#isDefined()` method.
    */
   @test testIsDefined(): void {
     // It should return `false` for unknown values.
@@ -146,7 +146,7 @@ const SampleEnum = Enum.create<any>({
   }
 
   /**
-   * @test {Enum#names}
+   * Tests the `Enum#names()` method.
    */
   @test testNames(): void {
     // It should return the names of the enumerable properties.
@@ -159,7 +159,7 @@ const SampleEnum = Enum.create<any>({
   }
 
   /**
-   * @test {Enum#values}
+   * Tests the `Enum#values()` method.
    */
   @test testValues(): void {
     // It should return the values of the enumerable properties.
