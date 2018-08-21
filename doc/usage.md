@@ -1,5 +1,5 @@
-path: blob/master/lib
-source: enum.js
+path: blob/master
+source: src/enum.ts
 # Usage
 
 ## Create the enumeration
