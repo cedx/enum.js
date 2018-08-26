@@ -28,14 +28,7 @@
     },
     {
       "group": {"isDefault": true, "kind": "build"},
-      "problemMatcher": {
-        "fileLocation": ["relative", "${workspaceFolder}"],
-        "owner": "javascript",
-        "pattern": [
-          {"regexp": "AssertionError: (.+)", "message": 1},
-          {"regexp": "at [a-zA-Z]+Test\\.test[a-zA-Z]+ \\(([^:]+):(\\d+):(\\d+)\\)", "file": 1, "line": 2, "column": 3}
-        ]
-      },
+      "problemMatcher": [],
       "task": "test",
       "type": "gulp"
     },
