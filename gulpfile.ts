@@ -13,7 +13,7 @@ import {delimiter, normalize, resolve} from 'path';
   /**
    * The file patterns providing the list of source files.
    */
-  readonly sources: string[] = ['*.{js,ts}', 'example/*.ts', 'src/**/*.ts', 'test/**/*.ts'];
+  readonly sources: string[] = ['*.ts', 'example/*.ts', 'src/**/*.ts', 'test/**/*.ts'];
 
   /**
    * Creates a new task runner.
