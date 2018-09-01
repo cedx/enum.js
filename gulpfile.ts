@@ -5,9 +5,9 @@ import * as gulp from 'gulp';
 import {delimiter, normalize, resolve} from 'path';
 
 // Initialize the build system.
-const path = 'PATH' in process.env ? process.env.PATH! : '';
-const vendorDir = resolve('node_modules/.bin');
-if (!path.includes(vendorDir)) process.env.PATH = `${vendorDir}${delimiter}${path}`;
+const _path = 'PATH' in process.env ? process.env.PATH! : '';
+const _vendor = resolve('node_modules/.bin');
+if (!_path.includes(_vendor)) process.env.PATH = `${_vendor}${delimiter}${_path}`;
 
 /**
  * The file patterns providing the list of source files.
