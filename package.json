@@ -8,7 +8,7 @@
   "name": "@cedx/enum",
   "repository": "cedx/enum.js",
   "types": "./lib/index.d.ts",
-  "version": "5.1.1",
+  "version": "5.2.0",
   "devDependencies": {
     "@cedx/coveralls": "^8.0.0",
     "@types/chai": "^4.1.5",
