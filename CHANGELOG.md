@@ -1,5 +1,8 @@
 # Changelog
 
+## Version [5.2.0](https://github.com/cedx/enum.js/compare/v5.1.1...v5.2.0)
+- TODO
+
 ## Version [5.1.1](https://github.com/cedx/enum.js/compare/v5.1.0...v5.1.1)
 - Fixed the [issue #2](https://github.com/cedx/enum.js/issues/2): relaxed the engine constraint.
 
