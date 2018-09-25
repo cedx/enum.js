@@ -11,10 +11,10 @@ You can verify if you're already good to go with the following commands:
 
 ```shell
 node --version
-# v8.9.0
+# v10.11.0
 
 npm --version
-# 5.5.0
+# 6.4.1
 ```
 
 !!! info
@@ -35,4 +35,23 @@ Now in your [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript
 
 ```ts
 import {Enum} from '@cedx/enum';
+```
+
+!!! info
+    This library is packaged as [CommonJS modules](https://nodejs.org/api/modules.html).  
+    To consume it in a browser, you must use a dedicated tool chain, like a build system coupled with a bundler.
+
+### 3. Use it
+See the [usage information](usage.md).
+
+## Installing from a content delivery network
+This library is also available as a ready-made bundle.
+To install it, add this code snippet to the `<head>` of your HTML document:
+
+```html
+<!-- jsDelivr -->
+<script src="https://cdn.jsdelivr.net/npm/@cedx/enum/build/enum.js"></script>
+
+<!-- UNPKG -->
+<script src="https://unpkg.com/@cedx/enum/build/enum.js"></script>
 ```

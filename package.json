@@ -1,5 +1,6 @@
 {
   "author": "Cédric Belin <cedric@belin.io>",
+  "browser": "./build/enum.js",
   "bugs": "https://github.com/cedx/enum.js/issues",
   "description": "A simple implementation of enumerated types.",
   "homepage": "https://dev.belin.io/enum.js",
