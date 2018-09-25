@@ -24,7 +24,7 @@ function main(): void {
 
   // Ensure that a value is defined among the enumerated type.
   console.log(DayOfWeek.assert(DayOfWeek.monday)); // DayOfWeek.monday
-  console.log(DayOfWeek.assert(123)); // (throws TypeError)
+  DayOfWeek.assert(123); // (throws TypeError)
 
   console.log(DayOfWeek.coerce(DayOfWeek.monday)); // DayOfWeek.monday
   console.log(DayOfWeek.coerce(123)); // undefined

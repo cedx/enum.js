@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>Cookies for JS</title>
+    <title>Enums for JS</title>
     <script src="https://cdn.jsdelivr.net/npm/@cedx/enum/build/enum.js"></script>
   </head>
 
@@ -25,7 +25,8 @@
 
       // Ensure that a value is defined among the enumerated type.
       console.log(DayOfWeek.assert(DayOfWeek.monday)); // DayOfWeek.monday
-      console.log(DayOfWeek.assert(123)); // (throws TypeError)
+      try { DayOfWeek.assert(123); /* (throws TypeError) */ }
+      catch (e) {}
 
       console.log(DayOfWeek.coerce(DayOfWeek.monday)); // DayOfWeek.monday
       console.log(DayOfWeek.coerce(123)); // undefined
