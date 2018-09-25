@@ -1,13 +1,12 @@
 path: blob/master
 source: src/enum.ts
+
 # Usage
 
 ## Create the enumeration
 Just use the `Enum.create()` method with an object literal containing scalar values (i.e. only booleans, numbers and strings):
 
 ```ts
-import {Enum} from '@cedx/enum';
-
 /**
  * Specifies the day of the week.
  */
