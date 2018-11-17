@@ -1,13 +1,12 @@
 {
   "author": "Cédric Belin <cedric@belin.io>",
   "browser": "./build/enum.js",
-  "bugs": "https://github.com/cedx/enum.js/issues",
+  "bugs": "https://git.belin.io/cedx/enum.js/issues",
   "description": "A simple implementation of enumerated types.",
   "homepage": "https://dev.belin.io/enum.js",
   "license": "MIT",
   "main": "./lib/index.js",
   "name": "@cedx/enum",
-  "repository": "cedx/enum.js",
   "types": "./lib/index.d.ts",
   "version": "5.2.0",
   "devDependencies": {
@@ -41,6 +40,10 @@
     "js",
     "type"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://git.belin.io/cedx/enum.js.git"
+  },
   "scripts": {
     "coverage": "gulp coverage",
     "prepare": "gulp build",

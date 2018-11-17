@@ -3,11 +3,14 @@
 
 Yet another implementation of enumerated types for [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript).
 
-## Resources
-- [Documentation](https://dev.belin.io/enum.js)
+## Documentation
+- [User guide](https://dev.belin.io/enum.js)
 - [API reference](https://dev.belin.io/enum.js/api)
+
+## Development
+- [Git repository](https://git.belin.io/cedx/enum.js)
 - [npm package](https://www.npmjs.com/package/@cedx/enum)
-- [GitHub repository](https://github.com/cedx/enum.js)
+- [Submit an issue](https://git.belin.io/cedx/enum.js/issues)
 
 ## License
 [Enums for JS](https://dev.belin.io/enum.js) is distributed under the MIT License.
