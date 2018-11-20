@@ -10,7 +10,7 @@ Yet another implementation of enumerated types for [JavaScript](https://develope
 ## Development
 - [Git repository](https://git.belin.io/cedx/enum.js)
 - [npm package](https://www.npmjs.com/package/@cedx/enum)
-- [Submit an issue](https://git.belin.io/cedx/enum.js/issues)
+- [Submit an issue](https://github.com/cedx/enum.js/issues)
 
 ## License
 [Enums for JS](https://dev.belin.io/enum.js) is distributed under the MIT License.
