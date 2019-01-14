@@ -7,6 +7,7 @@
   "license": "MIT",
   "main": "./lib/index.js",
   "name": "@cedx/enum",
+  "repository": "github:cedx/enum.js",
   "types": "./lib/index.d.ts",
   "version": "5.2.0",
   "devDependencies": {
@@ -40,10 +41,6 @@
     "js",
     "type"
   ],
-  "repository": {
-    "type": "git",
-    "url": "https://git.belin.io/cedx/enum.js.git"
-  },
   "scripts": {
     "coverage": "gulp coverage",
     "prepare": "gulp build",
