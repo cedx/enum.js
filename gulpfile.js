@@ -20,14 +20,16 @@ const sources = ['*.js', 'example/*.ts', 'src/**/*.ts', 'test/**/*.ts'];
 /**
  * Builds the project.
  */
-gulp.task('build:cjs', () => _exec('tsc'));
-gulp.task('build:dist', () => _exec('webpack'));
-gulp.task('build', gulp.series('build:cjs', 'build:dist'));
+gulp.task('build', async () => {
+  await _exec('tsc');
+  await _exec('rollup', ['--config']);
+  return _exec('minify', ['build/enum.js', '--out-file=build/enum.min.js']);
+});
 
 /**
  * Deletes all generated files and reset any saved state.
  */
-gulp.task('clean', () => del(['.nyc_output', 'build', 'doc/api', 'lib', 'var/**/*', 'web']));
+gulp.task('clean', () => del(['.nyc_output', 'build', 'coverage', 'doc/api', 'lib', 'var/**/*', 'web']));
 
 /**
  * Uploads the results of the code coverage.
@@ -62,7 +64,9 @@ gulp.task('serve', () => _exec('http-server', ['example', '-o']));
 /**
  * Runs the test suites.
  */
-gulp.task('test', () => _exec('nyc', [normalize('node_modules/.bin/mocha')]));
+gulp.task('test:browser', () => _exec('karma', ['start']));
+gulp.task('test:node', () => _exec('nyc', [normalize('node_modules/.bin/mocha')]));
+gulp.task('test', gulp.parallel('test:browser', 'test:node'));
 
 /**
  * Upgrades the project to the latest revision.
@@ -80,7 +84,7 @@ gulp.task('upgrade', async () => {
  */
 gulp.task('watch', () => {
   gulp.watch('src/**/*.ts', {ignoreInitial: false}, gulp.task('build'));
-  gulp.watch('test/**/*.ts', gulp.task('test'));
+  gulp.watch('test/**/*.ts', gulp.task('test:node'));
 });
 
 /**
