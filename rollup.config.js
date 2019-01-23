@@ -1,7 +1,6 @@
-const commonjs = require('rollup-plugin-commonjs');
-
+const resolve = require('rollup-plugin-node-resolve');
 module.exports = {
-  input: 'lib/index.js',
-  output: {file: 'build/enum.js', format: 'iife', name: 'Enum'},
-  plugins: [commonjs()]
+  input: 'lib/index.mjs',
+  output: {file: 'build/enum.js', format: 'iife', name: 'enum'},
+  plugins: [resolve()]
 };

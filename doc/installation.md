@@ -38,7 +38,8 @@ import {Enum} from '@cedx/enum';
 ```
 
 !!! info
-    This library is packaged as [CommonJS modules](https://nodejs.org/api/modules.html).  
+    This library is packaged as [CommonJS modules](https://nodejs.org/api/modules.html) (`.js` files)
+    and [ECMAScript modules](https://nodejs.org/api/esm.html) (`.mjs` files).  
     To consume it in a browser, you must use a dedicated tool chain, like a build system coupled with a bundler.
 
 ### 3. Use it
@@ -50,8 +51,8 @@ To install it, add this code snippet to the `<head>` of your HTML document:
 
 ```html
 <!-- jsDelivr -->
-<script src="https://cdn.jsdelivr.net/npm/@cedx/enum/build/enum.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@cedx/enum/build/enum.min.js"></script>
 
 <!-- UNPKG -->
-<script src="https://unpkg.com/@cedx/enum/build/enum.js"></script>
+<script src="https://unpkg.com/@cedx/enum/build/enum.min.js"></script>
 ```
