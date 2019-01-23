@@ -3,10 +3,11 @@
   "description": "A simple implementation of enumerated types.",
   "homepage": "https://dev.belin.io/enum.js",
   "license": "MIT",
-  "main": "./lib/index.js",
+  "main": "lib/index",
+  "module": "lib/index.mjs",
   "name": "@cedx/enum",
   "repository": "github:cedx/enum.js",
-  "types": "./lib/index.d.ts",
+  "types": "lib/index.d.ts",
   "version": "5.3.0",
   "author": {
     "email": "cedric@belin.io",
