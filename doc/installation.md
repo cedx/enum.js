@@ -11,7 +11,7 @@ You can verify if you're already good to go with the following commands:
 
 ```shell
 node --version
-# v11.7.0
+# v11.8.0
 
 npm --version
 # 6.5.0
@@ -38,8 +38,7 @@ import {Enum} from '@cedx/enum';
 ```
 
 !!! info
-    This library is packaged as [CommonJS modules](https://nodejs.org/api/modules.html) (`.js` files)
-    and [ECMAScript modules](https://nodejs.org/api/esm.html) (`.mjs` files).  
+    This library is packaged as [CommonJS modules](https://nodejs.org/api/modules.html) (`.js` files) and [ECMAScript modules](https://nodejs.org/api/esm.html) (`.mjs` files).  
     To consume it in a browser, you must use a dedicated tool chain, like a build system coupled with a bundler.
 
 ### 3. Use it
@@ -55,4 +54,13 @@ To install it, add this code snippet to the `<head>` of your HTML document:
 
 <!-- UNPKG -->
 <script src="https://unpkg.com/@cedx/enum/build/enum.min.js"></script>
+```
+
+The `Enum` class from this library is exposed as a property on the `window` global object:
+
+```html
+<script>
+  // Optional: `Enum` is a global property.
+  const {Enum} = window;
+</script>
 ```
