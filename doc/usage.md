@@ -24,7 +24,7 @@ const DayOfWeek = Enum.create<number>({
 This method creates an instance of an anonymous class from the enumerable properties of the specified object.
 
 !!! warning
-    Only scalar values (boolean, numbers, and strings) are retained
+    Only scalar values (booleans, numbers, and strings) are retained
     when iterating on the enumerable properties of the provided object.
 
 This instance has the same values as the provided object, and some additional helper methods. The new object is also freezed to prevent any attempt at modifying its shape.
