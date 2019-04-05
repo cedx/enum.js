@@ -1,5 +1,9 @@
 # Changelog
 
+## Version [5.4.0](https://github.com/cedx/enum.js/compare/v5.3.0...v5.4.0)
+- Added support for [ECMAScript modules](https://nodejs.org/api/esm.html).
+- Updated the package dependencies.
+
 ## Version [5.3.0](https://github.com/cedx/enum.js/compare/v5.2.0...v5.3.0)
 - Updated the package dependencies.
 - Updated the URL of the Git repository.
