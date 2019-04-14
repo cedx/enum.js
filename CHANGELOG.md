@@ -1,5 +1,9 @@
 # Changelog
 
+## Version [5.5.0](https://github.com/cedx/enum.js/compare/v5.4.0...v5.5.0)
+- Modified the package layout.
+- Updated the package dependencies.
+
 ## Version [5.4.0](https://github.com/cedx/enum.js/compare/v5.3.0...v5.4.0)
 - Added support for [ECMAScript modules](https://nodejs.org/api/esm.html).
 - Replaced [Webpack](https://webpack.js.org) bundler by [Rollup](https://rollupjs.org) and [Babel Minify](https://github.com/babel/minify).
