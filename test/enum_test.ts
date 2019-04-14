@@ -1,6 +1,5 @@
 /* tslint:disable: no-unused-expression */
 import {expect} from 'chai';
-import {suite, test} from 'mocha-typescript';
 import {Enum} from '../src';
 
 // tslint:disable:next-line: variable-name
@@ -14,7 +13,7 @@ const SampleEnum = Enum.create<any>({
 });
 
 /**
- * Tests the features of the `Enum` class.
+ * Tests the features of the [[Enum]] class.
  */
 describe('EnumTest', () => {
 
