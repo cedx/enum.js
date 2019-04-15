@@ -70,10 +70,10 @@ task('serve', () => _exec('http-server', ['example', '-o']));
  */
 task('test:browser', () => _exec('karma', ['start', 'test/karma.conf.js']));
 task('test:node', () => _exec('nyc', [
-  '--nycrc-path=test/.nycrc',
+  '--nycrc-path=test/nycrc.json',
   normalize('node_modules/.bin/mocha'),
-  '--config=test/.mocharc.yaml',
-  '"test/**/*.ts"'
+  '--config=test/mocharc.yaml',
+  '"test/**/*_test.ts"'
 ]));
 
 task('test', parallel('test:browser', 'test:node'));
