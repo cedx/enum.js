@@ -68,12 +68,17 @@ task('serve', () => _exec('http-server', ['example', '-o']));
 /**
  * Runs the test suites.
  */
-task('test:browser', () => _exec('karma', ['start', 'test/karma.conf.js']));
+task('test:browser', async () => {
+  if (process.platform == 'win32') process.env.FIREFOX_BIN = 'C:\\Program Files\\Mozilla\\Firefox\\firefox.exe';
+  await _exec('karma', ['start', 'test/karma.conf.js']);
+  return del('test/coverage');
+});
+
 task('test:node', () => _exec('nyc', [
   '--nycrc-path=test/nycrc.json',
   normalize('node_modules/.bin/mocha'),
-  '--config=test/mocharc.yaml',
-  '"test/**/*_test.ts"'
+  '--config=test/mocharc.json',
+  '"test/**/*.ts"'
 ]));
 
 task('test', parallel('test:browser', 'test:node'));
