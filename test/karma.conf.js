@@ -25,9 +25,9 @@ module.exports = config => config.set({
     require('karma-typescript')
   ],
   preprocessors: {
-    [sources.lib]: ['coverage', 'karma-typescript'],
+    [sources.lib]: ['karma-typescript', 'coverage'],
     [sources.test]: ['karma-typescript']
   },
-  reporters: ['coverage', 'progress'],
+  reporters: ['progress', 'coverage'],
   singleRun: true
 });
