@@ -5,10 +5,10 @@ import {Enum} from '../src';
 // tslint:disable:next-line: variable-name
 const SampleEnum = Enum.create<any>({
   /* tslint:disable: object-literal-sort-keys */
-  ZERO: false,
-  ONE: 1,
-  TWO: 'two',
-  THREE: 3.0
+  zero: false,
+  one: 1,
+  two: 'TWO',
+  three: 3.0
   /* tslint:enable: object-literal-sort-keys */
 });
 
@@ -18,15 +18,15 @@ describe('EnumTest', () => {
   /** Tests the `Enum#assert()` method. */
   describe('#assert', () => {
     it('should return the specified value if it is a known one', () => {
-      expect(SampleEnum.assert(false)).to.equal(SampleEnum.ZERO);
-      expect(SampleEnum.assert(1)).to.equal(SampleEnum.ONE);
-      expect(SampleEnum.assert('two')).to.equal(SampleEnum.TWO);
-      expect(SampleEnum.assert(3.0)).to.equal(SampleEnum.THREE);
+      expect(SampleEnum.assert(false)).to.equal(SampleEnum.zero);
+      expect(SampleEnum.assert(1)).to.equal(SampleEnum.one);
+      expect(SampleEnum.assert('TWO')).to.equal(SampleEnum.two);
+      expect(SampleEnum.assert(3.0)).to.equal(SampleEnum.three);
     });
 
     it('should throw an exception if it is an unknown value', () => {
       expect(() => SampleEnum.assert('')).to.throw(TypeError);
-      expect(() => SampleEnum.assert('TWO')).to.throw(TypeError);
+      expect(() => SampleEnum.assert('two')).to.throw(TypeError);
       expect(() => SampleEnum.assert(3.1)).to.throw(TypeError);
     });
   });
@@ -57,16 +57,16 @@ describe('EnumTest', () => {
   /** Tests the `Enum#coerce()` method. */
   describe('#coerce', () => {
     it('should return the specified value if it is a known one', () => {
-      expect(SampleEnum.coerce(false)).to.equal(SampleEnum.ZERO);
-      expect(SampleEnum.coerce(1)).to.equal(SampleEnum.ONE);
-      expect(SampleEnum.coerce('two')).to.equal(SampleEnum.TWO);
-      expect(SampleEnum.coerce(3.0)).to.equal(SampleEnum.THREE);
+      expect(SampleEnum.coerce(false)).to.equal(SampleEnum.zero);
+      expect(SampleEnum.coerce(1)).to.equal(SampleEnum.one);
+      expect(SampleEnum.coerce('TWO')).to.equal(SampleEnum.two);
+      expect(SampleEnum.coerce(3.0)).to.equal(SampleEnum.three);
     });
 
     it('should return the default value if it is an unknown one', () => {
       expect(SampleEnum.coerce('')).to.be.undefined;
-      expect(SampleEnum.coerce('TWO', false)).to.be.false;
-      expect(SampleEnum.coerce(3.1, SampleEnum.ZERO)).to.equal(SampleEnum.ZERO);
+      expect(SampleEnum.coerce('two', false)).to.be.false;
+      expect(SampleEnum.coerce(3.1, SampleEnum.zero)).to.equal(SampleEnum.zero);
     });
   });
 
@@ -78,19 +78,19 @@ describe('EnumTest', () => {
       for (const entry of entries) expect(entry).to.be.an('array').and.have.lengthOf(2);
 
       let [name, value] = entries[0];
-      expect(name).to.equal('ZERO');
+      expect(name).to.equal('zero');
       expect(value).to.be.false;
 
       [name, value] = entries[1];
-      expect(name).to.equal('ONE');
+      expect(name).to.equal('one');
       expect(value).to.equal(1);
 
       [name, value] = entries[2];
-      expect(name).to.equal('TWO');
-      expect(value).to.equal('two');
+      expect(name).to.equal('two');
+      expect(value).to.equal('TWO');
 
       [name, value] = entries[3];
-      expect(name).to.equal('THREE');
+      expect(name).to.equal('three');
       expect(value).to.equal(3.0);
     });
   });
@@ -99,14 +99,14 @@ describe('EnumTest', () => {
   describe('#getIndex', () => {
     it('should return `-1` for unknown values', () => {
       expect(SampleEnum.getIndex(0)).to.equal(-1);
-      expect(SampleEnum.getIndex('TWO')).to.equal(-1);
+      expect(SampleEnum.getIndex('two')).to.equal(-1);
       expect(SampleEnum.getIndex(3.1)).to.equal(-1);
     });
 
     it('should return the index of the enumerated constant for known values', () => {
       expect(SampleEnum.getIndex(false)).to.equal(0);
       expect(SampleEnum.getIndex(1)).to.equal(1);
-      expect(SampleEnum.getIndex('two')).to.equal(2);
+      expect(SampleEnum.getIndex('TWO')).to.equal(2);
       expect(SampleEnum.getIndex(3.0)).to.equal(3);
     });
   });
@@ -115,15 +115,15 @@ describe('EnumTest', () => {
   describe('#getName', () => {
     it('should return an empty string for unknown values', () => {
       expect(SampleEnum.getName(0)).to.be.empty;
-      expect(SampleEnum.getName('TWO')).to.be.empty;
+      expect(SampleEnum.getName('two')).to.be.empty;
       expect(SampleEnum.getName(3.1)).to.be.empty;
     });
 
     it('should return the name for known values', () => {
-      expect(SampleEnum.getName(false)).to.equal('ZERO');
-      expect(SampleEnum.getName(1)).to.equal('ONE');
-      expect(SampleEnum.getName('two')).to.equal('TWO');
-      expect(SampleEnum.getName(3.0)).to.equal('THREE');
+      expect(SampleEnum.getName(false)).to.equal('zero');
+      expect(SampleEnum.getName(1)).to.equal('one');
+      expect(SampleEnum.getName('TWO')).to.equal('two');
+      expect(SampleEnum.getName(3.0)).to.equal('three');
     });
   });
 
@@ -131,14 +131,14 @@ describe('EnumTest', () => {
   describe('#isDefined', () => {
     it('should return `false` for unknown values', () => {
       expect(SampleEnum.isDefined(0)).to.be.false;
-      expect(SampleEnum.isDefined('TWO')).to.be.false;
+      expect(SampleEnum.isDefined('two')).to.be.false;
       expect(SampleEnum.isDefined(3.1)).to.be.false;
     });
 
     it('should return `true` for known values', () => {
       expect(SampleEnum.isDefined(false)).to.be.true;
       expect(SampleEnum.isDefined(1)).to.be.true;
-      expect(SampleEnum.isDefined('two')).to.be.true;
+      expect(SampleEnum.isDefined('TWO')).to.be.true;
       expect(SampleEnum.isDefined(3.0)).to.be.true;
     });
   });
@@ -148,10 +148,10 @@ describe('EnumTest', () => {
     it('should return the names of the enumerable properties', () => {
       const names = SampleEnum.names();
       expect(names).to.have.lengthOf(4);
-      expect(names[0]).to.equal('ZERO');
-      expect(names[1]).to.equal('ONE');
-      expect(names[2]).to.equal('TWO');
-      expect(names[3]).to.equal('THREE');
+      expect(names[0]).to.equal('zero');
+      expect(names[1]).to.equal('one');
+      expect(names[2]).to.equal('two');
+      expect(names[3]).to.equal('three');
     });
   });
 
@@ -162,7 +162,7 @@ describe('EnumTest', () => {
       expect(values).to.have.lengthOf(4);
       expect(values[0]).to.be.false;
       expect(values[1]).to.equal(1);
-      expect(values[2]).to.equal('two');
+      expect(values[2]).to.equal('TWO');
       expect(values[3]).to.equal(3.0);
     });
   });
