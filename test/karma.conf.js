@@ -14,6 +14,7 @@ module.exports = config => config.set({
   files: [sources.lib, sources.test],
   frameworks: ['mocha', 'karma-typescript'],
   karmaTypescriptConfig: {
+    coverageOptions: {instrumentation: false},
     include: [sources.test],
     tsconfig: '../tsconfig.json'
   },
@@ -24,9 +25,9 @@ module.exports = config => config.set({
     require('karma-typescript')
   ],
   preprocessors: {
-    [sources.lib]: ['karma-typescript', 'coverage'],
+    [sources.lib]: ['coverage', 'karma-typescript'],
     [sources.test]: ['karma-typescript']
   },
-  reporters: ['progress', 'coverage'],
+  reporters: ['coverage', 'progress'],
   singleRun: true
 });
