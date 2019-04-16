@@ -11,7 +11,7 @@ module.exports = config => config.set({
     subdir: '.',
     type: 'lcovonly'
   },
-  files: [sources.lib],
+  files: [sources.lib, sources.test],
   frameworks: ['mocha', 'karma-typescript'],
   karmaTypescriptConfig: {
     include: [sources.test],
@@ -23,7 +23,10 @@ module.exports = config => config.set({
     require('karma-mocha'),
     require('karma-typescript')
   ],
-  preprocessors: {'../**/*.ts': ['karma-typescript']},
-  reporters: ['progress', 'karma-typescript'],
+  preprocessors: {
+    [sources.lib]: ['karma-typescript', 'coverage'],
+    [sources.test]: ['karma-typescript']
+  },
+  reporters: ['progress', 'coverage'],
   singleRun: true
 });
