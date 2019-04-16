@@ -1,27 +1,17 @@
-/**
- * Defines the shape of an enumerated value.
- */
+/** Defines the shape of an enumerated value. */
 export type EnumValue = boolean | number | string;
 
-/**
- * Defines the shape of an enumerated type.
- */
+/** Defines the shape of an enumerated type. */
 export interface EnumLike<T extends EnumValue> {
 
-  /**
-   * Gets the enumerated value corresponding to the given key.
-   */
+  /** Gets the enumerated value corresponding to the given key. */
   [key: string]: T;
 }
 
-/**
- * Provides helper methods for enumerations.
- */
+/** Provides helper methods for enumerations. */
 export abstract class Enum<T extends EnumValue> {
 
-  /**
-   * Gets the enumerated value corresponding to the given key.
-   */
+  /** Gets the enumerated value corresponding to the given key. */
   [key: string]: any;
 
   /**

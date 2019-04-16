@@ -7,9 +7,7 @@ source: src/enum.ts
 Just use the `Enum.create()` method with an object literal containing scalar values (i.e. only booleans, numbers and strings):
 
 ```ts
-/**
- * Specifies the day of the week.
- */
+/** Specifies the day of the week. */
 const DayOfWeek = Enum.create<number>({
   sunday: 0,
   monday: 1,

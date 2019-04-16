@@ -14,9 +14,7 @@ const DayOfWeek = Enum.create<number>({
   /* tslint:enable: object-literal-sort-keys */
 });
 
-/**
- * Works with the enumeration.
- */
+/** Works with the enumeration. */
 function main(): void {
   // Check whether a value is defined among the enumerated type.
   console.log(DayOfWeek.isDefined(DayOfWeek.sunday)); // true

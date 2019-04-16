@@ -12,14 +12,10 @@ const SampleEnum = Enum.create<any>({
   /* tslint:enable: object-literal-sort-keys */
 });
 
-/**
- * Tests the features of the [[Enum]] class.
- */
+/** Tests the features of the [[Enum]] class. */
 describe('EnumTest', () => {
 
-  /**
-   * Tests the `Enum#assert()` method.
-   */
+  /** Tests the `Enum#assert()` method. */
   describe('#assert', () => {
     it('should return the specified value if it is a known one', () => {
       expect(SampleEnum.assert(false)).to.equal(SampleEnum.ZERO);
@@ -35,9 +31,7 @@ describe('EnumTest', () => {
     });
   });
 
-  /**
-   * Tests the `Enum.create()` method.
-   */
+  /** Tests the `Enum.create()` method. */
   describe('.create', () => {
     it('should create types that are not instantiable', () => {
       // @ts-ignore
@@ -60,9 +54,7 @@ describe('EnumTest', () => {
     });
   });
 
-  /**
-   * Tests the `Enum#coerce()` method.
-   */
+  /** Tests the `Enum#coerce()` method. */
   describe('#coerce', () => {
     it('should return the specified value if it is a known one', () => {
       expect(SampleEnum.coerce(false)).to.equal(SampleEnum.ZERO);
@@ -78,9 +70,7 @@ describe('EnumTest', () => {
     });
   });
 
-  /**
-   * Tests the `Enum#entries()` method.
-   */
+  /** Tests the `Enum#entries()` method. */
   describe('#entries', () => {
     it('should return the pairs of names and values of the enumerated constants', () => {
       const entries = SampleEnum.entries();
@@ -105,9 +95,7 @@ describe('EnumTest', () => {
     });
   });
 
-  /**
-   * Tests the `Enum#getIndex()` method.
-   */
+  /** Tests the `Enum#getIndex()` method. */
   describe('#getIndex', () => {
     it('should return `-1` for unknown values', () => {
       expect(SampleEnum.getIndex(0)).to.equal(-1);
@@ -123,9 +111,7 @@ describe('EnumTest', () => {
     });
   });
 
-  /**
-   * Tests the `Enum#getName()` method.
-   */
+  /** Tests the `Enum#getName()` method. */
   describe('#getName', () => {
     it('should return an empty string for unknown values', () => {
       expect(SampleEnum.getName(0)).to.be.empty;
@@ -141,9 +127,7 @@ describe('EnumTest', () => {
     });
   });
 
-  /**
-   * Tests the `Enum#isDefined()` method.
-   */
+  /** Tests the `Enum#isDefined()` method. */
   describe('#isDefined', () => {
     it('should return `false` for unknown values', () => {
       expect(SampleEnum.isDefined(0)).to.be.false;
@@ -159,9 +143,7 @@ describe('EnumTest', () => {
     });
   });
 
-  /**
-   * Tests the `Enum#names()` method.
-   */
+  /** Tests the `Enum#names()` method. */
   describe('#names', () => {
     it('should return the names of the enumerable properties', () => {
       const names = SampleEnum.names();
@@ -173,9 +155,7 @@ describe('EnumTest', () => {
     });
   });
 
-  /**
-   * Tests the `Enum#values()` method.
-   */
+  /** Tests the `Enum#values()` method. */
   describe('#values', () => {
     it('should return the values of the enumerable properties', () => {
       const values = SampleEnum.values();
