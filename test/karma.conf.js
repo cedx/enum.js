@@ -14,7 +14,6 @@ module.exports = config => config.set({
   files: [sources.lib, sources.test],
   frameworks: ['mocha', 'karma-typescript'],
   karmaTypescriptConfig: {
-    coverageOptions: {instrumentation: false},
     include: [sources.test],
     tsconfig: '../tsconfig.json'
   },
