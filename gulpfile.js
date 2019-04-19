@@ -61,7 +61,7 @@ task('test:node', () => _exec('nyc', [
   '--nycrc-path=etc/nyc.json',
   normalize('node_modules/.bin/mocha'),
   '--config=etc/mocha.json',
-  '"test/**/*.ts"'
+  '"test/**/*_test.ts"'
 ]));
 
 task('test', parallel('test:browser', 'test:node'));
