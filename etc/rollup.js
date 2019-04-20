@@ -1,8 +1,7 @@
-import {join} from 'path';
 import resolve from 'rollup-plugin-node-resolve';
 
 export default {
-  input: join(__dirname, '../lib/index.mjs'),
-  output: {file: join(__dirname, '../build/enum.js'), format: 'iife', name: 'window', extend: true},
+  input: '../lib/index.mjs',
+  output: {file: '../build/enum.js', format: 'iife', name: 'window', extend: true},
   plugins: [resolve()]
 };
