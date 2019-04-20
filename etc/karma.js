@@ -7,7 +7,7 @@ module.exports = config => config.set({
   frameworks: ['mocha', 'karma-typescript'],
   karmaTypescriptConfig: {
     include: sources,
-    reports: {lcovonly: {directory: join(__dirname, '../var'), filename: 'lcov.info', subdirectory: ''}},
+    reports: {lcovonly: {directory: join(__dirname, '..'), filename: 'lcov.info', subdirectory: 'var'}},
     tsconfig: '../tsconfig.json'
   },
   preprocessors: {[join(__dirname, '../**/*.ts')]: ['karma-typescript']},
