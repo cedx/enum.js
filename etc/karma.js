@@ -1,15 +1,15 @@
 const {join} = require('path');
-const sources = {
-  lib: join(__dirname, '../src/**/*.ts'),
-  test: join(__dirname, '../test/**/*_test.ts')
-};
+const sources = [
+  join(__dirname, '../src/**/*.ts'),
+  join(__dirname, '../test/**/*_test.ts')
+];
 
 module.exports = config => config.set({
-  browsers: ['Firefox'],
-  files: [sources.lib, sources.test],
+  browsers: ['FirefoxHeadless'],
+  files: sources,
   frameworks: ['mocha', 'karma-typescript'],
   karmaTypescriptConfig: {
-    include: [sources.lib, sources.test],
+    include: sources,
     reports: {lcovonly: {directory: join(__dirname, '../var'), filename: 'lcov.info', subdirectory: ''}},
     tsconfig: '../tsconfig.json'
   },
