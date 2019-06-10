@@ -1,9 +1,6 @@
-// @ts-ignore
 import {Enum} from '@cedx/enum';
 
-/* tslint:disable: no-console variable-name */
 const DayOfWeek = Enum.create<number>({
-  /* tslint:disable: object-literal-sort-keys */
   sunday: 0,
   monday: 1,
   tuesday: 2,
@@ -11,11 +8,10 @@ const DayOfWeek = Enum.create<number>({
   thursday: 4,
   friday: 5,
   saturday: 6
-  /* tslint:enable: object-literal-sort-keys */
 });
 
 /** Works with the enumeration. */
-function main(): void {
+function main() {
   // Check whether a value is defined among the enumerated type.
   console.log(DayOfWeek.isDefined(DayOfWeek.sunday)); // true
   console.log(DayOfWeek.isDefined(123)); // false
