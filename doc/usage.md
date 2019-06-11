@@ -7,7 +7,10 @@ source: lib/enum.js
 Just use the `Enum.create()` method with an object literal containing scalar values (i.e. only booleans, numbers and strings):
 
 ```js
-/** Specifies the days of the week. */
+/**
+ * Specifies the days of the week.
+ * @enum {number}
+ */
 const DayOfWeek = Enum.create({
   sunday: 0,
   monday: 1,
