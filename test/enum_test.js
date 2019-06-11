@@ -1,6 +1,7 @@
 import chai from 'chai';
 import {Enum} from '../lib/index.js';
 
+/** A sample enumeration. */
 const SampleEnum = Enum.create({
   zero: false,
   one: 1,
@@ -10,6 +11,8 @@ const SampleEnum = Enum.create({
 
 /** Tests the features of the {@link Enum} class. */
 describe('EnumTest', () => {
+  const {expect} = chai;
+
   describe('#assert()', () => {
     it('should return the specified value if it is a known one', () => {
       expect(SampleEnum.assert(false)).to.equal(SampleEnum.zero);
@@ -55,7 +58,7 @@ describe('EnumTest', () => {
     });
 
     it('should return the default value if it is an unknown one', () => {
-      expect(SampleEnum.coerce('')).to.be.undefined;
+      expect(SampleEnum.coerce('')).to.be.null;
       expect(SampleEnum.coerce('two', false)).to.be.false;
       expect(SampleEnum.coerce(3.1, SampleEnum.zero)).to.equal(SampleEnum.zero);
     });
@@ -67,19 +70,19 @@ describe('EnumTest', () => {
       expect(entries).to.have.lengthOf(4);
       for (const entry of entries) expect(entry).to.be.an('array').and.have.lengthOf(2);
 
-      let [name, value] = entries[0];
+      let [name, value] = entries[0]; // eslint-disable-line prefer-destructuring
       expect(name).to.equal('zero');
       expect(value).to.be.false;
 
-      [name, value] = entries[1];
+      [name, value] = entries[1]; // eslint-disable-line prefer-destructuring
       expect(name).to.equal('one');
       expect(value).to.equal(1);
 
-      [name, value] = entries[2];
+      [name, value] = entries[2]; // eslint-disable-line prefer-destructuring
       expect(name).to.equal('two');
       expect(value).to.equal('TWO');
 
-      [name, value] = entries[3];
+      [name, value] = entries[3]; // eslint-disable-line prefer-destructuring
       expect(name).to.equal('three');
       expect(value).to.equal(3.0);
     });
