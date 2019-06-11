@@ -1,7 +1,10 @@
 import chai from 'chai';
 import {Enum} from '../lib/index.js';
 
-/** A sample enumeration. */
+/**
+ * A sample enumeration.
+ * @enum {*}
+ */
 const SampleEnum = Enum.create({
   zero: false,
   one: 1,
