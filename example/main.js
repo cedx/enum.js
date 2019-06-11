@@ -1,6 +1,8 @@
+/* eslint-disable capitalized-comments, line-comment-position, no-unused-vars */
 import {Enum} from '@cedx/enum';
 
-const DayOfWeek = Enum.create<number>({
+/** Specifies the days of the week. */
+const DayOfWeek = Enum.create({
   sunday: 0,
   monday: 1,
   tuesday: 2,
@@ -21,7 +23,7 @@ function main() {
   DayOfWeek.assert(123); // (throws TypeError)
 
   console.log(DayOfWeek.coerce(DayOfWeek.monday)); // DayOfWeek.monday
-  console.log(DayOfWeek.coerce(123)); // undefined
+  console.log(DayOfWeek.coerce(123)); // null
   console.log(DayOfWeek.coerce(123, DayOfWeek.tuesday)); // DayOfWeek.tuesday
 
   // Get the zero-based position of a value in the enumerated type declaration.
