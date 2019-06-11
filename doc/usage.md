@@ -7,8 +7,8 @@ source: lib/enum.js
 Just use the `Enum.create()` method with an object literal containing scalar values (i.e. only booleans, numbers and strings):
 
 ```js
-/** Specifies the day of the week. */
-const DayOfWeek = Enum.create<number>({
+/** Specifies the days of the week. */
+const DayOfWeek = Enum.create({
   sunday: 0,
   monday: 1,
   tuesday: 2,
@@ -22,8 +22,7 @@ const DayOfWeek = Enum.create<number>({
 This method creates an instance of an anonymous class from the enumerable properties of the specified object.
 
 !!! warning
-    Only scalar values (booleans, numbers, and strings) are retained
-    when iterating on the enumerable properties of the provided object.
+    Only scalar values (booleans, numbers, and strings) are retained when iterating on the properties of the provided object.
 
 This instance has the same values as the provided object, and some additional helper methods. The new object is also freezed to prevent any attempt at modifying its shape.
 
@@ -39,10 +38,10 @@ Ensure that a value is defined among the enumerated type:
 
 ```js
 DayOfWeek.assert(DayOfWeek.monday); // DayOfWeek.monday
-DayOfWeek.assert(123); // (throws TypeError)
+DayOfWeek.assert(123); // (throws `TypeError`)
 
 DayOfWeek.coerce(DayOfWeek.monday); // DayOfWeek.monday
-DayOfWeek.coerce(123); // undefined
+DayOfWeek.coerce(123); // null
 DayOfWeek.coerce(123, DayOfWeek.tuesday); // DayOfWeek.tuesday
 ```
 
@@ -64,7 +63,7 @@ Get information about the enumerated type:
 
 ```js
 DayOfWeek.entries();
-// `"sunday", 0], ["monday", 1], ["tuesday", 2], ["wednesday", 3], ["thursday", 4], ["friday", 5], ["saturday", 6`
+// [["sunday", 0], ["monday", 1], ["tuesday", 2], ["wednesday", 3], ["thursday", 4], ["friday", 5], ["saturday", 6]]
 
 DayOfWeek.names();
 // ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"]
