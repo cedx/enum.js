@@ -1,5 +1,7 @@
 # Changelog
 
+## Version [6.0.0](https://github.com/cedx/enum.js/compare/v5.5.0...v6.0.0)
+
 ## Version [5.5.0](https://github.com/cedx/enum.js/compare/v5.4.0...v5.5.0)
 - Modified the package layout.
 - Updated the package dependencies.
