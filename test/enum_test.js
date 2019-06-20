@@ -1,4 +1,3 @@
-import chai from 'chai';
 import {Enum} from '../lib/index.js';
 
 /**
@@ -14,8 +13,6 @@ const SampleEnum = Enum.create({
 
 /** Tests the features of the {@link Enum} class. */
 describe('EnumTest', () => {
-  const {expect} = chai;
-
   describe('#assert()', () => {
     it('should return the specified value if it is a known one', () => {
       expect(SampleEnum.assert(false)).to.equal(SampleEnum.zero);
