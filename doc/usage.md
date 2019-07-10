@@ -4,7 +4,7 @@ source: lib/enum.js
 # Usage
 
 ## Create the enumeration
-Just use the `Enum.create()` method with an object literal containing scalar values (i.e. only booleans, numbers and strings):
+Just use the `Enum.create()` method with an object literal containing scalar values (i.e. booleans, numbers and strings):
 
 ```js
 /**
@@ -25,7 +25,7 @@ const DayOfWeek = Enum.create({
 This method creates an instance of an anonymous class from the enumerable properties of the specified object.
 
 !!! warning
-    Only scalar values (booleans, numbers, and strings) are retained when iterating on the properties of the provided object.
+    Only scalar values (big integers, booleans, numbers, and strings) are retained when iterating on the properties of the provided object.
 
 This instance has the same values as the provided object, and some additional helper methods. The new object is also freezed to prevent any attempt at modifying its shape.
 
