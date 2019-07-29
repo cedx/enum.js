@@ -16,6 +16,8 @@
   },
   "devDependencies": {
     "@cedx/coveralls": "^9.0.0",
+    "@types/gulp": "^4.0.6",
+    "@types/node": "^12.6.8",
     "babel-minify": "^0.5.0",
     "chai": "^4.2.0",
     "del": "^5.0.0",
@@ -45,7 +47,7 @@
   ],
   "scripts": {
     "coverage": "gulp coverage",
-    "prepack": "gulp build",
+    "prepack": "gulp",
     "start": "gulp watch",
     "test": "gulp test"
   }
