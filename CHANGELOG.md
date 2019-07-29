@@ -3,9 +3,9 @@
 ## Version [6.0.0](https://github.com/cedx/enum.js/compare/v5.5.0...v6.0.0)
 - Breaking change: dropped support for [CommonJS modules](https://nodejs.org/api/modules.html).
 - Breaking change: raised the required [Node.js](https://nodejs.org) version.
-- Breaking change: reverted the source code to [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript).
-- Replaced [TypeDoc](https://typedoc.org) documentation generator by [JSDoc](https://jsdoc.app).
-- Replaced [TSLint](https://palantir.github.io/tslint) static analyzer by [ESLint](https://eslint.org).
+- Breaking change: reverted the source code to [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) and [TypeScript](https://www.typescriptlang.org).
+- Replaced the [TypeDoc](https://typedoc.org) documentation generator by [JSDoc](https://jsdoc.app).
+- Replaced the [TSLint](https://palantir.github.io/tslint) static analyzer by [ESLint](https://eslint.org).
 - Updated the package dependencies.
 
 ## Version [5.5.0](https://github.com/cedx/enum.js/compare/v5.4.0...v5.5.0)
@@ -14,7 +14,7 @@
 
 ## Version [5.4.0](https://github.com/cedx/enum.js/compare/v5.3.0...v5.4.0)
 - Added support for [ECMAScript modules](https://nodejs.org/api/esm.html).
-- Replaced [Webpack](https://webpack.js.org) bundler by [Rollup](https://rollupjs.org) and [Babel Minify](https://github.com/babel/minify).
+- Replaced the [Webpack](https://webpack.js.org) bundler by [Rollup](https://rollupjs.org) and [Babel Minify](https://github.com/babel/minify).
 - Updated the package dependencies.
 
 ## Version [5.3.0](https://github.com/cedx/enum.js/compare/v5.2.0...v5.3.0)
@@ -25,7 +25,7 @@
 - Added support for a redistributable bundle.
 
 ## Version [5.1.1](https://github.com/cedx/enum.js/compare/v5.1.0...v5.1.1)
-- Fixed the [GitHub issue #2](https://github.com/cedx/enum.js/issues/2): relaxed the engine constraint.
+- Fixed the [issue #2](https://github.com/cedx/enum.js/issues/2): relaxed the engine constraint.
 
 ## Version [5.1.0](https://github.com/cedx/enum.js/compare/v5.0.0...v5.1.0)
 - Updated the package dependencies.
@@ -34,8 +34,8 @@
 - Breaking change: ported the source code to [TypeScript](https://www.typescriptlang.org).
 - Added an example code.
 - Ported the unit tests to classes with experimental decorators.
-- Replaced [ESDoc](https://esdoc.org) documentation generator by [TypeDoc](https://typedoc.org).
-- Replaced [ESLint](https://eslint.org) static analyzer by [TSLint](https://palantir.github.io/tslint).
+- Replaced the [ESDoc](https://esdoc.org) documentation generator by [TypeDoc](https://typedoc.org).
+- Replaced the [ESLint](https://eslint.org) static analyzer by [TSLint](https://palantir.github.io/tslint).
 - Updated the package dependencies.
 
 ## Version [4.1.0](https://github.com/cedx/enum.js/compare/v4.0.0...v4.1.0)
