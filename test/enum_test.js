@@ -11,7 +11,7 @@ const SampleEnum = Enum.create({
   three: 3.0
 });
 
-/** Tests the features of the {@link Enum} class. */
+/** Tests the features of the [[Enum]] class. */
 describe('EnumTest', () => {
   describe('#assert()', () => {
     it('should return the specified value if it is a known one', () => {
