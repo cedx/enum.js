@@ -1,10 +1,9 @@
-/* eslint-disable capitalized-comments, line-comment-position, no-unused-vars */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
+// @ts-ignore
 import {Enum} from '@cedx/enum';
 
-/**
- * Specifies the days of the week.
- * @enum {number}
- */
+/** Specifies the days of the week. */
 const DayOfWeek = Enum.create({
   sunday: 0,
   monday: 1,
