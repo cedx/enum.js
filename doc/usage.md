@@ -1,17 +1,14 @@
 path: blob/master
-source: lib/enum.js
+source: src/enum.ts
 
 # Usage
 
 ## Create the enumeration
-Just use the `Enum.create()` method with an object literal containing scalar values (i.e. booleans, numbers and strings):
+Just use the `Enum.create()` method with an object literal containing scalar values (i.e. big integers, booleans, numbers and strings):
 
 ```ts
-/**
- * Specifies the days of the week.
- * @enum {number}
- */
-const DayOfWeek = Enum.create({
+/** Specifies the days of the week. */
+const DayOfWeek = Enum.create<number>({
   sunday: 0,
   monday: 1,
   tuesday: 2,
@@ -44,7 +41,7 @@ DayOfWeek.assert(DayOfWeek.monday); // DayOfWeek.monday
 DayOfWeek.assert(123); // (throws `TypeError`)
 
 DayOfWeek.coerce(DayOfWeek.monday); // DayOfWeek.monday
-DayOfWeek.coerce(123); // null
+DayOfWeek.coerce(123); // undefined
 DayOfWeek.coerce(123, DayOfWeek.tuesday); // DayOfWeek.tuesday
 ```
 

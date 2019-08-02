@@ -1,10 +1,10 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable capitalized-comments, line-comment-position, @typescript-eslint/no-unused-vars */
 
 // @ts-ignore
 import {Enum} from '@cedx/enum';
 
 /** Specifies the days of the week. */
-const DayOfWeek = Enum.create({
+const DayOfWeek = Enum.create<number>({
   sunday: 0,
   monday: 1,
   tuesday: 2,
@@ -15,7 +15,7 @@ const DayOfWeek = Enum.create({
 });
 
 /** Works with the enumeration. */
-function main() {
+function main(): void {
   // Check whether a value is defined among the enumerated type.
   console.log(DayOfWeek.isDefined(DayOfWeek.sunday)); // true
   console.log(DayOfWeek.isDefined(123)); // false
@@ -25,7 +25,7 @@ function main() {
   DayOfWeek.assert(123); // (throws TypeError)
 
   console.log(DayOfWeek.coerce(DayOfWeek.monday)); // DayOfWeek.monday
-  console.log(DayOfWeek.coerce(123)); // null
+  console.log(DayOfWeek.coerce(123)); // undefined
   console.log(DayOfWeek.coerce(123, DayOfWeek.tuesday)); // DayOfWeek.tuesday
 
   // Get the zero-based position of a value in the enumerated type declaration.
