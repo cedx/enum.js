@@ -1,15 +1,16 @@
 import {spawn, SpawnOptions} from 'child_process';
-import del from 'del';
+import * as del from 'del';
 import {promises} from 'fs';
-import gulp from 'gulp';
+import * as gulp from 'gulp';
+import * as replace from 'gulp-replace';
 import {delimiter, normalize, resolve} from 'path';
 
 /** The file patterns providing the list of source files. */
 const sources: string[] = ['*.ts', 'example/*.ts', 'src/**/*.ts', 'test/**/*.ts'];
 
 // Shortcuts.
-const {parallel, task, watch} = gulp;
-const {access, copyFile} = promises;
+const {dest, series, src, task, watch} = gulp;
+const {copyFile} = promises;
 
 // Initialize the build system.
 const _path = 'PATH' in process.env ? process.env.PATH! : '';
@@ -17,25 +18,20 @@ const _vendor = resolve('node_modules/.bin');
 if (!_path.includes(_vendor)) process.env.PATH = `${_vendor}${delimiter}${_path}`;
 
 /** Builds the project. */
-task('build', async () => {
+task('build:dist', async () => {
   await _exec('rollup', ['--config=etc/rollup.js']);
   return _exec('minify', ['build/enum.js', '--out-file=build/enum.min.js']);
 });
+
+task('build:fix', () => src('lib/**/*.js').pipe(replace(/(export|import)\s+(.+)\s+from\s+'(\.[^']+)'/g, "$1 $2 from '$3.js'")).pipe(dest('lib')));
+task('build:js', () => _exec('tsc', ['--project', 'src/tsconfig.json']));
+task('build', series('build:js', 'build:fix', 'build:dist'));
 
 /** Deletes all generated files and reset any saved state. */
 task('clean', () => del(['.nyc_output', 'build', 'doc/api', 'lib', 'var/**/*', 'web']));
 
 /** Uploads the results of the code coverage. */
-task('coverage', async () => {
-  try {
-    await access('var/lcov.info');
-    return _exec('coveralls', ['var/lcov.info']);
-  }
-
-  catch {
-    return Promise.resolve();
-  }
-});
+task('coverage', async () => _exec('coveralls', ['var/lcov.info']));
 
 /** Builds the documentation. */
 task('doc', async () => {
@@ -52,9 +48,10 @@ task('fix', () => _exec('eslint', ['--config=etc/eslint.json', '--fix', ...sourc
 task('lint', () => _exec('eslint', ['--config=etc/eslint.json', ...sources]));
 
 /** Runs the test suites. */
-task('test:browser', () => _exec('karma', ['start', 'etc/karma.js']));
-task('test:node', () => _exec('nyc', ['--nycrc-path=etc/nyc.json', 'node_modules/.bin/mocha', '--config=etc/mocha.json', '"test/**/*.ts"']));
-task('test', parallel('test:browser', 'test:node'));
+task('test', () => {
+  process.env.TS_NODE_PROJECT = 'test/tsconfig.json';
+  return _exec('nyc', ['--nycrc-path=etc/nyc.json', 'node_modules/.bin/mocha', '--config=etc/mocha.json', '"test/**/*.ts"']);
+});
 
 /** Upgrades the project to the latest revision. */
 task('upgrade', async () => {
