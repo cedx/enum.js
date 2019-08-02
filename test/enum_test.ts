@@ -1,10 +1,8 @@
-import {Enum} from '../lib/index.js';
+import * as chai from 'chai';
+import {Enum} from '../src/index';
 
-/**
- * A sample enumeration.
- * @enum {*}
- */
-const SampleEnum = Enum.create({
+/** A sample enumeration. */
+const SampleEnum = Enum.create<any>({
   zero: false,
   one: 1,
   two: 'TWO',
@@ -13,6 +11,8 @@ const SampleEnum = Enum.create({
 
 /** Tests the features of the [[Enum]] class. */
 describe('EnumTest', () => {
+  const {expect} = chai;
+
   describe('#assert()', () => {
     it('should return the specified value if it is a known one', () => {
       expect(SampleEnum.assert(false)).to.equal(SampleEnum.zero);
@@ -30,6 +30,7 @@ describe('EnumTest', () => {
 
   describe('.create()', () => {
     it('should create types that are not instantiable', () => {
+      // @ts-ignore
       expect(() => new SampleEnum).to.throw(TypeError);
     });
 
@@ -58,7 +59,7 @@ describe('EnumTest', () => {
     });
 
     it('should return the default value if it is an unknown one', () => {
-      expect(SampleEnum.coerce('')).to.be.null;
+      expect(SampleEnum.coerce('')).to.be.undefined;
       expect(SampleEnum.coerce('two', false)).to.be.false;
       expect(SampleEnum.coerce(3.1, SampleEnum.zero)).to.equal(SampleEnum.zero);
     });
