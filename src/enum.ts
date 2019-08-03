@@ -1,5 +1,5 @@
 /** A symbol indicating that an object is an enumeration. */
-const isEnum = Symbol('Enum');
+const isEnum: symbol = Symbol('Enum');
 
 /**
  * An object that looks like an enumerated type.
