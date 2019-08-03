@@ -46,8 +46,10 @@ describe('Enum', () => {
       expect(() => MixedEnum.assert(3.1)).to.throw(TypeError);
 
       expect(() => Enum.assert(NumericEnum, 0)).to.throw(TypeError);
-      // TODO: reverse-mapping expect(() => Enum.assert(NumericEnum, 'one')).to.throw(TypeError);
       expect(() => Enum.assert(StringEnum, 'zero')).to.throw(TypeError);
+
+      // Edge case: reverse mapping of numeric enums.
+      expect(() => Enum.assert(NumericEnum, 'one')).to.throw(TypeError);
     });
   });
 
@@ -71,6 +73,9 @@ describe('Enum', () => {
       expect(Enum.coerce(NumericEnum, 0, 123)).to.equal(123);
       expect(Enum.coerce(StringEnum, 'zero')).to.be.undefined;
       expect(Enum.coerce(StringEnum, 'zero', 'foo')).to.equal('foo');
+
+      // Edge case: reverse mapping of numeric enums.
+      expect(Enum.coerce(NumericEnum, 'one')).to.be.undefined;
     });
   });
 
@@ -79,41 +84,40 @@ describe('Enum', () => {
       expect(MixedEnum).to.be.frozen;
     });
 
-    it('should create types having the `Enum` mixins', () => {
-      expect(MixedEnum.assert).to.be.a('function');
-      expect(MixedEnum.coerce).to.be.a('function');
-      expect(MixedEnum.entries).to.be.a('function');
-      expect(MixedEnum.getIndex).to.be.a('function');
-      expect(MixedEnum.getName).to.be.a('function');
-      expect(MixedEnum.isDefined).to.be.a('function');
-      expect(MixedEnum.names).to.be.a('function');
-      expect(MixedEnum.values).to.be.a('function');
+    it('should create types having the `Enum` mixin', () => {
+      const methods = ['assert', 'coerce', 'entries', 'getIndex', 'getName', 'isDefined', 'names', 'values'];
+      for (const method of methods) expect(MixedEnum[method]).to.be.a('function');
     });
   });
 
   describe('.entries()', () => {
     it('should return the pairs of names and values of the enumerated constants', () => {
-      const entries = MixedEnum.entries();
+      let entries = MixedEnum.entries();
       expect(entries).to.have.lengthOf(4);
-      for (const entry of entries) expect(entry).to.be.an('array').and.have.lengthOf(2);
 
-      let [name, value] = entries[0]; // eslint-disable-line prefer-destructuring
-      expect(name).to.equal('zero');
-      expect(value).to.be.false;
+      let [tuple1, tuple2, tuple3, tuple4] = entries;
+      expect(tuple1).to.have.ordered.members(['zero', false]);
+      expect(tuple2).to.have.ordered.members(['one', 1]);
+      expect(tuple3).to.have.ordered.members(['two', 'TWO']);
+      expect(tuple4).to.have.ordered.members(['three', 3.0]);
 
-      [name, value] = entries[1]; // eslint-disable-line prefer-destructuring
-      expect(name).to.equal('one');
-      expect(value).to.equal(1);
+      entries = Enum.entries(NumericEnum);
+      expect(entries).to.have.lengthOf(4);
 
-      [name, value] = entries[2]; // eslint-disable-line prefer-destructuring
-      expect(name).to.equal('two');
-      expect(value).to.equal('TWO');
+      [tuple1, tuple2, tuple3, tuple4] = entries;
+      expect(tuple1).to.have.ordered.members(['one', 1]);
+      expect(tuple2).to.have.ordered.members(['two', 2]);
+      expect(tuple3).to.have.ordered.members(['four', 4]);
+      expect(tuple4).to.have.ordered.members(['eight', 8]);
 
-      [name, value] = entries[3]; // eslint-disable-line prefer-destructuring
-      expect(name).to.equal('three');
-      expect(value).to.equal(3.0);
+      entries = Enum.entries(StringEnum);
+      expect(entries).to.have.lengthOf(4);
 
-      // TODO: entries of NumericEnum and StringEnum
+      [tuple1, tuple2, tuple3, tuple4] = entries;
+      expect(tuple1).to.have.ordered.members(['zero', 'ZERO']);
+      expect(tuple2).to.have.ordered.members(['one', 'ONE']);
+      expect(tuple3).to.have.ordered.members(['two', 'TWO']);
+      expect(tuple4).to.have.ordered.members(['three', 'THREE']);
     });
   });
 
@@ -125,6 +129,9 @@ describe('Enum', () => {
 
       expect(Enum.getIndex(NumericEnum, 0)).to.equal(-1);
       expect(Enum.getIndex(StringEnum, 'zero')).to.equal(-1);
+
+      // Edge case: reverse mapping of numeric enums.
+      expect(Enum.getIndex(NumericEnum, 'one')).to.equal(-1);
     });
 
     it('should return the index of the enumerated constant for known values', () => {
@@ -133,7 +140,7 @@ describe('Enum', () => {
       expect(MixedEnum.getIndex('TWO')).to.equal(2);
       expect(MixedEnum.getIndex(3.0)).to.equal(3);
 
-      // TODO fail expect(Enum.getIndex(NumericEnum, 1)).to.equal(0);
+      expect(Enum.getIndex(NumericEnum, 1)).to.equal(0);
       expect(Enum.getIndex(StringEnum, 'ONE')).to.equal(1);
     });
   });
@@ -146,6 +153,9 @@ describe('Enum', () => {
 
       expect(Enum.getName(NumericEnum, 0)).to.be.empty;
       expect(Enum.getName(StringEnum, 'zero')).to.be.empty;
+
+      // Edge case: reverse mapping of numeric enums.
+      expect(Enum.getName(NumericEnum, 'one')).to.be.empty;
     });
 
     it('should return the name for known values', () => {
@@ -167,6 +177,9 @@ describe('Enum', () => {
 
       expect(Enum.isDefined(NumericEnum, 0)).to.be.false;
       expect(Enum.isDefined(StringEnum, 'zero')).to.be.false;
+
+      // Edge case: reverse mapping of numeric enums.
+      expect(Enum.isDefined(NumericEnum, 'one')).to.be.false;
     });
 
     it('should return `true` for known values', () => {
@@ -183,7 +196,7 @@ describe('Enum', () => {
   describe('.names()', () => {
     it('should return the names of the enumerable properties', () => {
       expect(MixedEnum.names()).to.have.ordered.members(['zero', 'one', 'two', 'three']);
-      // TODO fail expect(Enum.names(NumericEnum)).to.have.ordered.members(['one', 'two', 'four', 'eight']);
+      expect(Enum.names(NumericEnum)).to.have.ordered.members(['one', 'two', 'four', 'eight']);
       expect(Enum.names(StringEnum)).to.have.ordered.members(['zero', 'one', 'two', 'three']);
     });
   });
@@ -191,7 +204,7 @@ describe('Enum', () => {
   describe('.values()', () => {
     it('should return the values of the enumerable properties', () => {
       expect(MixedEnum.values()).to.have.ordered.members([false, 1, 'TWO', 3.0]);
-      // TODO fail expect(Enum.values(NumericEnum)).to.have.ordered.members([1, 2, 4, 8]);
+      expect(Enum.values(NumericEnum)).to.have.ordered.members([1, 2, 4, 8]);
       expect(Enum.values(StringEnum)).to.have.ordered.members(['ZERO', 'ONE', 'TWO', 'THREE']);
     });
   });

@@ -45,16 +45,16 @@ export abstract class Enum {
   static create<T extends EnumValue>(typeDef: EnumLike<T>): Readonly<EnumType<T>> {
     const descriptor = {configurable: false, enumerable: false, writable: false};
     const enumType = {};
-    Object.defineProperty(enumType, isEnum, {...descriptor, value: true});
+    Reflect.defineProperty(enumType, isEnum, {...descriptor, value: true});
 
     const scalarTypes = ['boolean', 'number', 'string'];
     for (const [name, value] of Object.entries(typeDef))
-      if (scalarTypes.includes(typeof value)) Object.defineProperty(enumType, name, {...descriptor, enumerable: true, value});
+      if (scalarTypes.includes(typeof value)) Reflect.defineProperty(enumType, name, {...descriptor, enumerable: true, value});
 
-    const methods = ['assert', 'coerce', 'entries', 'isDefined', 'getIndex', 'getName', 'names', 'values'];
+    const methods = ['assert', 'coerce', 'entries', 'getIndex', 'getName', 'isDefined', 'names', 'values'];
     for (const name of methods) {
       const method = Reflect.get(Enum, name).bind(enumType, enumType);
-      Object.defineProperty(enumType, name, {...descriptor, value: method});
+      Reflect.defineProperty(enumType, name, {...descriptor, value: method});
     }
 
     return Object.freeze(enumType as EnumType<T>);
@@ -66,7 +66,9 @@ export abstract class Enum {
    * @return An array that contains the `[name, value]` pairs of the constants in the specified enumeration.
    */
   static entries(enumType: object): Array<[string, EnumValue]> {
-    return Object.entries(enumType as EnumLike<EnumValue>);
+    return Enum._hasEnumSymbol(enumType) || Enum._isStringEnum(enumType)
+      ? Object.entries(enumType)
+      : Enum.names(enumType).map(name => [name, Reflect.get(enumType, name)]);
   }
 
   /**
@@ -106,7 +108,10 @@ export abstract class Enum {
    * @return An array that contains the names of the constants in the specified enumeration.
    */
   static names(enumType: object): string[] {
-    return Object.keys(enumType);
+    const isNumeric = /^\d+$/;
+    return Enum._hasEnumSymbol(enumType) || Enum._isStringEnum(enumType)
+      ? Object.keys(enumType)
+      : Object.keys(enumType).filter(key => !isNumeric.test(key));
   }
 
   /**
@@ -115,7 +120,9 @@ export abstract class Enum {
    * @return An array that contains the values of the constants in the specified enumeration.
    */
   static values(enumType: object): EnumValue[] {
-    return Object.values(enumType as EnumLike<EnumValue>);
+    return Enum._hasEnumSymbol(enumType) || Enum._isStringEnum(enumType)
+      ? Object.values(enumType)
+      : Object.values(enumType).filter(value => typeof value == 'number');
   }
 
   /**
@@ -123,8 +130,8 @@ export abstract class Enum {
    * @param enumType An enumerated type.
    * @return `true` if the specified enumeration is a TypeScript one, otherwise `false`.
    */
-  private static _isEnum(enumType: object): boolean {
-    return (isEnum in enumType) && (Reflect.get(enumType, isEnum) === true);
+  private static _hasEnumSymbol(enumType: object): boolean {
+    return Reflect.has(enumType, isEnum) && (Reflect.get(enumType, isEnum) === true);
   }
 
   /**
@@ -133,8 +140,7 @@ export abstract class Enum {
    * @return `true` if the specified enumeration is a string one, otherwise `false`.
    */
   private static _isStringEnum(enumType: object): boolean {
-    const predicate = (value: EnumValue): boolean => typeof value == 'string';
-    return Object.values(enumType as EnumLike<EnumValue>).every(predicate);
+    return Object.values(enumType).every(value => typeof value == 'string');
   }
 }
 
