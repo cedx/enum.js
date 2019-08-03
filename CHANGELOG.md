@@ -1,6 +1,7 @@
 # Changelog
 
 ## Version [6.1.0](https://github.com/cedx/enum.js/compare/v6.0.0...v6.1.0)
+- Added support for [TypeScript enums](https://www.typescriptlang.org/docs/handbook/enums.html).
 - Due to strong user demand, restored the [TypeScript](https://www.typescriptlang.org) source code.
 - Raised the [Node.js](https://nodejs.org) constraint.
 - Replaced the [JSDoc](https://jsdoc.app) documentation generator by [TypeDoc](https://typedoc.org).
