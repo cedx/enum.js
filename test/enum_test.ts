@@ -2,14 +2,14 @@ import * as chai from 'chai';
 import {Enum} from '../src/index';
 
 /** An enumeration providing a mixed set of scalar values. */
-const MixedEnum = Enum.create<any>({
+const SampleEnum = Enum.create<any>({
   zero: false,
   one: 1,
   two: 'TWO',
   three: 3.0
 });
 
-/** An enumeration providing numeric values. */
+/** A TypeScript enumeration providing numeric values. */
 enum NumericEnum {
   one = 1 << 0,
   two = 1 << 1,
@@ -17,7 +17,7 @@ enum NumericEnum {
   eight = 1 << 3
 }
 
-/** An enumeration providing string values. */
+/** A TypeScript enumeration providing string values. */
 enum StringEnum {
   zero = 'ZERO',
   one = 'ONE',
@@ -31,19 +31,19 @@ describe('Enum', () => {
 
   describe('.assert()', () => {
     it('should return the specified value if it is a known one', () => {
-      expect(MixedEnum.assert(false)).to.equal(MixedEnum.zero);
-      expect(MixedEnum.assert(1)).to.equal(MixedEnum.one);
-      expect(MixedEnum.assert('TWO')).to.equal(MixedEnum.two);
-      expect(MixedEnum.assert(3.0)).to.equal(MixedEnum.three);
+      expect(SampleEnum.assert(false)).to.equal(SampleEnum.zero);
+      expect(SampleEnum.assert(1)).to.equal(SampleEnum.one);
+      expect(SampleEnum.assert('TWO')).to.equal(SampleEnum.two);
+      expect(SampleEnum.assert(3.0)).to.equal(SampleEnum.three);
 
       expect(Enum.assert(NumericEnum, 1)).to.equal(NumericEnum.one);
       expect(Enum.assert(StringEnum, 'ONE')).to.equal(StringEnum.one);
     });
 
     it('should throw an exception if it is an unknown value', () => {
-      expect(() => MixedEnum.assert('')).to.throw(TypeError);
-      expect(() => MixedEnum.assert('two')).to.throw(TypeError);
-      expect(() => MixedEnum.assert(3.1)).to.throw(TypeError);
+      expect(() => SampleEnum.assert('')).to.throw(TypeError);
+      expect(() => SampleEnum.assert('two')).to.throw(TypeError);
+      expect(() => SampleEnum.assert(3.1)).to.throw(TypeError);
 
       expect(() => Enum.assert(NumericEnum, 0)).to.throw(TypeError);
       expect(() => Enum.assert(StringEnum, 'zero')).to.throw(TypeError);
@@ -55,19 +55,19 @@ describe('Enum', () => {
 
   describe('.coerce()', () => {
     it('should return the specified value if it is a known one', () => {
-      expect(MixedEnum.coerce(false)).to.equal(MixedEnum.zero);
-      expect(MixedEnum.coerce(1)).to.equal(MixedEnum.one);
-      expect(MixedEnum.coerce('TWO')).to.equal(MixedEnum.two);
-      expect(MixedEnum.coerce(3.0)).to.equal(MixedEnum.three);
+      expect(SampleEnum.coerce(false)).to.equal(SampleEnum.zero);
+      expect(SampleEnum.coerce(1)).to.equal(SampleEnum.one);
+      expect(SampleEnum.coerce('TWO')).to.equal(SampleEnum.two);
+      expect(SampleEnum.coerce(3.0)).to.equal(SampleEnum.three);
 
       expect(Enum.coerce(NumericEnum, 1)).to.equal(NumericEnum.one);
       expect(Enum.coerce(StringEnum, 'ONE')).to.equal(StringEnum.one);
     });
 
     it('should return the default value if it is an unknown one', () => {
-      expect(MixedEnum.coerce('')).to.be.undefined;
-      expect(MixedEnum.coerce('two', false)).to.be.false;
-      expect(MixedEnum.coerce(3.1, MixedEnum.zero)).to.equal(MixedEnum.zero);
+      expect(SampleEnum.coerce('')).to.be.undefined;
+      expect(SampleEnum.coerce('two', false)).to.be.false;
+      expect(SampleEnum.coerce(3.1, SampleEnum.zero)).to.equal(SampleEnum.zero);
 
       expect(Enum.coerce(NumericEnum, 0)).to.be.undefined;
       expect(Enum.coerce(NumericEnum, 0, 123)).to.equal(123);
@@ -81,18 +81,18 @@ describe('Enum', () => {
 
   describe('.create()', () => {
     it('should create types that are immutable', () => {
-      expect(MixedEnum).to.be.frozen;
+      expect(SampleEnum).to.be.frozen;
     });
 
     it('should create types having the `Enum` mixin', () => {
       const methods = ['assert', 'coerce', 'entries', 'getIndex', 'getName', 'isDefined', 'names', 'values'];
-      for (const method of methods) expect(MixedEnum[method]).to.be.a('function');
+      for (const method of methods) expect(SampleEnum[method]).to.be.a('function');
     });
   });
 
   describe('.entries()', () => {
     it('should return the pairs of names and values of the enumerated constants', () => {
-      let entries = MixedEnum.entries();
+      let entries = SampleEnum.entries();
       expect(entries).to.have.lengthOf(4);
 
       let [tuple1, tuple2, tuple3, tuple4] = entries;
@@ -123,9 +123,9 @@ describe('Enum', () => {
 
   describe('.getIndex()', () => {
     it('should return `-1` for unknown values', () => {
-      expect(MixedEnum.getIndex(0)).to.equal(-1);
-      expect(MixedEnum.getIndex('two')).to.equal(-1);
-      expect(MixedEnum.getIndex(3.1)).to.equal(-1);
+      expect(SampleEnum.getIndex(0)).to.equal(-1);
+      expect(SampleEnum.getIndex('two')).to.equal(-1);
+      expect(SampleEnum.getIndex(3.1)).to.equal(-1);
 
       expect(Enum.getIndex(NumericEnum, 0)).to.equal(-1);
       expect(Enum.getIndex(StringEnum, 'zero')).to.equal(-1);
@@ -135,10 +135,10 @@ describe('Enum', () => {
     });
 
     it('should return the index of the enumerated constant for known values', () => {
-      expect(MixedEnum.getIndex(false)).to.equal(0);
-      expect(MixedEnum.getIndex(1)).to.equal(1);
-      expect(MixedEnum.getIndex('TWO')).to.equal(2);
-      expect(MixedEnum.getIndex(3.0)).to.equal(3);
+      expect(SampleEnum.getIndex(false)).to.equal(0);
+      expect(SampleEnum.getIndex(1)).to.equal(1);
+      expect(SampleEnum.getIndex('TWO')).to.equal(2);
+      expect(SampleEnum.getIndex(3.0)).to.equal(3);
 
       expect(Enum.getIndex(NumericEnum, 1)).to.equal(0);
       expect(Enum.getIndex(StringEnum, 'ONE')).to.equal(1);
@@ -147,9 +147,9 @@ describe('Enum', () => {
 
   describe('.getName()', () => {
     it('should return an empty string for unknown values', () => {
-      expect(MixedEnum.getName(0)).to.be.empty;
-      expect(MixedEnum.getName('two')).to.be.empty;
-      expect(MixedEnum.getName(3.1)).to.be.empty;
+      expect(SampleEnum.getName(0)).to.be.empty;
+      expect(SampleEnum.getName('two')).to.be.empty;
+      expect(SampleEnum.getName(3.1)).to.be.empty;
 
       expect(Enum.getName(NumericEnum, 0)).to.be.empty;
       expect(Enum.getName(StringEnum, 'zero')).to.be.empty;
@@ -159,10 +159,10 @@ describe('Enum', () => {
     });
 
     it('should return the name for known values', () => {
-      expect(MixedEnum.getName(false)).to.equal('zero');
-      expect(MixedEnum.getName(1)).to.equal('one');
-      expect(MixedEnum.getName('TWO')).to.equal('two');
-      expect(MixedEnum.getName(3.0)).to.equal('three');
+      expect(SampleEnum.getName(false)).to.equal('zero');
+      expect(SampleEnum.getName(1)).to.equal('one');
+      expect(SampleEnum.getName('TWO')).to.equal('two');
+      expect(SampleEnum.getName(3.0)).to.equal('three');
 
       expect(Enum.getName(NumericEnum, 1)).to.equal('one');
       expect(Enum.getName(StringEnum, 'ONE')).to.equal('one');
@@ -171,9 +171,9 @@ describe('Enum', () => {
 
   describe('.isDefined()', () => {
     it('should return `false` for unknown values', () => {
-      expect(MixedEnum.isDefined(0)).to.be.false;
-      expect(MixedEnum.isDefined('two')).to.be.false;
-      expect(MixedEnum.isDefined(3.1)).to.be.false;
+      expect(SampleEnum.isDefined(0)).to.be.false;
+      expect(SampleEnum.isDefined('two')).to.be.false;
+      expect(SampleEnum.isDefined(3.1)).to.be.false;
 
       expect(Enum.isDefined(NumericEnum, 0)).to.be.false;
       expect(Enum.isDefined(StringEnum, 'zero')).to.be.false;
@@ -183,10 +183,10 @@ describe('Enum', () => {
     });
 
     it('should return `true` for known values', () => {
-      expect(MixedEnum.isDefined(false)).to.be.true;
-      expect(MixedEnum.isDefined(1)).to.be.true;
-      expect(MixedEnum.isDefined('TWO')).to.be.true;
-      expect(MixedEnum.isDefined(3.0)).to.be.true;
+      expect(SampleEnum.isDefined(false)).to.be.true;
+      expect(SampleEnum.isDefined(1)).to.be.true;
+      expect(SampleEnum.isDefined('TWO')).to.be.true;
+      expect(SampleEnum.isDefined(3.0)).to.be.true;
 
       expect(Enum.isDefined(NumericEnum, 1)).to.be.true;
       expect(Enum.isDefined(StringEnum, 'ONE')).to.be.true;
@@ -195,7 +195,7 @@ describe('Enum', () => {
 
   describe('.names()', () => {
     it('should return the names of the enumerable properties', () => {
-      expect(MixedEnum.names()).to.have.ordered.members(['zero', 'one', 'two', 'three']);
+      expect(SampleEnum.names()).to.have.ordered.members(['zero', 'one', 'two', 'three']);
       expect(Enum.names(NumericEnum)).to.have.ordered.members(['one', 'two', 'four', 'eight']);
       expect(Enum.names(StringEnum)).to.have.ordered.members(['zero', 'one', 'two', 'three']);
     });
@@ -203,7 +203,7 @@ describe('Enum', () => {
 
   describe('.values()', () => {
     it('should return the values of the enumerable properties', () => {
-      expect(MixedEnum.values()).to.have.ordered.members([false, 1, 'TWO', 3.0]);
+      expect(SampleEnum.values()).to.have.ordered.members([false, 1, 'TWO', 3.0]);
       expect(Enum.values(NumericEnum)).to.have.ordered.members([1, 2, 4, 8]);
       expect(Enum.values(StringEnum)).to.have.ordered.members(['ZERO', 'ONE', 'TWO', 'THREE']);
     });
