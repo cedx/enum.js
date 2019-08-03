@@ -4,7 +4,7 @@
 import {Enum} from '@cedx/enum';
 
 /** Specifies the days of the week. */
-const DayOfWeek = Enum.create<number>({
+const DayOfWeek = Enum.create({
   sunday: 0,
   monday: 1,
   tuesday: 2,
