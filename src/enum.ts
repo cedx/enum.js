@@ -1,15 +1,6 @@
 /** A symbol indicating that an object is an enumeration. */
 const isEnum: symbol = Symbol('Enum');
 
-/**
- * An object that looks like an enumerated type.
- * @typeparam T The type of the object properties.
- */
-export type EnumLike<T extends EnumValue> = Record<string, T>;
-
-/** A value of an enumerated type. */
-export type EnumValue = boolean|number|string;
-
 /** Provides helper methods for enumerations. */
 export abstract class Enum {
 
@@ -44,7 +35,7 @@ export abstract class Enum {
    * @return The newly created enumeration.
    * @typeparam T The type of the enumerated values.
    */
-  static create<T extends EnumValue>(typeDef: EnumLike<T>): Readonly<EnumLike<T> & EnumMethods<T>> {
+  static create<T extends EnumValue>(typeDef: EnumValues<T>): Readonly<EnumType<T>> {
     const descriptor = {configurable: false, enumerable: false, writable: false};
     const enumType = {};
     Reflect.defineProperty(enumType, isEnum, {...descriptor, value: true});
@@ -59,7 +50,7 @@ export abstract class Enum {
       Reflect.defineProperty(enumType, name, {...descriptor, value: method});
     }
 
-    return Object.freeze(enumType as (EnumLike<T> & EnumMethods<T>));
+    return Object.freeze(enumType as EnumType<T>);
   }
 
   /**
@@ -211,3 +202,18 @@ export interface EnumMethods<T extends EnumValue> {
    */
   values(): T[];
 }
+
+/**
+ * Defines the methods and values of an enumerated type.
+ * @typeparam T The type of the enumerated values.
+ */
+export type EnumType<T extends EnumValue> = EnumMethods<T> & EnumValues<T>;
+
+/** A value of an enumerated type. */
+export type EnumValue = boolean|number|string;
+
+/**
+ * Defines the values of an enumerated type.
+ * @typeparam T The type of the enumerated values.
+ */
+export type EnumValues<T extends EnumValue> = Record<string, T>;
