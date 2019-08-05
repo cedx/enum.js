@@ -3,7 +3,7 @@ const isEnum: unique symbol = Symbol('Enum');
 
 /**
  * An object that looks like an enumerated type.
- * @typeparam T The type of the object values.
+ * @typeparam T The type of the object properties.
  */
 export type EnumLike<T extends EnumValue> = Record<string, T>;
 
@@ -19,6 +19,7 @@ export abstract class Enum {
    * @param value The value to check.
    * @return The specified enumerated constant.
    * @throws [[TypeError]] No such constant was found.
+   * @typeparam T The type of the specified enumeration.
    */
   static assert<T extends object>(enumType: T, value: any): T[keyof T] {
     if (Enum.isDefined<T>(enumType, value)) return value;
@@ -31,6 +32,7 @@ export abstract class Enum {
    * @param value The value to coerce.
    * @param defaultValue The default value to return if the specified constant does not exist.
    * @return The specified enumerated constant, or the default value if no such constant is found.
+   * @typeparam T The type of the specified enumeration.
    */
   static coerce<T extends object>(enumType: T, value: any, defaultValue?: T[keyof T]): T[keyof T]|undefined {
     return Enum.isDefined<T>(enumType, value) ? value : defaultValue;
@@ -64,6 +66,7 @@ export abstract class Enum {
    * Gets an array of the `[name, value]` pairs of the constants in the specified enumeration.
    * @param enumType An enumerated type.
    * @return An array that contains the `[name, value]` pairs of the constants in the specified enumeration.
+   * @typeparam T The type of the specified enumeration.
    */
   static entries<T extends object>(enumType: T): Array<[string, T[keyof T]]> {
     return Enum._hasEnumSymbol(enumType) || Enum._isStringEnum(enumType)
@@ -76,6 +79,7 @@ export abstract class Enum {
    * @param enumType An enumerated type.
    * @param value The value of a constant in the enumerated type.
    * @return The zero-based position of the constant that has the specified value, or `-1` if no such constant is found.
+   * @typeparam T The type of the specified enumeration.
    */
   static getIndex<T extends object>(enumType: T, value: any): number {
     return Enum.values<T>(enumType).indexOf(value);
@@ -86,6 +90,7 @@ export abstract class Enum {
    * @param enumType An enumerated type.
    * @param value The value of a constant in the enumerated type.
    * @return A string containing the name of the constant that has the specified value, or an empty string if no such constant is found.
+   * @typeparam T The type of the specified enumeration.
    */
   static getName<T extends object>(enumType: T, value: any): string {
     const index = Enum.getIndex<T>(enumType, value);
@@ -97,6 +102,7 @@ export abstract class Enum {
    * @param enumType An enumerated type.
    * @param value The value to check.
    * @return `true` if a constant in the specified enumeration has the specified value, otherwise `false`.
+   * @typeparam T The type of the specified enumeration.
    */
   static isDefined<T extends object>(enumType: T, value: any): value is T[keyof T] {
     return Enum.values<T>(enumType).includes(value);
@@ -117,6 +123,7 @@ export abstract class Enum {
    * Gets an array of the values of the constants in the specified enumeration.
    * @param enumType An enumerated type.
    * @return An array that contains the values of the constants in the specified enumeration.
+   * @typeparam T The type of the specified enumeration.
    */
   static values<T extends object>(enumType: T): Array<T[keyof T]> {
     return Enum._hasEnumSymbol(enumType) || Enum._isStringEnum(enumType)
@@ -144,7 +151,7 @@ export abstract class Enum {
 }
 
 /**
- * An enumerated type.
+ * Defines the methods of an enumerated type.
  * @typeparam T The type of the enumerated values.
  */
 export interface EnumType<T extends EnumValue> extends Record<string, T|Function> {
