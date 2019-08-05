@@ -4,8 +4,8 @@
 ## Yet another implementation of enumerated types
 This implementation provides an `Enum` class that gives a set of static methods to ease working with the values of an object literal representing an enumerated type.
 
-For [JavaScript] users, this class provides a factory method to create concrete enumerated types.
-For [TypeScript] users, this class provides helper methods for querying ....... TODO .....
+For [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) users, this class provides a factory method for creating concrete enumerated types.  
+For [TypeScript](https://www.typescriptlang.org) users, this class provides helper methods for querying the members of the [enum](https://www.typescriptlang.org/docs/handbook/enums.html).
 
 
 ## Quick start

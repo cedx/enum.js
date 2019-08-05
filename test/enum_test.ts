@@ -67,7 +67,7 @@ describe('Enum', () => {
     it('should return the default value if it is an unknown one', () => {
       expect(SampleEnum.coerce('')).to.be.undefined;
       expect(SampleEnum.coerce('two', false)).to.be.false;
-      expect(SampleEnum.coerce(3.1, SampleEnum.zero)).to.equal(SampleEnum.zero);
+      expect(SampleEnum.coerce(3.1, SampleEnum.three)).to.equal(SampleEnum.three);
 
       expect(Enum.coerce(NumericEnum, 0)).to.be.undefined;
       expect(Enum.coerce(NumericEnum, 0, NumericEnum.eight)).to.equal(8);

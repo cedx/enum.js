@@ -1,12 +1,14 @@
 path: blob/master
 source: src/enum.ts
 
-# Usage
+# Using from JavaScript
 
 ## Create the enumeration
 Just use the `Enum.create()` method with an object literal containing scalar values (i.e. booleans, numbers and strings):
 
 ```ts
+import {Enum} from '@cedx/enum';
+
 /** Specifies the days of the week. */
 const DayOfWeek = Enum.create({
   sunday: 0,
@@ -19,12 +21,10 @@ const DayOfWeek = Enum.create({
 });
 ```
 
-This method creates an instance of an anonymous class from the enumerable properties of the specified object.
+This method creates an object from the enumerable properties of the specified object, having the same values as the provided object and some additional helper methods. The new object is also freezed to prevent any attempt at modifying its shape.
 
 !!! warning
     Only scalar values (booleans, numbers and strings) are retained when iterating on the properties of the provided object.
-
-This instance has the same values as the provided object, and some additional helper methods. The new object is also freezed to prevent any attempt at modifying its shape.
 
 ## Work with the enumeration
 Check whether a value is defined among the enumerated type:
