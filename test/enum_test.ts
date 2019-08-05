@@ -1,8 +1,8 @@
 import * as chai from 'chai';
-import {Enum} from '../src/index';
+import {Enum, EnumValue} from '../src/index';
 
 /** An enumeration providing a mixed set of scalar values. */
-const SampleEnum = Enum.create<any>({
+const SampleEnum = Enum.create({
   zero: false,
   one: 1,
   two: 'TWO',
@@ -70,9 +70,10 @@ describe('Enum', () => {
       expect(SampleEnum.coerce(3.1, SampleEnum.zero)).to.equal(SampleEnum.zero);
 
       expect(Enum.coerce(NumericEnum, 0)).to.be.undefined;
-      expect(Enum.coerce(NumericEnum, 0, 123)).to.equal(123);
+      expect(Enum.coerce(NumericEnum, 0, NumericEnum.eight)).to.equal(8);
+
       expect(Enum.coerce(StringEnum, 'zero')).to.be.undefined;
-      expect(Enum.coerce(StringEnum, 'zero', 'foo')).to.equal('foo');
+      expect(Enum.coerce(StringEnum, 'zero', StringEnum.three)).to.equal('THREE');
 
       // Edge case: reverse mapping of numeric enums.
       expect(Enum.coerce(NumericEnum, 'one')).to.be.undefined;
@@ -92,7 +93,7 @@ describe('Enum', () => {
 
   describe('.entries()', () => {
     it('should return the pairs of names and values of the enumerated constants', () => {
-      let entries = SampleEnum.entries();
+      let entries: Array<[string, EnumValue]> = SampleEnum.entries();
       expect(entries).to.have.lengthOf(4);
 
       let [tuple1, tuple2, tuple3, tuple4] = entries;
