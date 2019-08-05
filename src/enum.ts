@@ -108,10 +108,9 @@ export abstract class Enum {
    * @return An array that contains the names of the constants in the specified enumeration.
    */
   static names(enumType: object): string[] {
-    const isNumeric = /^\d+$/;
     return Enum._hasEnumSymbol(enumType) || Enum._isStringEnum(enumType)
       ? Object.keys(enumType)
-      : Object.keys(enumType).filter(key => !isNumeric.test(key));
+      : Object.values(enumType).filter(value => typeof value == 'string');
   }
 
   /**
