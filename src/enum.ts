@@ -1,5 +1,5 @@
 /** A symbol indicating that an object is an enumeration. */
-const isEnum: unique symbol = Symbol('Enum');
+const isEnum: symbol = Symbol('Enum');
 
 /**
  * An object that looks like an enumerated type.
@@ -44,7 +44,7 @@ export abstract class Enum {
    * @return The newly created enumeration.
    * @typeparam T The type of the enumerated values.
    */
-  static create<T extends EnumValue>(typeDef: EnumLike<T>): Readonly<EnumType<T>> {
+  static create<T extends EnumValue>(typeDef: EnumLike<T>): Readonly<EnumLike<T> & EnumMethods<T>> {
     const descriptor = {configurable: false, enumerable: false, writable: false};
     const enumType = {};
     Reflect.defineProperty(enumType, isEnum, {...descriptor, value: true});
@@ -59,7 +59,7 @@ export abstract class Enum {
       Reflect.defineProperty(enumType, name, {...descriptor, value: method});
     }
 
-    return Object.freeze(enumType as EnumType<T>);
+    return Object.freeze(enumType as (EnumLike<T> & EnumMethods<T>));
   }
 
   /**
@@ -154,7 +154,7 @@ export abstract class Enum {
  * Defines the methods of an enumerated type.
  * @typeparam T The type of the enumerated values.
  */
-export interface EnumType<T extends EnumValue> extends Record<string, T|Function> {
+export interface EnumMethods<T extends EnumValue> {
 
   /**
    * Returns the specified value if it exists in this enumeration, otherwise throws an exception.
