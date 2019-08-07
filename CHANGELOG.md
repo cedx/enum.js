@@ -1,5 +1,8 @@
 # Changelog
 
+## Version [6.1.1](https://github.com/cedx/enum.js/compare/v6.1.0...v6.1.1)
+- Fixed the [issue #4](https://github.com/cedx/enum.js/issues/4): [Microsoft Edge](https://www.microsoft.com/en-us/windows/microsoft-edge) does not support object spread properties.
+
 ## Version [6.1.0](https://github.com/cedx/enum.js/compare/v6.0.0...v6.1.0)
 - Added support for [TypeScript enums](https://www.typescriptlang.org/docs/handbook/enums.html).
 - Due to strong user demand, restored the [TypeScript](https://www.typescriptlang.org) source code.
