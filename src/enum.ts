@@ -36,18 +36,17 @@ export abstract class Enum {
    * @typeparam T The type of the enumerated values.
    */
   static create<T extends EnumValue>(typeDef: EnumValues<T>): Readonly<EnumType<T>> {
-    const descriptor = {configurable: false, enumerable: false, writable: false};
     const enumType = {};
-    Reflect.defineProperty(enumType, isEnum, {...descriptor, value: true});
+    Reflect.defineProperty(enumType, isEnum, {value: true});
 
     const scalarTypes = ['boolean', 'number', 'string'];
     for (const [name, value] of Object.entries(typeDef))
-      if (scalarTypes.includes(typeof value)) Reflect.defineProperty(enumType, name, {...descriptor, enumerable: true, value});
+      if (scalarTypes.includes(typeof value)) Reflect.defineProperty(enumType, name, {enumerable: true, value});
 
     const methods = ['assert', 'coerce', 'entries', 'getIndex', 'getName', 'isDefined', 'names', 'values'];
     for (const name of methods) {
       const method = Reflect.get(Enum, name).bind(enumType, enumType);
-      Reflect.defineProperty(enumType, name, {...descriptor, value: method});
+      Reflect.defineProperty(enumType, name, {value: method});
     }
 
     return Object.freeze(enumType as EnumType<T>);
