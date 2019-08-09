@@ -1,6 +1,24 @@
 /** A symbol indicating that an object is an enumeration. */
 const isEnum: symbol = Symbol('Enum');
 
+/**
+ * Returns a value indicating whether the specified enumeration is a TypeScript one.
+ * @param enumType An enumerated type.
+ * @return `true` if the specified enumeration is a TypeScript one, otherwise `false`.
+ */
+function hasEnumSymbol(enumType: object): boolean {
+  return Reflect.has(enumType, isEnum) && (Reflect.get(enumType, isEnum) === true);
+}
+
+/**
+ * Returns a value indicating whether the specified enumeration is a string one.
+ * @param enumType An enumerated type.
+ * @return `true` if the specified enumeration is a string one, otherwise `false`.
+ */
+function isStringEnum(enumType: object): boolean {
+  return Object.values(enumType).every(value => typeof value == 'string');
+}
+
 /** Provides helper methods for enumerations. */
 export abstract class Enum {
 
@@ -59,7 +77,7 @@ export abstract class Enum {
    * @typeparam T The type of the specified enumeration.
    */
   static entries<T extends object>(enumType: T): Array<[string, T[keyof T]]> {
-    return Enum._hasEnumSymbol(enumType) || Enum._isStringEnum(enumType)
+    return hasEnumSymbol(enumType) || isStringEnum(enumType)
       ? Object.entries(enumType)
       : Enum.names(enumType).map(name => [name, Reflect.get(enumType, name)]);
   }
@@ -104,7 +122,7 @@ export abstract class Enum {
    * @return An array that contains the names of the constants in the specified enumeration.
    */
   static names(enumType: object): string[] {
-    return Enum._hasEnumSymbol(enumType) || Enum._isStringEnum(enumType)
+    return hasEnumSymbol(enumType) || isStringEnum(enumType)
       ? Object.keys(enumType)
       : Object.values(enumType).filter(value => typeof value == 'string');
   }
@@ -116,27 +134,9 @@ export abstract class Enum {
    * @typeparam T The type of the specified enumeration.
    */
   static values<T extends object>(enumType: T): Array<T[keyof T]> {
-    return Enum._hasEnumSymbol(enumType) || Enum._isStringEnum(enumType)
+    return hasEnumSymbol(enumType) || isStringEnum(enumType)
       ? Object.values(enumType)
       : Object.values(enumType).filter(value => typeof value == 'number');
-  }
-
-  /**
-   * Returns a value indicating whether the specified enumeration is a TypeScript one.
-   * @param enumType An enumerated type.
-   * @return `true` if the specified enumeration is a TypeScript one, otherwise `false`.
-   */
-  private static _hasEnumSymbol(enumType: object): boolean {
-    return Reflect.has(enumType, isEnum) && (Reflect.get(enumType, isEnum) === true);
-  }
-
-  /**
-   * Returns a value indicating whether the specified enumeration is a string one.
-   * @param enumType An enumerated type.
-   * @return `true` if the specified enumeration is a string one, otherwise `false`.
-   */
-  private static _isStringEnum(enumType: object): boolean {
-    return Object.values(enumType).every(value => typeof value == 'string');
   }
 }
 
