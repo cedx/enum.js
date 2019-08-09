@@ -7,7 +7,7 @@ const isEnum: symbol = Symbol('Enum');
  * @return `true` if the specified enumeration is a TypeScript one, otherwise `false`.
  */
 function hasEnumSymbol(enumType: object): boolean {
-  return Reflect.has(enumType, isEnum) && (Reflect.get(enumType, isEnum) === true);
+  return Reflect.has(enumType, isEnum) && Reflect.get(enumType, isEnum) === true;
 }
 
 /**
