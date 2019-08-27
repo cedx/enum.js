@@ -6,7 +6,7 @@ source: src/enum.ts
 ## Create the enumeration
 Just create a numeric or string [enum](https://www.typescriptlang.org/docs/handbook/enums.html) as usual:
 
-```ts
+```typescript
 /** Specifies the days of the week. */
 enum DayOfWeek {
   sunday,
@@ -26,7 +26,7 @@ enum DayOfWeek {
 
 Check whether a value is defined among the enumerated type:
 
-```ts
+```typescript
 import {Enum} from '@cedx/enum';
 
 Enum.isDefined(DayOfWeek, DayOfWeek.sunday); // true
@@ -35,7 +35,7 @@ Enum.isDefined(DayOfWeek, 123); // false
 
 Ensure that a value is defined among the enumerated type:
 
-```ts
+```typescript
 import {Enum} from '@cedx/enum';
 
 Enum.assert(DayOfWeek, DayOfWeek.monday); // DayOfWeek.monday
@@ -48,7 +48,7 @@ Enum.coerce(DayOfWeek, 123, DayOfWeek.tuesday); // DayOfWeek.tuesday
 
 Get the zero-based position of a value in the enumerated type declaration:
 
-```ts
+```typescript
 import {Enum} from '@cedx/enum';
 
 Enum.getIndex(DayOfWeek, DayOfWeek.wednesday); // 3
@@ -57,7 +57,7 @@ Enum.getIndex(DayOfWeek, 123); // -1
 
 Get the name associated to an enumerated value:
 
-```ts
+```typescript
 import {Enum} from '@cedx/enum';
 
 Enum.getName(DayOfWeek, DayOfWeek.thursday); // "thursday"
@@ -66,7 +66,7 @@ Enum.getName(DayOfWeek, 123); // "" (empty)
 
 Get information about the enumerated type:
 
-```ts
+```typescript
 import {Enum} from '@cedx/enum';
 
 Enum.entries(DayOfWeek);

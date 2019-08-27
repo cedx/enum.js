@@ -6,7 +6,7 @@ source: src/enum.ts
 ## Create the enumeration
 Just use the `Enum.create()` method with an object literal containing scalar values (i.e. booleans, numbers and strings):
 
-```ts
+```typescript
 import {Enum} from '@cedx/enum';
 
 /** Specifies the days of the week. */
@@ -29,14 +29,14 @@ This method creates an object from the enumerable properties of the specified ob
 ## Work with the enumeration
 Check whether a value is defined among the enumerated type:
 
-```ts
+```typescript
 DayOfWeek.isDefined(DayOfWeek.sunday); // true
 DayOfWeek.isDefined(123); // false
 ```
 
 Ensure that a value is defined among the enumerated type:
 
-```ts
+```typescript
 DayOfWeek.assert(DayOfWeek.monday); // DayOfWeek.monday
 DayOfWeek.assert(123); // (throws `TypeError`)
 
@@ -47,21 +47,21 @@ DayOfWeek.coerce(123, DayOfWeek.tuesday); // DayOfWeek.tuesday
 
 Get the zero-based position of a value in the enumerated type declaration:
 
-```ts
+```typescript
 DayOfWeek.getIndex(DayOfWeek.wednesday); // 3
 DayOfWeek.getIndex(123); // -1
 ```
 
 Get the name associated to an enumerated value:
 
-```ts
+```typescript
 DayOfWeek.getName(DayOfWeek.thursday); // "thursday"
 DayOfWeek.getName(123); // "" (empty)
 ```
 
 Get information about the enumerated type:
 
-```ts
+```typescript
 DayOfWeek.entries();
 // [["sunday", 0], ["monday", 1], ["tuesday", 2], ["wednesday", 3], ["thursday", 4], ["friday", 5], ["saturday", 6]]
 
