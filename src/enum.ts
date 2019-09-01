@@ -39,7 +39,7 @@ export abstract class Enum {
    * Returns the specified value if it exists in the specified enumeration, otherwise returns the given default value.
    * @param enumType An enumerated type.
    * @param value The value to coerce.
-   * @param defaultValue The default value to return if the specified constant does not exist.
+   * @param defaultValue The value to return if the specified constant does not exist.
    * @return The specified enumerated constant, or the default value if no such constant is found.
    * @typeparam T The type of the specified enumeration.
    */
@@ -157,7 +157,7 @@ export interface EnumMethods<T extends EnumValue> {
   /**
    * Returns the specified value if it exists in this enumeration, otherwise returns the given default value.
    * @param value The value to coerce.
-   * @param defaultValue The default value to return if the specified constant does not exist.
+   * @param defaultValue The value to return if the specified constant does not exist.
    * @return The specified enumerated constant, or the default value if no such constant is found.
    */
   coerce(value: any, defaultValue?: T): T|undefined;
