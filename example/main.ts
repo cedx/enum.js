@@ -1,4 +1,4 @@
-/* eslint-disable capitalized-comments, line-comment-position, @typescript-eslint/no-unused-vars */
+/* eslint-disable capitalized-comments, line-comment-position, no-console, @typescript-eslint/no-unused-vars */
 import {Enum} from '@cedx/enum';
 
 /** Specifies the days of the week. */
