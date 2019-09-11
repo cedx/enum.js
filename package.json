@@ -53,6 +53,9 @@
     "js",
     "type"
   ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/cedx"
+  },
   "scripts": {
     "coverage": "gulp coverage",
     "prepack": "gulp",
