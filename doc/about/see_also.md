@@ -6,7 +6,7 @@
 - [Submit an issue](https://github.com/cedx/enum.js/issues)
 
 ## Testing
-- [Continuous integration](https://travis-ci.com/cedx/enum.js)
+- [Continuous integration](https://github.com/cedx/enum.js/actions)
 - [Code coverage](https://coveralls.io/github/cedx/enum.js)
 
 ## Other implementations

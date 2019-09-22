@@ -15,7 +15,7 @@
     "url": "https://belin.io"
   },
   "devDependencies": {
-    "@cedx/coveralls": "^9.1.0",
+    "@cedx/coveralls": "^9.2.0",
     "@types/chai": "^4.2.3",
     "@types/gulp": "^4.0.6",
     "@types/gulp-replace": "^0.0.31",
