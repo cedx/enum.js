@@ -28,7 +28,7 @@
       // Ensure that a value is defined among the enumerated type.
       console.log(DayOfWeek.assert(DayOfWeek.monday)); // DayOfWeek.monday
       try { DayOfWeek.assert(123); }
-      catch (e) { /* (throws TypeError) */ }
+      catch (err) { console.log(err instanceof TypeError); } // true
 
       console.log(DayOfWeek.coerce(DayOfWeek.monday)); // DayOfWeek.monday
       console.log(DayOfWeek.coerce(123)); // undefined
