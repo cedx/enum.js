@@ -20,7 +20,7 @@ if (!_path.includes(_vendor)) process.env.PATH = `${_vendor}${delimiter}${_path}
 /** Builds the project. */
 task('build:dist', async () => {
   await _exec('rollup', ['--config=etc/rollup.js']);
-  return _exec('minify', ['build/enum.js', '--out-file=build/enum.min.js']);
+  return _exec('terser', ['--config-file=etc/terser.json', '--output=build/enum.min.js', 'build/enum.js']);
 });
 
 task('build:fix', () => src('lib/**/*.js').pipe(replace(/(export|import)\s+(.+)\s+from\s+'(\.[^']+)'/g, "$1 $2 from '$3.js'")).pipe(dest('lib')));
