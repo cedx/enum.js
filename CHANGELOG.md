@@ -1,5 +1,7 @@
 # Changelog
 
+- Replaced [`babel-minify`](https://github.com/babel/minify) by [`terser`](https://terser.org) for minification.
+
 ## Version [6.1.1](https://github.com/cedx/enum.js/compare/v6.1.0...v6.1.1)
 - Fixed the [issue #4](https://github.com/cedx/enum.js/issues/4): [Microsoft Edge](https://www.microsoft.com/en-us/windows/microsoft-edge) does not support object spread properties.
 
