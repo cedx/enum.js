@@ -1,7 +1,9 @@
-/* eslint-disable capitalized-comments, line-comment-position, no-console, @typescript-eslint/no-unused-vars */
 import {Enum} from '@cedx/enum';
 
-/** Specifies the days of the week. */
+/**
+ * Specifies the days of the week.
+ * @enum {number}
+ */
 const DayOfWeek = Enum.create({
   sunday: 0,
   monday: 1,
@@ -13,7 +15,7 @@ const DayOfWeek = Enum.create({
 });
 
 /** Works with the enumeration. */
-function main(): void {
+function main() {
   // Check whether a value is defined among the enumerated type.
   console.log(DayOfWeek.isDefined(DayOfWeek.sunday)); // true
   console.log(DayOfWeek.isDefined(123)); // false
