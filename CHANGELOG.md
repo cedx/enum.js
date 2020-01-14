@@ -1,5 +1,6 @@
 # Changelog
 
+## Version [6.2.0](https://github.com/cedx/enum.js/compare/v6.1.1...v6.2.0)
 - Replaced [`babel-minify`](https://github.com/babel/minify) by [`terser`](https://terser.org) for minification.
 
 ## Version [6.1.1](https://github.com/cedx/enum.js/compare/v6.1.0...v6.1.1)
