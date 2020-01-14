@@ -57,7 +57,7 @@ export abstract class Enum {
     const enumType = {};
     Reflect.defineProperty(enumType, isEnum, {value: true});
 
-    const scalarTypes = ['boolean', 'number', 'string'];
+    const scalarTypes = ['bigint', 'boolean', 'number', 'string'];
     for (const [name, value] of Object.entries(typeDef))
       if (scalarTypes.includes(typeof value)) Reflect.defineProperty(enumType, name, {enumerable: true, value});
 

@@ -4,7 +4,7 @@ source: src/enum.ts
 # Using from JavaScript
 
 ## Create the enumeration
-Just use the `Enum.create()` method with an object literal containing scalar values (i.e. booleans, numbers and strings):
+Just use the `Enum.create()` method with an object literal containing primitive values (i.e. bigints, booleans, numbers and strings):
 
 ```js
 import {Enum} from '@cedx/enum';
@@ -27,7 +27,7 @@ const DayOfWeek = Enum.create({
 This method creates an object from the enumerable properties of the specified object, having the same values as the provided object and some additional helper methods. The new object is also freezed to prevent any attempt at modifying its shape.
 
 !!! warning
-    Only scalar values (booleans, numbers and strings) are retained when iterating on the properties of the provided object.
+    Only primitive values (bigints, booleans, numbers and strings) are retained when iterating on the properties of the provided object.
 
 ## Work with the enumeration
 Check whether a value is defined among the enumerated type:
