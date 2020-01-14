@@ -1,7 +1,7 @@
-import * as chai from 'chai';
-import {Enum, EnumValue} from '../src/index';
+import chai from 'chai';
+import {Enum} from '../lib/index.js';
 
-/** An enumeration providing a mixed set of scalar values. */
+/** A JavaScript enumeration providing a mixed set of scalar values. */
 const SampleEnum = Enum.create({
   zero: false,
   one: 1,
@@ -9,23 +9,22 @@ const SampleEnum = Enum.create({
   three: 3.0
 });
 
-/** A TypeScript enumeration providing numeric values. */
-enum NumericEnum {
-  one = 1 << 0,
-  two = 1 << 1,
-  four = 1 << 2,
-  eight = 1 << 3
-}
+/** A TypeScript enumeration providing numeric values, with reverse mapping. */
+let NumericEnum = {};
+NumericEnum[NumericEnum['one'] = 1 << 0] = 'one';
+NumericEnum[NumericEnum['two'] = 1 << 1] = 'two';
+NumericEnum[NumericEnum['four'] = 1 << 2] = 'four';
+NumericEnum[NumericEnum['eight'] = 1 << 3] = 'eight';
 
 /** A TypeScript enumeration providing string values. */
-enum StringEnum {
-  zero = 'ZERO',
-  one = 'ONE',
-  two = 'TWO',
-  three = 'THREE'
-}
+const StringEnum = {
+  zero: 'ZERO',
+  one: 'ONE',
+  two: 'TWO',
+  three: 'THREE'
+};
 
-/** Tests the features of the [[Enum]] class. */
+/** Tests the features of the {@link Enum} class. */
 describe('Enum', () => {
   const {expect} = chai;
 
@@ -93,7 +92,7 @@ describe('Enum', () => {
 
   describe('.entries()', () => {
     it('should return the pairs of names and values of the enumerated constants', () => {
-      let entries: Array<[string, EnumValue]> = SampleEnum.entries();
+      let entries = SampleEnum.entries();
       expect(entries).to.have.lengthOf(4);
 
       let [tuple1, tuple2, tuple3, tuple4] = entries;

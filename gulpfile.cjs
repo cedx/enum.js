@@ -47,10 +47,9 @@ task('publish:npm', () => _exec('npm', ['publish', '--registry=https://registry.
 task('publish', series('clean', 'publish:github', 'publish:npm'));
 
 /** Runs the test suites. */
-task('test', () => {
-  process.env.TS_NODE_PROJECT = 'test/tsconfig.json';
-  return _exec('nyc', ['--nycrc-path=etc/nyc.yaml', 'node_modules/.bin/mocha', '--config=etc/mocha.yaml', '"test/**/*.ts"']);
-});
+const mocha = ['node_modules/.bin/mocha', '--recursive'];
+task('test:run', () => _exec('c8', ['--all', '--include=lib/**/*.js', '--report-dir=var', '--reporter=lcovonly', ...mocha]));
+task('test', series('build', 'test:run'));
 
 /** Upgrades the project to the latest revision. */
 task('upgrade', async () => {
