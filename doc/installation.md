@@ -33,7 +33,7 @@ npm install @cedx/enum
 ### 2. Import it
 Now in your [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) or [TypeScript](https://www.typescriptlang.org) code, you can use:
 
-```typescript
+```js
 import {Enum} from '@cedx/enum';
 ```
 
