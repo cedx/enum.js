@@ -2,6 +2,7 @@
 
 ## Development
 - [API reference](https://dev.belin.io/enum.js/api)
+- [GitHub package](https://github.com/cedx/enum.js/packages)
 - [npm package](https://www.npmjs.com/package/@cedx/enum)
 - [Submit an issue](https://github.com/cedx/enum.js/issues)
 

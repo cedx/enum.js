@@ -11,6 +11,7 @@ Yet another implementation of enumerated types for [JavaScript](https://develope
 
 ## Development
 - [Git repository](https://github.com/cedx/enum.js)
+- [GitHub package](https://github.com/cedx/enum.js/packages)
 - [npm package](https://www.npmjs.com/package/@cedx/enum)
 - [Submit an issue](https://github.com/cedx/enum.js/issues)
 
