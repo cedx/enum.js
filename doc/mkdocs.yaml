@@ -3,7 +3,7 @@ site_description: Prevent comment spam using the Enums service, in JavaScript.
 site_author: Cédric Belin - cedric@belin.io
 site_url: https://dev.belin.io/enum.js
 
-docs_dir: ../doc
+docs_dir: .
 site_dir: ../web
 
 repo_name: GitHub
