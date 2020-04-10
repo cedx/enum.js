@@ -22,7 +22,7 @@ enum DayOfWeek {
 ## Work with the enumeration
 
 !!! warning
-    The `Enum` class is not meant to be used with heterogeneous enumerations and `const` ones.
+    The `Enum` class is not meant to be used with [heterogeneous enumerations](https://www.typescriptlang.org/docs/handbook/enums.html#heterogeneous-enums) and [`const` ones](https://www.typescriptlang.org/docs/handbook/enums.html#const-enums).
 
 Check whether a value is defined among the enumerated type:
 
