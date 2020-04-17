@@ -19,6 +19,10 @@ enum DayOfWeek {
 }
 ```
 
+!!! tip
+    You can also use the `Enum.create()` method with an object literal if you need to create a string enum with computed properties.  
+    See the [JavaScript usage](javascript.md) for more information.
+
 ## Work with the enumeration
 
 !!! warning
