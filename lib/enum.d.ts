@@ -129,7 +129,7 @@ export interface EnumMethods<T extends EnumValue> {
  */
 export declare type EnumType<T extends EnumValue> = EnumMethods<T> & EnumValues<T>;
 /** A value of an enumerated type. */
-export declare type EnumValue = boolean | number | string;
+export declare type EnumValue = bigint | boolean | number | string;
 /**
  * Defines the values of an enumerated type.
  * @typeparam T The type of the enumerated values.
