@@ -1,5 +1,7 @@
-path: blob/master
+---
+path: src/branch/master
 source: src/enum.ts
+---
 
 # Using from TypeScript
 

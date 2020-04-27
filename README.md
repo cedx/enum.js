@@ -6,14 +6,13 @@ Yet another implementation of enumerated types for [JavaScript](https://develope
 > This library is packaged as [ECMAScript modules](https://nodejs.org/api/esm.html).
 
 ## Documentation
-- [User guide](https://dev.belin.io/enum.js)
-- [API reference](https://dev.belin.io/enum.js/api)
+- [User guide](https://docs.belin.io/enum.js)
+- [API reference](https://api.belin.io/enum.js)
 
 ## Development
-- [Git repository](https://github.com/cedx/enum.js)
-- [GitHub package](https://github.com/cedx/enum.js/packages)
+- [Git repository](https://git.belin.io/cedx/enum.js)
 - [npm package](https://www.npmjs.com/package/@cedx/enum)
-- [Submit an issue](https://github.com/cedx/enum.js/issues)
+- [Submit an issue](https://git.belin.io/cedx/enum.js/issues)
 
 ## License
-[Enums for JS](https://dev.belin.io/enum.js) is distributed under the MIT License.
+[Enums for JS](https://docs.belin.io/enum.js) is distributed under the MIT License.
