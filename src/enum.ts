@@ -124,7 +124,7 @@ export abstract class Enum {
   static names(enumType: object): string[] {
     return hasEnumSymbol(enumType) || isStringEnum(enumType)
       ? Object.keys(enumType)
-      : Object.values(enumType).filter(value => typeof value == 'string');
+      : Object.values(enumType).filter(value => typeof value == 'string') as string[];
   }
 
   /**
@@ -136,7 +136,7 @@ export abstract class Enum {
   static values<T extends object>(enumType: T): Array<T[keyof T]> {
     return hasEnumSymbol(enumType) || isStringEnum(enumType)
       ? Object.values(enumType)
-      : Object.values(enumType).filter(value => typeof value == 'number');
+      : Object.values(enumType).filter(value => typeof value == 'number') as Array<T[keyof T]>;
   }
 }
 
