@@ -1,8 +1,8 @@
 # Changelog
 
-## Version [6.4.0](https://git.belin.io/cedx/enum.js/compare/v6.3.0...v6.4.0)
+## Version [7.0.0](https://git.belin.io/cedx/enum.js/compare/v6.3.0...v7.0.0)
+- Breaking change: raised the required [Node.js](https://nodejs.org) version.
 - Dropped support for [GitHub Packages](https://github.com/features/packages).
-- Raised the [Node.js](https://nodejs.org) constraint.
 - Updated the documentation.
 - Updated the package dependencies.
 
