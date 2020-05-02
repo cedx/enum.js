@@ -24,7 +24,7 @@ const StringEnum = {
   three: 'THREE'
 };
 
-/** Tests the features of the {@link Enum} class. */
+/** Tests the features of the `Enum` class. */
 describe('Enum', () => {
   describe('.assert()', () => {
     it('should return the specified value if it is a known one', () => {

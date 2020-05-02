@@ -5,7 +5,7 @@ export declare abstract class Enum {
      * @param enumType An enumerated type.
      * @param value The value to check.
      * @return The specified enumerated constant.
-     * @throws [[TypeError]] No such constant was found.
+     * @throws `TypeError` No such constant was found.
      * @typeparam T The type of the specified enumeration.
      */
     static assert<T extends object>(enumType: T, value: any): T[keyof T];
@@ -79,7 +79,7 @@ export interface EnumMethods<T extends EnumValue> {
      * Returns the specified value if it exists in this enumeration, otherwise throws an exception.
      * @param value The value to check.
      * @return The specified enumerated constant.
-     * @throws [[TypeError]] No such constant was found.
+     * @throws `TypeError` No such constant was found.
      */
     assert(value: any): T;
     /**
