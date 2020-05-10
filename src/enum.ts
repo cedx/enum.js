@@ -1,5 +1,5 @@
 /** A symbol indicating that an object is an enumeration. */
-const isEnum: symbol = Symbol('Enum');
+const isEnum = Symbol('Enum');
 
 /**
  * Returns a value indicating whether the specified enumeration is a TypeScript one.
@@ -20,7 +20,7 @@ function isStringEnum(enumType: object): boolean {
 }
 
 /** Provides helper methods for enumerations. */
-export abstract class Enum {
+export abstract class Enum { // eslint-disable-line @typescript-eslint/no-extraneous-class
 
   /**
    * Returns the specified value if it exists in the specified enumeration, otherwise throws an exception.
@@ -152,7 +152,7 @@ export interface EnumMethods<T extends EnumValue> {
    * @return The specified enumerated constant.
    * @throws `TypeError` No such constant was found.
    */
-  assert(value: any): T;
+  assert: (value: any) => T;
 
   /**
    * Returns the specified value if it exists in this enumeration, otherwise returns the given default value.
@@ -160,46 +160,46 @@ export interface EnumMethods<T extends EnumValue> {
    * @param defaultValue The value to return if the specified constant does not exist.
    * @return The specified enumerated constant, or the default value if no such constant is found.
    */
-  coerce(value: any, defaultValue?: T): T|undefined;
+  coerce: (value: any, defaultValue?: T) => T|undefined;
 
   /**
    * Gets an array of the `[name, value]` pairs of the constants in this enumeration.
    * @return An array that contains the `[name, value]` pairs of the constants in this enumeration.
    */
-  entries(): Array<[string, T]>;
+  entries: () => Array<[string, T]>;
 
   /**
    * Gets the zero-based position of the constant in this enumeration that has the specified value.
    * @param value The value of a constant in this enumeration.
    * @return The zero-based position of the constant that has the specified value, or `-1` if no such constant is found.
    */
-  getIndex(value: any): number;
+  getIndex: (value: any) => number;
 
   /**
    * Gets the name of the constant in this enumeration that has the specified value.
    * @param value The value of a constant in this enumeration.
    * @return A string containing the name of the constant that has the specified value, or an empty string if no such constant is found.
    */
-  getName(value: any): string;
+  getName: (value: any) => string;
 
   /**
    * Gets an indication whether a constant with a specified value exists in this enumeration.
    * @param value The value to check.
    * @return `true` if a constant in this enumeration has the specified value, otherwise `false`.
    */
-  isDefined(value: any): value is T;
+  isDefined: (value: any) => value is T;
 
   /**
    * Gets an array of the names of the constants in this enumeration.
    * @return An array that contains the names of the constants in this enumeration.
    */
-  names(): string[];
+  names: () => string[];
 
   /**
    * Gets an array of the values of the constants in this enumeration.
    * @return An array that contains the values of the constants in this enumeration.
    */
-  values(): T[];
+  values: () => T[];
 }
 
 /**
