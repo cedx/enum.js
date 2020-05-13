@@ -1,5 +1,5 @@
 # Enums <small>for JS</small>
-![Runtime](https://img.shields.io/node/v/@cedx/enum.svg) ![Release](https://img.shields.io/npm/v/@cedx/enum.svg) ![License](https://img.shields.io/npm/l/@cedx/enum.svg) ![Downloads](https://img.shields.io/npm/dt/@cedx/enum.svg) ![Dependencies](https://david-dm.org/cedx/enum.js.svg) ![Coverage](https://coveralls.io/repos/github/cedx/enum.js/badge.svg) ![Build](https://github.com/cedx/enum.js/workflows/build/badge.svg)
+![Runtime](https://badgen.net/npm/node/@cedx/enum) ![Release](https://badgen.net/npm/v/@cedx/enum) ![License](https://badgen.net/npm/license/@cedx/enum) ![Downloads](https://badgen.net/npm/dt/@cedx/enum) ![Dependencies](https://badgen.net/david/dep/cedx/enum.js) ![Coverage](https://badgen.net/coveralls/c/github/cedx/enum.js) ![Build](https://badgen.net/github/checks/cedx/enum.js)
 
 ## Yet another implementation of enumerated types
 This implementation provides an `Enum` class that gives a set of static methods to ease working with the values of an object literal representing an enumerated type.
