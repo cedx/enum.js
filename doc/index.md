@@ -11,11 +11,11 @@ For [TypeScript](https://www.typescriptlang.org) users, this class provides help
 ## Quick start
 Install the latest version of **Enums for JS** with [npm](https://www.npmjs.com):
 
-```shell
+``` shell
 npm install @cedx/enum
 ```
 
 !!! info
-    This library is packaged as [ECMAScript modules](https://nodejs.org/api/esm.html).
+	This library is packaged as [ECMAScript modules](https://nodejs.org/api/esm.html).
 
 For detailed instructions, see the [installation guide](installation.md).

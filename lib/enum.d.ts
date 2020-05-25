@@ -61,7 +61,7 @@ export declare abstract class Enum {
      * @param enumType An enumerated type.
      * @return An array that contains the names of the constants in the specified enumeration.
      */
-    static names(enumType: object): string[];
+    static names<T extends object>(enumType: T): string[];
     /**
      * Gets an array of the values of the constants in the specified enumeration.
      * @param enumType An enumerated type.
