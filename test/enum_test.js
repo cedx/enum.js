@@ -25,9 +25,9 @@ const StringEnum = {
 };
 
 /** Tests the features of the `Enum` class. */
-describe("Enum", () => {
-	describe(".assert()", () => {
-		it("should return the specified value if it is a known one", () => {
+describe("Enum", function() {
+	describe(".assert()", function() {
+		it("should return the specified value if it is a known one", function() {
 			assert.equal(SampleEnum.assert(false), SampleEnum.zero);
 			assert.equal(SampleEnum.assert(1), SampleEnum.one);
 			assert.equal(SampleEnum.assert("TWO"), SampleEnum.two);
@@ -37,7 +37,7 @@ describe("Enum", () => {
 			assert.equal(Enum.assert(StringEnum, "ONE"), StringEnum.one);
 		});
 
-		it("should throw an exception if it is an unknown value", () => {
+		it("should throw an exception if it is an unknown value", function() {
 			assert.throws(() => SampleEnum.assert(""), TypeError);
 			assert.throws(() => SampleEnum.assert("two"), TypeError);
 			assert.throws(() => SampleEnum.assert(3.1), TypeError);
@@ -50,8 +50,8 @@ describe("Enum", () => {
 		});
 	});
 
-	describe(".coerce()", () => {
-		it("should return the specified value if it is a known one", () => {
+	describe(".coerce()", function() {
+		it("should return the specified value if it is a known one", function() {
 			assert.equal(SampleEnum.coerce(false), SampleEnum.zero);
 			assert.equal(SampleEnum.coerce(1), SampleEnum.one);
 			assert.equal(SampleEnum.coerce("TWO"), SampleEnum.two);
@@ -61,7 +61,7 @@ describe("Enum", () => {
 			assert.equal(Enum.coerce(StringEnum, "ONE"), StringEnum.one);
 		});
 
-		it("should return the default value if it is an unknown one", () => {
+		it("should return the default value if it is an unknown one", function() {
 			assert.equal(SampleEnum.coerce(""), undefined);
 			assert.equal(SampleEnum.coerce("two", false), false);
 			assert.equal(SampleEnum.coerce(3.1, SampleEnum.three), SampleEnum.three);
@@ -77,19 +77,19 @@ describe("Enum", () => {
 		});
 	});
 
-	describe(".create()", () => {
-		it("should create types that are immutable", () => {
+	describe(".create()", function() {
+		it("should create types that are immutable", function() {
 			assert(Object.isFrozen(SampleEnum));
 		});
 
-		it("should create types having the `Enum` mixin", () => {
+		it("should create types having the `Enum` mixin", function() {
 			const methods = ["assert", "coerce", "entries", "getIndex", "getName", "isDefined", "names", "values"];
 			assert(methods.every(method => typeof SampleEnum[method] == "function"));
 		});
 	});
 
-	describe(".entries()", () => {
-		it("should return the pairs of names and values of the enumerated constants", () => {
+	describe(".entries()", function() {
+		it("should return the pairs of names and values of the enumerated constants", function() {
 			let entries = SampleEnum.entries();
 			assert.equal(entries.length, 4);
 
@@ -119,8 +119,8 @@ describe("Enum", () => {
 		});
 	});
 
-	describe(".getIndex()", () => {
-		it("should return `-1` for unknown values", () => {
+	describe(".getIndex()", function() {
+		it("should return `-1` for unknown values", function() {
 			assert.equal(SampleEnum.getIndex(0), -1);
 			assert.equal(SampleEnum.getIndex("two"), -1);
 			assert.equal(SampleEnum.getIndex(3.1), -1);
@@ -132,7 +132,7 @@ describe("Enum", () => {
 			assert.equal(Enum.getIndex(NumericEnum, "one"), -1);
 		});
 
-		it("should return the index of the enumerated constant for known values", () => {
+		it("should return the index of the enumerated constant for known values", function() {
 			assert.equal(SampleEnum.getIndex(false), 0);
 			assert.equal(SampleEnum.getIndex(1), 1);
 			assert.equal(SampleEnum.getIndex("TWO"), 2);
@@ -143,8 +143,8 @@ describe("Enum", () => {
 		});
 	});
 
-	describe(".getName()", () => {
-		it("should return an empty string for unknown values", () => {
+	describe(".getName()", function() {
+		it("should return an empty string for unknown values", function() {
 			assert.equal(SampleEnum.getName(0).length, 0);
 			assert.equal(SampleEnum.getName("two").length, 0);
 			assert.equal(SampleEnum.getName(3.1).length, 0);
@@ -156,7 +156,7 @@ describe("Enum", () => {
 			assert.equal(Enum.getName(NumericEnum, "one").length, 0);
 		});
 
-		it("should return the name for known values", () => {
+		it("should return the name for known values", function() {
 			assert.equal(SampleEnum.getName(false), "zero");
 			assert.equal(SampleEnum.getName(1), "one");
 			assert.equal(SampleEnum.getName("TWO"), "two");
@@ -167,8 +167,8 @@ describe("Enum", () => {
 		});
 	});
 
-	describe(".isDefined()", () => {
-		it("should return `false` for unknown values", () => {
+	describe(".isDefined()", function() {
+		it("should return `false` for unknown values", function() {
 			assert.equal(SampleEnum.isDefined(0), false);
 			assert.equal(SampleEnum.isDefined("two"), false);
 			assert.equal(SampleEnum.isDefined(3.1), false);
@@ -180,7 +180,7 @@ describe("Enum", () => {
 			assert.equal(Enum.isDefined(NumericEnum, "one"), false);
 		});
 
-		it("should return `true` for known values", () => {
+		it("should return `true` for known values", function() {
 			assert(SampleEnum.isDefined(false));
 			assert(SampleEnum.isDefined(1));
 			assert(SampleEnum.isDefined("TWO"));
@@ -191,16 +191,16 @@ describe("Enum", () => {
 		});
 	});
 
-	describe(".names()", () => {
-		it("should return the names of the enumerable properties", () => {
+	describe(".names()", function() {
+		it("should return the names of the enumerable properties", function() {
 			assert.deepEqual(SampleEnum.names(), ["zero", "one", "two", "three"]);
 			assert.deepEqual(Enum.names(NumericEnum), ["one", "two", "four", "eight"]);
 			assert.deepEqual(Enum.names(StringEnum), ["zero", "one", "two", "three"]);
 		});
 	});
 
-	describe(".values()", () => {
-		it("should return the values of the enumerable properties", () => {
+	describe(".values()", function() {
+		it("should return the values of the enumerable properties", function() {
 			assert.deepEqual(SampleEnum.values(), [false, 1, "TWO", 3.0]);
 			assert.deepEqual(Enum.values(NumericEnum), [1, 2, 4, 8]);
 			assert.deepEqual(Enum.values(StringEnum), ["ZERO", "ONE", "TWO", "THREE"]);
