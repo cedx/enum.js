@@ -15,19 +15,19 @@
 	},
 	"devDependencies": {
 		"@cedx/coveralls": "^10.1.0",
-		"@types/node": "^14.0.19",
-		"@typescript-eslint/eslint-plugin": "^3.6.0",
-		"@typescript-eslint/parser": "^3.6.0",
-		"c8": "^7.1.2",
-		"eslint": "^7.4.0",
-		"mocha": "^8.0.1",
-		"rollup": "^2.21.0",
-		"terser": "^4.7.0",
-		"typedoc": "^0.17.7",
-		"typescript": "^3.9.6"
+		"@types/node": "^14.0.14",
+		"@typescript-eslint/eslint-plugin": "^4.6.0",
+		"@typescript-eslint/parser": "^4.6.0",
+		"c8": "^7.2.0",
+		"eslint": "^7.3.1",
+		"mocha": "^8.2.0",
+		"rollup": "^2.18.1",
+		"terser": "^5.3.8",
+		"typedoc": "^0.19.2",
+		"typescript": "^4.0.5"
 	},
 	"engines": {
-		"node": ">=14.5.0"
+		"node": ">=14.15.0"
 	},
 	"files": [
 		"build/",
@@ -40,7 +40,6 @@
 	"keywords": [
 		"enum",
 		"enumeration",
-		"esm",
 		"javascript",
 		"js",
 		"type"
@@ -50,8 +49,12 @@
 		"url": "https://git.belin.io/cedx/enum.js.git"
 	},
 	"scripts": {
+		"build": "tsc --project src/tsconfig.json",
 		"coverage": "coveralls var/lcov.info",
+		"doc": "typedoc --options etc/typedoc.json",
+		"lint": "eslint --config=etc/eslint.yaml src/**/*.ts",
 		"prepack": "pwsh tool/dist.ps1",
+		"prepublishOnly": "npm run clean",
 		"test": "c8 --all --include=lib/**/*.js --report-dir=var --reporter=lcovonly node_modules/.bin/mocha --recursive"
 	}
 }
