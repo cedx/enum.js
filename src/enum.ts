@@ -57,7 +57,7 @@ export abstract class Enum { // eslint-disable-line @typescript-eslint/no-extran
 		const enumType = {};
 		Reflect.defineProperty(enumType, isEnum, {value: true});
 
-		const scalarTypes = ["bigint", "boolean", "number", "string"];
+		const scalarTypes = ["bigint", "boolean", "number", "string", "symbol"];
 		for (const [name, value] of Object.entries(typeDef))
 			if (scalarTypes.includes(typeof value)) Reflect.defineProperty(enumType, name, {enumerable: true, value});
 
