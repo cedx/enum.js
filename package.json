@@ -21,6 +21,7 @@
 		"c8": "^7.11.3",
 		"del": "^6.1.1",
 		"eslint": "^8.16.0",
+		"execa": "^6.1.0",
 		"gulp": "^4.0.2",
 		"mocha": "^10.0.0",
 		"typedoc": "^0.22.16",
@@ -40,8 +41,7 @@
 	"keywords": [
 		"enum",
 		"enumeration",
-		"javascript",
-		"js",
+		"reflection",
 		"type"
 	],
 	"scripts": {

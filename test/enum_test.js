@@ -1,3 +1,4 @@
+/* eslint-disable max-lines-per-function */
 import assert from "node:assert/strict";
 import {Enum} from "../lib/index.js";
 
@@ -58,10 +59,10 @@ describe("Enum", () => {
 
 	describe(".entries()", () => {
 		it("should return the pairs of names and values of the enumerated constants", () => {
-			let entries = SampleEnum.entries();
+			const entries = SampleEnum.entries();
 			assert.equal(entries.length, 4);
 
-			let [tuple1, tuple2, tuple3, tuple4] = entries;
+			const [tuple1, tuple2, tuple3, tuple4] = entries;
 			assert.deepEqual(tuple1, ["zero", false]);
 			assert.deepEqual(tuple2, ["one", 1]);
 			assert.deepEqual(tuple3, ["two", "TWO"]);
