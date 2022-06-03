@@ -10,14 +10,13 @@ jobs:
         uses: actions/setup-node@v3
         with:
           cache: npm
-          node-version: 16
+          node-version: 18
       - name: Install dependencies
         run: npm install
       - name: Run tests
         run: npm test
       - name: Collect code coverage
         if: success()
-        uses: coverallsapp/github-action@master
+        uses: codecov/codecov-action@v2
         with:
-          github-token: ${{secrets.GITHUB_TOKEN}}
-          path-to-lcov: var/lcov.info
+          files: var/lcov.info
