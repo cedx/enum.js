@@ -1,11 +1,11 @@
 /* eslint-disable capitalized-comments, line-comment-position */
-import {Enum} from "@cedx/enum";
+import createEnum from "@cedx/enum";
 
 /**
  * Specifies the days of the week.
  * @enum {number}
  */
-const DayOfWeek = Enum.create({
+const DayOfWeek = createEnum({
 	sunday: 0,
 	monday: 1,
 	tuesday: 2,

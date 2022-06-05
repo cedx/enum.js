@@ -1,12 +1,13 @@
 /* eslint-disable max-lines-per-function */
 import assert from "node:assert/strict";
-import {Enum} from "../lib/index.js";
+import {Enum} from "../lib/enum.js";
+import createEnum from "../lib/index.js";
 
 /**
  * A sample enumeration.
  * @enum {boolean|number|string}
  */
-const SampleEnum = Enum.create({
+const SampleEnum = createEnum({
 	zero: false,
 	one: 1,
 	two: "TWO",
@@ -53,7 +54,7 @@ describe("Enum", () => {
 		});
 
 		it("should create types having the `EnumMixin` mixin", () => {
-			const methods = ["assert", "coerce", "getEntries", "getIndex", "getName", "getNames", "getValues", "isDefined"];
+			const methods = Reflect.ownKeys(Enum).filter(key => typeof Reflect.get(Enum, key) == "function");
 			assert.ok(methods.every(method => typeof Reflect.get(SampleEnum, method) == "function"));
 		});
 	});
