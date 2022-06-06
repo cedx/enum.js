@@ -1,11 +1,11 @@
-/* eslint-disable capitalized-comments, line-comment-position */
-import createEnum from "@cedx/enum";
+/* eslint-disable capitalized-comments, line-comment-position, new-cap */
+import Enum from "@cedx/enum";
 
 /**
- * Specifies the days of the week.
+ * Defines the days of the week.
  * @enum {number}
  */
-const DayOfWeek = createEnum({
+const DayOfWeek = Enum({
 	sunday: 0,
 	monday: 1,
 	tuesday: 2,
@@ -31,7 +31,7 @@ DayOfWeek.getIndex("foo"); // -1
 
 // Get the name associated to an enumerated value.
 DayOfWeek.getName(DayOfWeek.thursday); // "thursday"
-DayOfWeek.getName("foo"); // "" (empty)
+DayOfWeek.getName("foo"); // "" (empty string)
 
 // Get information about the enumerated type.
 DayOfWeek.getEntries(); // {"sunday" => 0, "monday" => 1, "tuesday" => 2, "wednesday" => 3, "thursday" => 4, "friday" => 5, "saturday" => 6}
