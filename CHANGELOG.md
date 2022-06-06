@@ -1,5 +1,13 @@
 # Changelog
 
+## Version [8.0.0](https://github.com/cedx/enum.js/compare/v7.0.0...v8.0.0)
+- Breaking change: dropped support of [TypeScript enums](https://www.typescriptlang.org/docs/handbook/enums.html).
+- Breaking change: dropped the browser bundle.
+- Breaking change: raised the required [Node.js](https://nodejs.org) version.
+- Breaking change: renamed the `entries()`, `names()` and `values()` methods to `getEntries()`, `getNames()` and `getValues()`.
+- Breaking change: the `Enum.create()` method is now a function exposed as a default export.
+- Ported the source code to [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript).
+
 ## Version [7.0.0](https://github.com/cedx/enum.js/compare/v6.3.0...v7.0.0)
 - Breaking change: raised the required [Node.js](https://nodejs.org) version.
 - Dropped support for [GitHub Packages](https://github.com/features/packages).
