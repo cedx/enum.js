@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import {Enum} from "../lib/enum.js";
+import {Enum} from "../src/enum.js";
 
 /**
  * A sample enumeration.
