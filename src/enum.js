@@ -49,8 +49,7 @@ export class Enum {
 
 	/**
 	 * Gets the zero-based position of the constant in the specified enumeration that has the specified value.
-	 * @template T
-	 * @param {T} enumType An enumerated type.
+	 * @param {any} enumType An enumerated type.
 	 * @param {any} value The value of a constant in the enumerated type.
 	 * @returns {number} The zero-based position of the constant that has the specified value, or `-1` if no such value is found.
 	 */
@@ -60,8 +59,7 @@ export class Enum {
 
 	/**
 	 * Gets the name of the constant in the specified enumeration that has the specified value.
-	 * @template T
-	 * @param {T} enumType An enumerated type.
+	 * @param {any} enumType An enumerated type.
 	 * @param {any} value The value of a constant in the enumerated type.
 	 * @returns {string} The name of the constant that has the specified value, or an empty string if no such value is found.
 	 */
@@ -72,8 +70,7 @@ export class Enum {
 
 	/**
 	 * Gets an array of the names of the constants in the specified enumeration.
-	 * @template T
-	 * @param {T} enumType An enumerated type.
+	 * @param {any} enumType An enumerated type.
 	 * @returns {string[]} The names of the constants in the specified enumeration.
 	 */
 	static getNames(enumType) {
