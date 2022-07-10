@@ -9,6 +9,6 @@
 		"resolveJsonModule": true,
 		"paths": {"@cedx/enum": ["src"]},
 		"strict": true,
-		"target": "es2022"
+		"target": "esnext"
 	}
 }
