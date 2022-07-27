@@ -1,6 +1,5 @@
 /* eslint-disable max-lines-per-function */
 import assert from "node:assert/strict";
-// @ts-expect-error TS2614
 import {describe, it} from "node:test";
 import {Enum} from "../src/enum.js";
 import createEnum from "../src/index.js";
