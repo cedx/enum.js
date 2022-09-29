@@ -1,5 +1,8 @@
 # Changelog
 
+## Version [8.0.1](https://github.com/cedx/enum.js/compare/v8.0.0...v8.0.1)
+- Fixed the [TypeScript](https://www.typescriptlang.org) typings.
+
 ## Version [8.0.0](https://github.com/cedx/enum.js/compare/v7.0.0...v8.0.0)
 - Breaking change: dropped support of [TypeScript enums](https://www.typescriptlang.org/docs/handbook/enums.html).
 - Breaking change: dropped the browser bundle.
