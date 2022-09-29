@@ -14,7 +14,7 @@ export class Enum {
 
 	/**
 	 * Returns the specified value if it exists in the specified enumeration, otherwise throws an error.
-	 * @template T
+	 * @template {object} T
 	 * @param {T} enumType An enumerated type.
 	 * @param {any} value The value to check.
 	 * @returns {T[keyof T]} The specified value if it exists in the specified enumeration.
@@ -27,7 +27,7 @@ export class Enum {
 
 	/**
 	 * Returns the specified value if it exists in the specified enumeration, otherwise returns the given default value.
-	 * @template T
+	 * @template {object} T
 	 * @param {T} enumType An enumerated type.
 	 * @param {any} value The value to coerce.
 	 * @param {T[keyof T]} defaultValue The value to return if the specified value does not exist in the enumeration.
@@ -39,7 +39,7 @@ export class Enum {
 
 	/**
 	 * Gets a map of the names and values of the constants in the specified enumeration.
-	 * @template T
+	 * @template {object} T
 	 * @param {T} enumType An enumerated type.
 	 * @returns {Map<string, T[keyof T]>} The names and values of the constants in the enumeration.
 	 */
@@ -79,7 +79,7 @@ export class Enum {
 
 	/**
 	 * Gets an array of the values of the constants in the specified enumeration.
-	 * @template T
+	 * @template {object} T
 	 * @param {T} enumType An enumerated type.
 	 * @returns {Array<T[keyof T]>} The values of the constants in the specified enumeration.
 	 */
@@ -89,7 +89,7 @@ export class Enum {
 
 	/**
 	 * Gets a value indicating whether a constant with a specified value exists in the specified enumeration.
-	 * @template T
+	 * @template {object} T
 	 * @param {T} enumType An enumerated type.
 	 * @param {any} value The value to check.
 	 * @returns {value is T[keyof T]} `true` if a constant in the specified enumeration has the specified value, otherwise `false`.

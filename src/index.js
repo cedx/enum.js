@@ -3,7 +3,7 @@ import {Enum} from "./enum.js";
 
 /**
  * Creates an enumeration from the specified type definition.
- * @template T
+ * @template {object} T
  * @param {T} typedef A plain object defining the shape of the enumerated type.
  * @returns {Readonly<T & EnumMixin<T>>} The newly created enumeration.
  */
@@ -20,7 +20,7 @@ export default function createEnum(typedef) {
 
 /**
  * Provides methods for inspecting an enumeration.
- * @template T
+ * @template {object} T
  * @typedef {object} EnumMixin
  * @property {(value: any) => T[keyof T]} assert
  *   Returns the specified value if it exists in this enumeration, otherwise throws an error.
