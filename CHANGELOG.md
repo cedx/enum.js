@@ -6,7 +6,7 @@
 - Breaking change: raised the required [Node.js](https://nodejs.org) version.
 - Breaking change: renamed the `entries()`, `names()` and `values()` methods to `getEntries()`, `getNames()` and `getValues()`.
 - Breaking change: the `Enum.create()` method is now a function exposed as a default export.
-- Ported the source code to [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript).
+- Ported the source code to [JavaScript](https://developer.mozilla.org/docs/Web/JavaScript).
 
 ## Version [7.0.0](https://github.com/cedx/enum.js/compare/v6.3.0...v7.0.0)
 - Breaking change: raised the required [Node.js](https://nodejs.org) version.
@@ -18,7 +18,7 @@
 - Updated the package dependencies.
 
 ## Version [6.2.0](https://github.com/cedx/enum.js/compare/v6.1.1...v6.2.0)
-- Added [`BigInt`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt) to the values to be retained. 
+- Added [`BigInt`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/BigInt) to the values to be retained. 
 - Replaced [`babel-minify`](https://github.com/babel/minify) by [`terser`](https://terser.org) for minification.
 
 ## Version [6.1.1](https://github.com/cedx/enum.js/compare/v6.1.0...v6.1.1)
@@ -33,7 +33,7 @@
 ## Version [6.0.0](https://github.com/cedx/enum.js/compare/v5.5.0...v6.0.0)
 - Breaking change: dropped support for [CommonJS modules](https://nodejs.org/api/modules.html).
 - Breaking change: raised the required [Node.js](https://nodejs.org) version.
-- Breaking change: reverted the source code to [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript).
+- Breaking change: reverted the source code to [JavaScript](https://developer.mozilla.org/docs/Web/JavaScript).
 - Replaced the [TypeDoc](https://typedoc.org) documentation generator by [JSDoc](https://jsdoc.app).
 - Replaced the [TSLint](https://palantir.github.io/tslint) static analyzer by [ESLint](https://eslint.org).
 - Updated the package dependencies.
