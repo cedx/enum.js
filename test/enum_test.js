@@ -1,7 +1,7 @@
 /* eslint-disable max-lines-per-function */
 import assert from "node:assert/strict";
 import {describe, it} from "node:test";
-import {Enum} from "../src/enum.js";
+import {Enum} from "../src/index.js";
 
 /**
  * A sample enumeration.
