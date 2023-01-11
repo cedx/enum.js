@@ -64,8 +64,7 @@ export class Enum {
 	 * @returns {string} The name of the constant that has the specified value, or an empty string if no such value is found.
 	 */
 	static getName(enumType, value) {
-		const index = this.getIndex(enumType, value);
-		return index >= 0 ? this.getNames(enumType)[index] : "";
+		return this.getNames(enumType).find(name => Reflect.get(enumType, name) === value) ?? "";
 	}
 
 	/**
