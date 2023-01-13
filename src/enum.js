@@ -9,7 +9,7 @@ export class Enum {
 	 * @private
 	 */
 	constructor() {
-		throw new TypeError("The Enum class is abstract.");
+		throw TypeError("The Enum class is abstract.");
 	}
 
 	/**
@@ -22,7 +22,7 @@ export class Enum {
 	 */
 	static assert(enumType, value) {
 		if (this.isDefined(enumType, value)) return value;
-		throw new TypeError(`Invalid enumerated value: ${value}`);
+		throw TypeError(`Invalid enumerated value: ${value}`);
 	}
 
 	/**
