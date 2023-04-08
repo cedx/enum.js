@@ -5,7 +5,7 @@ Yet another implementation of enumerated types for [JavaScript](https://develope
 
 ## Documentation
 - [User guide](https://github.com/cedx/enum.js/wiki)
-- [API reference](https://cedx.github.io/enum.js)
+- [API reference](https://docs.belin.io/enum.js)
 
 ## Development
 - [Git repository](https://github.com/cedx/enum.js)
