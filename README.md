@@ -1,5 +1,5 @@
 # Enums for JS
-![Runtime](https://badgen.net/npm/node/@cedx/enum) ![Release](https://badgen.net/npm/v/@cedx/enum) ![License](https://badgen.net/npm/license/@cedx/enum) ![Downloads](https://badgen.net/npm/dt/@cedx/enum) ![Coverage](https://badgen.net/codecov/c/github/cedx/enum.js)
+![Node.js](https://badgen.net/npm/node/@cedx/enum) ![npm](https://badgen.net/npm/v/@cedx/enum) ![License](https://badgen.net/npm/license/@cedx/enum) ![Downloads](https://badgen.net/npm/dt/@cedx/enum) ![Coverage](https://badgen.net/codecov/c/github/cedx/enum.js)
 
 Yet another implementation of enumerated types for [JavaScript](https://developer.mozilla.org/docs/Web/JavaScript).
 
