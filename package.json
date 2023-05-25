@@ -1,7 +1,7 @@
 {
 	"bugs": "https://github.com/cedx/enum.js/issues",
 	"description": "A simple implementation of enumerated types.",
-	"homepage": "https://github.com/cedx/enum.js",
+	"homepage": "https://docs.belin.io/enum.js",
 	"license": "MIT",
 	"name": "@cedx/enum",
 	"repository": "github:cedx/enum.js",
@@ -13,7 +13,7 @@
 		"url": "https://belin.io"
 	},
 	"devDependencies": {
-		"@types/node": "^20.2.1",
+		"@types/node": "^20.2.4",
 		"c8": "^7.13.0",
 		"eslint": "^8.41.0",
 		"typedoc": "^0.24.7",
