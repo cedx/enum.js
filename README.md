@@ -4,8 +4,8 @@
 Yet another implementation of enumerated types for [JavaScript](https://developer.mozilla.org/docs/Web/JavaScript).
 
 ## Documentation
-- [User guide](https://github.com/cedx/enum.js/wiki)
-- [API reference](https://docs.belin.io/enum.js)
+- [User guide](https://docs.belin.io/enum.js)
+- [API reference](https://docs.belin.io/enum.js/api)
 
 ## Development
 - [Git repository](https://github.com/cedx/enum.js)
@@ -13,4 +13,4 @@ Yet another implementation of enumerated types for [JavaScript](https://develope
 - [Submit an issue](https://github.com/cedx/enum.js/issues)
 
 ## License
-[Enums for JS](https://github.com/cedx/enum.js) is distributed under the MIT License.
+[Enums for JS](https://docs.belin.io/enum.js) is distributed under the MIT License.
