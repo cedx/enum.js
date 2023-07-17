@@ -29,7 +29,7 @@ describe("createEnum()", () => {
 		});
 	});
 
-	describe(".assert()", () => {
+	describe("assert()", () => {
 		it("should return the specified value if it is a known one", () => {
 			assert.equal(SampleEnum.assert(false), SampleEnum.zero);
 			assert.equal(SampleEnum.assert(1), SampleEnum.one);
@@ -44,7 +44,7 @@ describe("createEnum()", () => {
 		});
 	});
 
-	describe(".coerce()", () => {
+	describe("coerce()", () => {
 		it("should return the specified value if it is a known one", () => {
 			assert.equal(SampleEnum.coerce(false, SampleEnum.zero), SampleEnum.zero);
 			assert.equal(SampleEnum.coerce(1, SampleEnum.zero), SampleEnum.one);
@@ -59,7 +59,7 @@ describe("createEnum()", () => {
 		});
 	});
 
-	describe(".getEntries()", () => {
+	describe("getEntries()", () => {
 		it("should return the pairs of names and values", () => {
 			const entries = SampleEnum.getEntries();
 			assert.equal(entries.size, 4);
@@ -72,7 +72,7 @@ describe("createEnum()", () => {
 		});
 	});
 
-	describe(".getIndex()", () => {
+	describe("getIndex()", () => {
 		it("should return `-1` for unknown values", () => {
 			assert.equal(SampleEnum.getIndex(0), -1);
 			assert.equal(SampleEnum.getIndex("two"), -1);
@@ -87,7 +87,7 @@ describe("createEnum()", () => {
 		});
 	});
 
-	describe(".getName()", () => {
+	describe("getName()", () => {
 		it("should return an empty string for unknown values", () => {
 			assert.equal(SampleEnum.getName(0).length, 0);
 			assert.equal(SampleEnum.getName("two").length, 0);
@@ -102,19 +102,19 @@ describe("createEnum()", () => {
 		});
 	});
 
-	describe(".getNames()", () => {
+	describe("getNames()", () => {
 		it("should return the names of the enumerable properties", () => {
 			assert.deepEqual(SampleEnum.getNames(), ["zero", "one", "two", "three"]);
 		});
 	});
 
-	describe(".getValues()", () => {
+	describe("getValues()", () => {
 		it("should return the values of the enumerable properties", () => {
 			assert.deepEqual(SampleEnum.getValues(), [false, 1, "TWO", 3.0]);
 		});
 	});
 
-	describe(".isDefined()", () => {
+	describe("isDefined()", () => {
 		it("should return `false` for unknown values", () => {
 			assert.ok(!SampleEnum.isDefined(0));
 			assert.ok(!SampleEnum.isDefined("two"));
