@@ -14,10 +14,10 @@ export class Enum {
 
 	/**
 	 * Returns the specified value if it exists in the specified enumeration, otherwise throws an error.
-	 * @template {object} Type
-	 * @param {Type} enumType An enumerated type.
+	 * @template {object} T
+	 * @param {T} enumType An enumerated type.
 	 * @param {any} value The value to check.
-	 * @returns {Type[keyof Type]} The specified value if it exists in the specified enumeration.
+	 * @returns {T[keyof T]} The specified value if it exists in the specified enumeration.
 	 * @throws {TypeError} No such enumerated value was found.
 	 */
 	static assert(enumType, value) {
@@ -27,11 +27,11 @@ export class Enum {
 
 	/**
 	 * Returns the specified value if it exists in the specified enumeration, otherwise returns the given default value.
-	 * @template {object} Type
-	 * @param {Type} enumType An enumerated type.
+	 * @template {object} T
+	 * @param {T} enumType An enumerated type.
 	 * @param {any} value The value to coerce.
-	 * @param {Type[keyof Type]} defaultValue The value to return if the specified value does not exist in the enumeration.
-	 * @returns {Type[keyof Type]} The specified value if it exists in the enumeration, otherwise the given default value.
+	 * @param {T[keyof T]} defaultValue The value to return if the specified value does not exist in the enumeration.
+	 * @returns {T[keyof T]} The specified value if it exists in the enumeration, otherwise the given default value.
 	 */
 	static coerce(enumType, value, defaultValue) {
 		return this.isDefined(enumType, value) ? value : this.assert(enumType, defaultValue);
@@ -39,9 +39,9 @@ export class Enum {
 
 	/**
 	 * Gets a map of the names and values of the constants in the specified enumeration.
-	 * @template {object} Type
-	 * @param {Type} enumType An enumerated type.
-	 * @returns {Map<string, Type[keyof Type]>} The names and values of the constants in the enumeration.
+	 * @template {object} T
+	 * @param {T} enumType An enumerated type.
+	 * @returns {Map<string, T[keyof T]>} The names and values of the constants in the enumeration.
 	 */
 	static getEntries(enumType) {
 		return new Map(Object.entries(enumType));
@@ -49,7 +49,8 @@ export class Enum {
 
 	/**
 	 * Gets the zero-based position of the constant in the specified enumeration that has the specified value.
-	 * @param {any} enumType An enumerated type.
+	 * @template {object} T
+	 * @param {T} enumType An enumerated type.
 	 * @param {any} value The value of a constant in the enumerated type.
 	 * @returns {number} The zero-based position of the constant that has the specified value, or `-1` if no such value is found.
 	 */
@@ -59,7 +60,8 @@ export class Enum {
 
 	/**
 	 * Gets the name of the constant in the specified enumeration that has the specified value.
-	 * @param {any} enumType An enumerated type.
+	 * @template {object} T
+	 * @param {T} enumType An enumerated type.
 	 * @param {any} value The value of a constant in the enumerated type.
 	 * @returns {string} The name of the constant that has the specified value, or an empty string if no such value is found.
 	 */
@@ -69,7 +71,8 @@ export class Enum {
 
 	/**
 	 * Gets an array of the names of the constants in the specified enumeration.
-	 * @param {any} enumType An enumerated type.
+	 * @template {object} T
+	 * @param {T} enumType An enumerated type.
 	 * @returns {string[]} The names of the constants in the specified enumeration.
 	 */
 	static getNames(enumType) {
@@ -78,9 +81,9 @@ export class Enum {
 
 	/**
 	 * Gets an array of the values of the constants in the specified enumeration.
-	 * @template {object} Type
-	 * @param {Type} enumType An enumerated type.
-	 * @returns {Array<Type[keyof Type]>} The values of the constants in the specified enumeration.
+	 * @template {object} T
+	 * @param {T} enumType An enumerated type.
+	 * @returns {Array<T[keyof T]>} The values of the constants in the specified enumeration.
 	 */
 	static getValues(enumType) {
 		return Object.values(enumType);
@@ -88,10 +91,10 @@ export class Enum {
 
 	/**
 	 * Gets a value indicating whether a constant with a specified value exists in the specified enumeration.
-	 * @template {object} Type
-	 * @param {Type} enumType An enumerated type.
+	 * @template {object} T
+	 * @param {T} enumType An enumerated type.
 	 * @param {any} value The value to check.
-	 * @returns {value is Type[keyof Type]} `true` if a constant in the specified enumeration has the specified value, otherwise `false`.
+	 * @returns {value is T[keyof T]} `true` if a constant in the specified enumeration has the specified value, otherwise `false`.
 	 */
 	static isDefined(enumType, value) {
 		return this.getValues(enumType).includes(value);
