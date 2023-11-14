@@ -13,4 +13,4 @@ Yet another implementation of enumerated types for [JavaScript](https://develope
 - [Submit an issue](https://github.com/cedx/enum.js/issues)
 
 ## License
-[Enums for JS](https://cedx.github.io/enum.js) is distributed under the MIT License.
+[Enums for JS](https://github.com/cedx/enum.js) is distributed under the MIT License.

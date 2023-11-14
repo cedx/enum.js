@@ -1,7 +1,7 @@
 {
 	"bugs": "https://github.com/cedx/enum.js/issues",
 	"description": "A simple implementation of enumerated types.",
-	"homepage": "https://cedx.github.io/enum.js",
+	"homepage": "https://github.com/cedx/enum.js",
 	"license": "MIT",
 	"name": "@cedx/enum",
 	"repository": "cedx/enum.js",
