@@ -105,16 +105,16 @@ describe("Enum", () => {
 
 	describe("isDefined()", () => {
 		it("should return `false` for unknown values", () => {
-			assert.ok(!Enum.isDefined(SampleEnum, 0));
-			assert.ok(!Enum.isDefined(SampleEnum, "two"));
-			assert.ok(!Enum.isDefined(SampleEnum, 3.1));
+			assert(!Enum.isDefined(SampleEnum, 0));
+			assert(!Enum.isDefined(SampleEnum, "two"));
+			assert(!Enum.isDefined(SampleEnum, 3.1));
 		});
 
 		it("should return `true` for known values", () => {
-			assert.ok(Enum.isDefined(SampleEnum, false));
-			assert.ok(Enum.isDefined(SampleEnum, 1));
-			assert.ok(Enum.isDefined(SampleEnum, "TWO"));
-			assert.ok(Enum.isDefined(SampleEnum, 3.0));
+			assert(Enum.isDefined(SampleEnum, false));
+			assert(Enum.isDefined(SampleEnum, 1));
+			assert(Enum.isDefined(SampleEnum, "TWO"));
+			assert(Enum.isDefined(SampleEnum, 3.0));
 		});
 	});
 });

@@ -20,12 +20,12 @@ const SampleEnum = createEnum({
 describe("createEnum()", () => {
 	describe("function", () => {
 		it("should create types that are immutable", () => {
-			assert.ok(Object.isFrozen(SampleEnum));
+			assert(Object.isFrozen(SampleEnum));
 		});
 
 		it("should create types having the `EnumMixin` mixin", () => {
 			const methods = Reflect.ownKeys(Enum).filter(key => typeof Reflect.get(Enum, key) == "function");
-			assert.ok(methods.every(method => typeof Reflect.get(SampleEnum, method) == "function"));
+			assert(methods.every(method => typeof Reflect.get(SampleEnum, method) == "function"));
 		});
 	});
 
@@ -116,16 +116,16 @@ describe("createEnum()", () => {
 
 	describe("isDefined()", () => {
 		it("should return `false` for unknown values", () => {
-			assert.ok(!SampleEnum.isDefined(0));
-			assert.ok(!SampleEnum.isDefined("two"));
-			assert.ok(!SampleEnum.isDefined(3.1));
+			assert(!SampleEnum.isDefined(0));
+			assert(!SampleEnum.isDefined("two"));
+			assert(!SampleEnum.isDefined(3.1));
 		});
 
 		it("should return `true` for known values", () => {
-			assert.ok(SampleEnum.isDefined(false));
-			assert.ok(SampleEnum.isDefined(1));
-			assert.ok(SampleEnum.isDefined("TWO"));
-			assert.ok(SampleEnum.isDefined(3.0));
+			assert(SampleEnum.isDefined(false));
+			assert(SampleEnum.isDefined(1));
+			assert(SampleEnum.isDefined("TWO"));
+			assert(SampleEnum.isDefined(3.0));
 		});
 	});
 });
