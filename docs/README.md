@@ -89,4 +89,3 @@ DayOfWeek.getValues();
 ## See also
 - [API reference](api/)
 - [npm package](https://www.npmjs.com/package/@cedx/enum)
-- [Code coverage](https://app.codecov.io/gh/cedx/enum.js)
