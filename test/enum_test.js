@@ -1,5 +1,5 @@
 /* eslint-disable max-lines-per-function */
-import assert from "node:assert/strict";
+import {equal} from "node:assert/strict";
 import {describe, it} from "node:test";
 import {Enum} from "#enum";
 
@@ -20,10 +20,10 @@ const SampleEnum = Object.freeze({
 describe("Enum", () => {
 	describe("assert()", () => {
 		it("should return the specified value if it is a known one", () => {
-			assert.equal(Enum.assert(SampleEnum, false), SampleEnum.zero);
-			assert.equal(Enum.assert(SampleEnum, 1), SampleEnum.one);
-			assert.equal(Enum.assert(SampleEnum, "TWO"), SampleEnum.two);
-			assert.equal(Enum.assert(SampleEnum, 3.0), SampleEnum.three);
+			equal(Enum.assert(SampleEnum, false), SampleEnum.zero);
+			equal(Enum.assert(SampleEnum, 1), SampleEnum.one);
+			equal(Enum.assert(SampleEnum, "TWO"), SampleEnum.two);
+			equal(Enum.assert(SampleEnum, 3.0), SampleEnum.three);
 		});
 
 		it("should throw an exception if it is an unknown value", () => {
@@ -35,23 +35,23 @@ describe("Enum", () => {
 
 	describe("coerce()", () => {
 		it("should return the specified value if it is a known one", () => {
-			assert.equal(Enum.coerce(SampleEnum, false, SampleEnum.zero), SampleEnum.zero);
-			assert.equal(Enum.coerce(SampleEnum, 1, SampleEnum.zero), SampleEnum.one);
-			assert.equal(Enum.coerce(SampleEnum, "TWO", SampleEnum.zero), SampleEnum.two);
-			assert.equal(Enum.coerce(SampleEnum, 3.0, SampleEnum.zero), SampleEnum.three);
+			equal(Enum.coerce(SampleEnum, false, SampleEnum.zero), SampleEnum.zero);
+			equal(Enum.coerce(SampleEnum, 1, SampleEnum.zero), SampleEnum.one);
+			equal(Enum.coerce(SampleEnum, "TWO", SampleEnum.zero), SampleEnum.two);
+			equal(Enum.coerce(SampleEnum, 3.0, SampleEnum.zero), SampleEnum.three);
 		});
 
 		it("should return the default value if it is an unknown one", () => {
-			assert.equal(Enum.coerce(SampleEnum, "", SampleEnum.zero), SampleEnum.zero);
-			assert.equal(Enum.coerce(SampleEnum, "two", SampleEnum.two), SampleEnum.two);
-			assert.equal(Enum.coerce(SampleEnum, 3.1, SampleEnum.two), SampleEnum.two);
+			equal(Enum.coerce(SampleEnum, "", SampleEnum.zero), SampleEnum.zero);
+			equal(Enum.coerce(SampleEnum, "two", SampleEnum.two), SampleEnum.two);
+			equal(Enum.coerce(SampleEnum, 3.1, SampleEnum.two), SampleEnum.two);
 		});
 	});
 
 	describe("getEntries()", () => {
 		it("should return the pairs of names and values", () => {
 			const entries = Enum.getEntries(SampleEnum);
-			assert.equal(entries.size, 4);
+			equal(entries.size, 4);
 
 			const [tuple1, tuple2, tuple3, tuple4] = entries;
 			assert.deepEqual(tuple1, ["zero", false]);
@@ -63,31 +63,31 @@ describe("Enum", () => {
 
 	describe("getIndex()", () => {
 		it("should return `-1` for unknown values", () => {
-			assert.equal(Enum.getIndex(SampleEnum, 0), -1);
-			assert.equal(Enum.getIndex(SampleEnum, "two"), -1);
-			assert.equal(Enum.getIndex(SampleEnum, 3.1), -1);
+			equal(Enum.getIndex(SampleEnum, 0), -1);
+			equal(Enum.getIndex(SampleEnum, "two"), -1);
+			equal(Enum.getIndex(SampleEnum, 3.1), -1);
 		});
 
 		it("should return the index for known values", () => {
-			assert.equal(Enum.getIndex(SampleEnum, false), 0);
-			assert.equal(Enum.getIndex(SampleEnum, 1), 1);
-			assert.equal(Enum.getIndex(SampleEnum, "TWO"), 2);
-			assert.equal(Enum.getIndex(SampleEnum, 3.0), 3);
+			equal(Enum.getIndex(SampleEnum, false), 0);
+			equal(Enum.getIndex(SampleEnum, 1), 1);
+			equal(Enum.getIndex(SampleEnum, "TWO"), 2);
+			equal(Enum.getIndex(SampleEnum, 3.0), 3);
 		});
 	});
 
 	describe("getName()", () => {
 		it("should return an empty string for unknown values", () => {
-			assert.equal(Enum.getName(SampleEnum, 0).length, 0);
-			assert.equal(Enum.getName(SampleEnum, "two").length, 0);
-			assert.equal(Enum.getName(SampleEnum, 3.1).length, 0);
+			equal(Enum.getName(SampleEnum, 0).length, 0);
+			equal(Enum.getName(SampleEnum, "two").length, 0);
+			equal(Enum.getName(SampleEnum, 3.1).length, 0);
 		});
 
 		it("should return the name for known values", () => {
-			assert.equal(Enum.getName(SampleEnum, false), "zero");
-			assert.equal(Enum.getName(SampleEnum, 1), "one");
-			assert.equal(Enum.getName(SampleEnum, "TWO"), "two");
-			assert.equal(Enum.getName(SampleEnum, 3.0), "three");
+			equal(Enum.getName(SampleEnum, false), "zero");
+			equal(Enum.getName(SampleEnum, 1), "one");
+			equal(Enum.getName(SampleEnum, "TWO"), "two");
+			equal(Enum.getName(SampleEnum, 3.0), "three");
 		});
 	});
 
