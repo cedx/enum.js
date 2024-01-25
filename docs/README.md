@@ -23,7 +23,6 @@ import Enum from "@cedx/enum";
 
 /**
  * Defines the days of the week.
- * @enum {number}
  */
 const DayOfWeek = Enum({
   sunday: 0,
