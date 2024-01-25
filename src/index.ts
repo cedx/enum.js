@@ -13,9 +13,7 @@ export default function createEnum<T extends object>(typedef: T): Readonly<Enum<
 	for (const [key, value] of Object.entries(typedef))
 		if (scalarTypes.includes(typeof value)) Reflect.defineProperty(enumType, key, {enumerable: true, value});
 
-	Object.keys(methods)
-		.map(key => Reflect.get(methods, key))
-		.forEach(method => Reflect.defineProperty(enumType, method.name, {value: method.bind(null, enumType)}));
-
+	// eslint-disable-next-line @typescript-eslint/ban-types
+	Object.entries(methods).forEach(([key, value]) => Reflect.defineProperty(enumType, key, {value: (value as Function).bind(methods, enumType)}));
 	return Object.freeze(enumType);
 }
