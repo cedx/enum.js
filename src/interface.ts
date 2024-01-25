@@ -1,7 +1,7 @@
 /**
  * Provides methods for inspecting an enumeration.
  */
-export interface EnumMixin<T extends object> {
+export interface Enum<T extends object> {
 
 	/**
 	 * Returns the specified value if it exists in the specified enumeration, otherwise throws an error.

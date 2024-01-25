@@ -36,7 +36,7 @@ const DayOfWeek = Enum({
 ```
 
 This function creates a new object from the enumerable properties of the specified one, having the same values and some additional helper methods.
-The new object is also frozen to prevent any attempt at modifying its shape.
+The newly created object is also frozen to prevent any attempt at modifying its shape.
 
 > Only primitive values are retained when iterating on the enumerable properties of the provided object.
 
