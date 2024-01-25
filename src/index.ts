@@ -1,3 +1,5 @@
+export * from "./mixin.js";
+
 import * as Enum from "./enum.js";
 import type {EnumMixin} from "./mixin.js";
 
