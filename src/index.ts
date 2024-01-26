@@ -1,6 +1,7 @@
-export * from "./interface.js";
 import * as methods from "./implementation.js";
 import type {Enum} from "./interface.js";
+
+export * from "./interface.js";
 
 /**
  * Creates an enumeration from the specified type definition.
