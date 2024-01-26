@@ -26,6 +26,6 @@ npm install @cedx/enum
 ### 2. Import it
 Now in your [JavaScript](https://developer.mozilla.org/docs/Web/JavaScript) code, you can use:
 
-```javascript
+```js
 import Enum from "@cedx/enum";
 ```

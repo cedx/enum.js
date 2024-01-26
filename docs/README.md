@@ -18,7 +18,7 @@ For detailed instructions, see the [installation guide](installation.md).
 ### Create the enumeration
 Just use the `Enum()` function (or whatever you want to name it) with an object literal containing primitive values (i.e. bigints, booleans, numbers, strings and symbols):
 
-```javascript
+```js
 import Enum from "@cedx/enum";
 
 /**
@@ -43,14 +43,14 @@ The newly created object is also frozen to prevent any attempt at modifying its 
 ### Inspect the enumeration
 Check whether a value is defined among the enumerated type:
 
-```javascript
+```js
 DayOfWeek.isDefined(DayOfWeek.sunday); // true
 DayOfWeek.isDefined("foo"); // false
 ```
 
 Ensure that a value is defined among the enumerated type:
 
-```javascript
+```js
 DayOfWeek.assert(DayOfWeek.monday); // DayOfWeek.monday
 DayOfWeek.assert("foo"); // (throws TypeError)
 
@@ -60,21 +60,21 @@ DayOfWeek.coerce("foo", DayOfWeek.tuesday); // DayOfWeek.tuesday
 
 Get the zero-based position of a value in the enumerated type declaration:
 
-```javascript
+```js
 DayOfWeek.getIndex(DayOfWeek.wednesday); // 3
 DayOfWeek.getIndex("foo"); // -1
 ```
 
 Get the name associated with an enumerated value:
 
-```javascript
+```js
 DayOfWeek.getName(DayOfWeek.thursday); // "thursday"
 DayOfWeek.getName("foo"); // "" (empty string)
 ```
 
 Get information about the enumerated type:
 
-```javascript
+```js
 DayOfWeek.getEntries();
 // Map(7) {"sunday" => 0, "monday" => 1, "tuesday" => 2, "wednesday" => 3, "thursday" => 4, "friday" => 5, "saturday" => 6}
 
