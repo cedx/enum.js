@@ -1,3 +1,4 @@
+/* eslint-disable capitalized-comments, line-comment-position, new-cap */
 import Enum from "@cedx/enum";
 
 // Defines the days of the week.
