@@ -27,7 +27,7 @@ export function coerce<T extends object>(enumType: T, value: unknown, defaultVal
  * @returns The names and values of the constants in the enumeration.
  */
 export function getEntries<T extends object>(enumType: T): Map<string, T[keyof T]> {
-	return new Map(Object.entries(enumType));
+	return new Map<string, T[keyof T]>(Object.entries(enumType));
 }
 
 /**
@@ -37,7 +37,7 @@ export function getEntries<T extends object>(enumType: T): Map<string, T[keyof T
  * @returns The zero-based position of the constant that has the specified value, or `-1` if no such value is found.
  */
 export function getIndex<T extends object>(enumType: T, value: unknown): number {
-	return getValues(enumType).indexOf(value as any);
+	return getValues(enumType).indexOf(value as T[keyof T]);
 }
 
 /**
@@ -65,7 +65,7 @@ export function getNames<T extends object>(enumType: T): string[] {
  * @returns The values of the constants in the specified enumeration.
  */
 export function getValues<T extends object>(enumType: T): T[keyof T][] {
-	return Object.values(enumType);
+	return Object.values(enumType) as T[keyof T][];
 }
 
 /**
@@ -75,5 +75,5 @@ export function getValues<T extends object>(enumType: T): T[keyof T][] {
  * @returns `true` if a constant in the specified enumeration has the specified value, otherwise `false`.
  */
 export function isDefined<T extends object>(enumType: T, value: unknown): value is T[keyof T] {
-	return getValues(enumType).includes(value as any);
+	return getValues(enumType).includes(value as T[keyof T]);
 }
