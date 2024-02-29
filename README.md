@@ -4,8 +4,8 @@
 Yet another implementation of enumerated types for [JavaScript](https://developer.mozilla.org/docs/Web/JavaScript).
 
 ## Documentation
-- [User guide](https://cedx.github.io/enum.js)
-- [API reference](https://cedx.github.io/enum.js/api)
+- [User guide](https://docs.belin.io/enum.js)
+- [API reference](https://docs.belin.io/enum.js/api)
 
 ## Development
 - [Git repository](https://github.com/cedx/enum.js)
