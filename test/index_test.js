@@ -1,6 +1,6 @@
 import {ok} from "node:assert/strict";
 import {describe, it} from "node:test";
-import createEnum from "#enum";
+import createEnum from "@cedx/enum";
 
 /**
  * Tests the features of the {@link createEnum} function.
