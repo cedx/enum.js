@@ -58,13 +58,6 @@ DayOfWeek.coerce(DayOfWeek.monday, DayOfWeek.tuesday); // DayOfWeek.monday
 DayOfWeek.coerce("foo", DayOfWeek.tuesday); // DayOfWeek.tuesday
 ```
 
-Get the zero-based position of a value in the enumerated type declaration:
-
-```js
-DayOfWeek.getIndex(DayOfWeek.wednesday); // 3
-DayOfWeek.getIndex("foo"); // -1
-```
-
 Get the name associated with an enumerated value:
 
 ```js

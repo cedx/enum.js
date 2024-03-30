@@ -31,16 +31,6 @@ export function getEntries<T extends object>(enumType: T): Map<string, T[keyof T
 }
 
 /**
- * Gets the zero-based position of the constant in the specified enumeration that has the specified value.
- * @param enumType An enumerated type.
- * @param value The value of a constant in the enumerated type.
- * @returns The zero-based position of the constant that has the specified value, or `-1` if no such value is found.
- */
-export function getIndex<T extends object>(enumType: T, value: unknown): number {
-	return values(enumType).indexOf(value as T[keyof T]);
-}
-
-/**
  * Gets the name of the constant in the specified enumeration that has the specified value.
  * @param enumType An enumerated type.
  * @param value The value of a constant in the enumerated type.

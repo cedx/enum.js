@@ -57,21 +57,6 @@ describe("Enum", () => {
 		});
 	});
 
-	describe("getIndex()", () => {
-		it("should return `-1` for unknown values", () => {
-			equal(SampleEnum.getIndex(0), -1);
-			equal(SampleEnum.getIndex("two"), -1);
-			equal(SampleEnum.getIndex(3.5), -1);
-		});
-
-		it("should return the index for known values", () => {
-			equal(SampleEnum.getIndex(false), 0);
-			equal(SampleEnum.getIndex(1), 1);
-			equal(SampleEnum.getIndex("TWO"), 2);
-			equal(SampleEnum.getIndex(3.0), 3);
-		});
-	});
-
 	describe("getName()", () => {
 		it("should return an empty string for unknown values", () => {
 			equal(SampleEnum.getName(0).length, 0);

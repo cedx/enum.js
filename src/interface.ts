@@ -26,13 +26,6 @@ export interface Enum<T extends object> {
 	getEntries: () => Map<string, T[keyof T]>;
 
 	/**
-	 * Gets the zero-based position of the constant in the specified enumeration that has the specified value.
-	 * @param value The value of a constant in the enumerated type.
-	 * @returns The zero-based position of the constant that has the specified value, or `-1` if no such value is found.
-	 */
-	getIndex: (value: unknown) => number;
-
-	/**
 	 * Gets the name of the constant in the specified enumeration that has the specified value.
 	 * @param value The value of a constant in the enumerated type.
 	 * @returns The name of the constant that has the specified value, or an empty string if no such value is found.
