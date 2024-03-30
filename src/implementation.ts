@@ -41,7 +41,17 @@ export function getName<T extends object>(enumType: T, value: unknown): string {
 }
 
 /**
- * Gets a value indicating whether a constant with a specified value exists in the specified enumeration.
+ * Gets a value indicating whether a constant with the specified name exists in the specified enumeration.
+ * @param enumType An enumerated type.
+ * @param name The name to check.
+ * @returns `true` if a constant in the specified enumeration has the specified name, otherwise `false`.
+ */
+export function has<T extends object>(enumType: T, name: string): boolean {
+	return keys(enumType).includes(name);
+}
+
+/**
+ * Gets a value indicating whether a constant with the specified value exists in the specified enumeration.
  * @param enumType An enumerated type.
  * @param value The value to check.
  * @returns `true` if a constant in the specified enumeration has the specified value, otherwise `false`.

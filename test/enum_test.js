@@ -72,6 +72,18 @@ describe("Enum", () => {
 		});
 	});
 
+	describe("has()", () => {
+		it("should return `false` for unknown names", () => {
+			ok(!SampleEnum.has("foo"));
+			ok(!SampleEnum.has("TWO"));
+		});
+
+		it("should return `true` for known names", () => {
+			ok(SampleEnum.has("zero"));
+			ok(SampleEnum.has("two"));
+		});
+	});
+
 	describe("hasValue()", () => {
 		it("should return `false` for unknown values", () => {
 			ok(!SampleEnum.hasValue(0));

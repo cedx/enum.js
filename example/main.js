@@ -12,6 +12,10 @@ const DayOfWeek = Enum({
 	saturday: 6
 });
 
+// Check whether a name is defined among the enumerated type.
+DayOfWeek.has("sunday"); // true
+DayOfWeek.has("foo"); // false
+
 // Check whether a value is defined among the enumerated type.
 DayOfWeek.hasValue(DayOfWeek.sunday); // true
 DayOfWeek.hasValue("foo"); // false

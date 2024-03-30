@@ -33,7 +33,15 @@ export interface Enum<T extends object> {
 	getName: (value: unknown) => string;
 
 	/**
-	 * Gets a value indicating whether a constant with a specified value exists in the specified enumeration.
+	 * Gets a value indicating whether a constant with the specified name exists in the specified enumeration.
+	 * @param enumType An enumerated type.
+	 * @param name The name to check.
+	 * @returns `true` if a constant in the specified enumeration has the specified name, otherwise `false`.
+	 */
+	has: (name: string) => boolean;
+
+	/**
+	 * Gets a value indicating whether a constant with the specified value exists in the specified enumeration.
 	 * @param value The value to check.
 	 * @returns `true` if a constant in the specified enumeration has the specified value, otherwise `false`.
 	 */
