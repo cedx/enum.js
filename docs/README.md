@@ -78,7 +78,7 @@ Get information about the enumerated type:
 DayOfWeek.getEntries();
 // Map(7) {"sunday" => 0, "monday" => 1, "tuesday" => 2, "wednesday" => 3, "thursday" => 4, "friday" => 5, "saturday" => 6}
 
-DayOfWeek.getNames();
+DayOfWeek.keys();
 // ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"]
 
 DayOfWeek.values();

@@ -40,17 +40,17 @@ export interface Enum<T extends object> {
 	getName: (value: unknown) => string;
 
 	/**
-	 * Gets an array of the names of the constants in the specified enumeration.
-	 * @returns The names of the constants in the specified enumeration.
-	 */
-	getNames: () => string[];
-
-	/**
 	 * Gets a value indicating whether a constant with a specified value exists in the specified enumeration.
 	 * @param value The value to check.
 	 * @returns `true` if a constant in the specified enumeration has the specified value, otherwise `false`.
 	 */
 	hasValue: (value: unknown) => value is T[keyof T];
+
+	/**
+	 * Gets an array of the names of the constants in the specified enumeration.
+	 * @returns The names of the constants in the specified enumeration.
+	 */
+	keys: () => string[];
 
 	/**
 	 * Gets an array of the values of the constants in the specified enumeration.

@@ -47,16 +47,7 @@ export function getIndex<T extends object>(enumType: T, value: unknown): number 
  * @returns The name of the constant that has the specified value, or an empty string if no such value is found.
  */
 export function getName<T extends object>(enumType: T, value: unknown): string {
-	return getNames(enumType).find(name => Reflect.get(enumType, name) === value) ?? "";
-}
-
-/**
- * Gets an array of the names of the constants in the specified enumeration.
- * @param enumType An enumerated type.
- * @returns The names of the constants in the specified enumeration.
- */
-export function getNames<T extends object>(enumType: T): string[] {
-	return Object.keys(enumType);
+	return keys(enumType).find(name => Reflect.get(enumType, name) === value) ?? "";
 }
 
 /**
@@ -67,6 +58,15 @@ export function getNames<T extends object>(enumType: T): string[] {
  */
 export function hasValue<T extends object>(enumType: T, value: unknown): value is T[keyof T] {
 	return values(enumType).includes(value as T[keyof T]);
+}
+
+/**
+ * Gets an array of the names of the constants in the specified enumeration.
+ * @param enumType An enumerated type.
+ * @returns The names of the constants in the specified enumeration.
+ */
+export function keys<T extends object>(enumType: T): string[] {
+	return Object.keys(enumType);
 }
 
 /**
