@@ -41,6 +41,13 @@ The newly created object is also frozen to prevent any attempt at modifying its 
 > Only primitive values are retained when iterating on the enumerable properties of the provided object.
 
 ### Inspect the enumeration
+Check whether a name is defined among the enumerated type:
+
+```js
+DayOfWeek.has("sunday"); // true
+DayOfWeek.has("foo"); // false
+```
+
 Check whether a value is defined among the enumerated type:
 
 ```js
