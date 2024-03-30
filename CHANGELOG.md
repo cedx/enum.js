@@ -1,5 +1,10 @@
 # Changelog
 
+## Version [9.0.0](https://github.com/cedx/enum.js/compare/v8.1.0...v9.0.0)
+- Breaking change: renamed the `getNames()`, `getValues()` and `isDefined()` functions to `keys()`, `values()` and `hasValue()`.
+- Breaking change: removed the `getIndex()` function.
+- Added the `has()` function.
+
 ## Version [8.1.0](https://github.com/cedx/enum.js/compare/v8.0.1...v8.1.0)
 - Ported the source code to [TypeScript](https://www.typescriptlang.org).
 
