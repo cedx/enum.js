@@ -56,5 +56,5 @@ export interface Enum<T extends object> {
 	 * @param value The value to check.
 	 * @returns `true` if a constant in the specified enumeration has the specified value, otherwise `false`.
 	 */
-	isDefined: (value: unknown) => value is T[keyof T];
+	hasValue: (value: unknown) => value is T[keyof T];
 }

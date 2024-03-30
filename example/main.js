@@ -13,8 +13,8 @@ const DayOfWeek = Enum({
 });
 
 // Check whether a value is defined among the enumerated type.
-DayOfWeek.isDefined(DayOfWeek.sunday); // true
-DayOfWeek.isDefined("foo"); // false
+DayOfWeek.hasValue(DayOfWeek.sunday); // true
+DayOfWeek.hasValue("foo"); // false
 
 // Ensure that a value is defined among the enumerated type.
 DayOfWeek.assert(DayOfWeek.monday); // DayOfWeek.monday

@@ -97,18 +97,18 @@ describe("Enum", () => {
 			deepEqual(SampleEnum.getValues(), [false, 1, "TWO", 3.0]));
 	});
 
-	describe("isDefined()", () => {
+	describe("hasValue()", () => {
 		it("should return `false` for unknown values", () => {
-			ok(!SampleEnum.isDefined(0));
-			ok(!SampleEnum.isDefined("two"));
-			ok(!SampleEnum.isDefined(3.5));
+			ok(!SampleEnum.hasValue(0));
+			ok(!SampleEnum.hasValue("two"));
+			ok(!SampleEnum.hasValue(3.5));
 		});
 
 		it("should return `true` for known values", () => {
-			ok(SampleEnum.isDefined(false));
-			ok(SampleEnum.isDefined(1));
-			ok(SampleEnum.isDefined("TWO"));
-			ok(SampleEnum.isDefined(3.0));
+			ok(SampleEnum.hasValue(false));
+			ok(SampleEnum.hasValue(1));
+			ok(SampleEnum.hasValue("TWO"));
+			ok(SampleEnum.hasValue(3.0));
 		});
 	});
 });

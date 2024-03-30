@@ -6,7 +6,7 @@
  * @throws `TypeError` if no such enumerated value was found.
  */
 export function assert<T extends object>(enumType: T, value: unknown): T[keyof T] {
-	if (isDefined(enumType, value)) return value;
+	if (hasValue(enumType, value)) return value;
 	throw TypeError(`Invalid enumerated value: ${value}`);
 }
 
@@ -18,7 +18,7 @@ export function assert<T extends object>(enumType: T, value: unknown): T[keyof T
  * @returns The specified value if it exists in the enumeration, otherwise the given default value.
  */
 export function coerce<T extends object>(enumType: T, value: unknown, defaultValue: T[keyof T]): T[keyof T] {
-	return isDefined(enumType, value) ? value : assert(enumType, defaultValue);
+	return hasValue(enumType, value) ? value : assert(enumType, defaultValue);
 }
 
 /**
@@ -74,6 +74,6 @@ export function getValues<T extends object>(enumType: T): T[keyof T][] {
  * @param value The value to check.
  * @returns `true` if a constant in the specified enumeration has the specified value, otherwise `false`.
  */
-export function isDefined<T extends object>(enumType: T, value: unknown): value is T[keyof T] {
+export function hasValue<T extends object>(enumType: T, value: unknown): value is T[keyof T] {
 	return getValues(enumType).includes(value as T[keyof T]);
 }

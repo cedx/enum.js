@@ -44,8 +44,8 @@ The newly created object is also frozen to prevent any attempt at modifying its 
 Check whether a value is defined among the enumerated type:
 
 ```js
-DayOfWeek.isDefined(DayOfWeek.sunday); // true
-DayOfWeek.isDefined("foo"); // false
+DayOfWeek.hasValue(DayOfWeek.sunday); // true
+DayOfWeek.hasValue("foo"); // false
 ```
 
 Ensure that a value is defined among the enumerated type:
