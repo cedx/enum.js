@@ -92,11 +92,6 @@ describe("Enum", () => {
 			deepEqual(SampleEnum.getNames(), ["zero", "one", "two", "three"]));
 	});
 
-	describe("getValues()", () => {
-		it("should return the values of the enumerable properties", () =>
-			deepEqual(SampleEnum.getValues(), [false, 1, "TWO", 3.0]));
-	});
-
 	describe("hasValue()", () => {
 		it("should return `false` for unknown values", () => {
 			ok(!SampleEnum.hasValue(0));
@@ -110,5 +105,10 @@ describe("Enum", () => {
 			ok(SampleEnum.hasValue("TWO"));
 			ok(SampleEnum.hasValue(3.0));
 		});
+	});
+
+	describe("values()", () => {
+		it("should return the values of the enumerable properties", () =>
+			deepEqual(SampleEnum.values(), [false, 1, "TWO", 3.0]));
 	});
 });

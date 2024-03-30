@@ -81,7 +81,7 @@ DayOfWeek.getEntries();
 DayOfWeek.getNames();
 // ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"]
 
-DayOfWeek.getValues();
+DayOfWeek.values();
 // [0, 1, 2, 3, 4, 5, 6]
 ```
 

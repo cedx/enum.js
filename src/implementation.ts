@@ -37,7 +37,7 @@ export function getEntries<T extends object>(enumType: T): Map<string, T[keyof T
  * @returns The zero-based position of the constant that has the specified value, or `-1` if no such value is found.
  */
 export function getIndex<T extends object>(enumType: T, value: unknown): number {
-	return getValues(enumType).indexOf(value as T[keyof T]);
+	return values(enumType).indexOf(value as T[keyof T]);
 }
 
 /**
@@ -60,20 +60,20 @@ export function getNames<T extends object>(enumType: T): string[] {
 }
 
 /**
- * Gets an array of the values of the constants in the specified enumeration.
- * @param enumType An enumerated type.
- * @returns The values of the constants in the specified enumeration.
- */
-export function getValues<T extends object>(enumType: T): T[keyof T][] {
-	return Object.values(enumType) as T[keyof T][];
-}
-
-/**
  * Gets a value indicating whether a constant with a specified value exists in the specified enumeration.
  * @param enumType An enumerated type.
  * @param value The value to check.
  * @returns `true` if a constant in the specified enumeration has the specified value, otherwise `false`.
  */
 export function hasValue<T extends object>(enumType: T, value: unknown): value is T[keyof T] {
-	return getValues(enumType).includes(value as T[keyof T]);
+	return values(enumType).includes(value as T[keyof T]);
+}
+
+/**
+ * Gets an array of the values of the constants in the specified enumeration.
+ * @param enumType An enumerated type.
+ * @returns The values of the constants in the specified enumeration.
+ */
+export function values<T extends object>(enumType: T): T[keyof T][] {
+	return Object.values(enumType) as T[keyof T][];
 }
