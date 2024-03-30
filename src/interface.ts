@@ -23,7 +23,7 @@ export interface Enum<T extends object> {
 	 * Gets a map of the names and values of the constants in the specified enumeration.
 	 * @returns The names and values of the constants in the enumeration.
 	 */
-	getEntries: () => Map<string, T[keyof T]>;
+	entries: () => Map<string, T[keyof T]>;
 
 	/**
 	 * Gets the name of the constant in the specified enumeration that has the specified value.

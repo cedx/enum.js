@@ -44,9 +44,9 @@ describe("Enum", () => {
 		});
 	});
 
-	describe("getEntries()", () => {
+	describe("entries()", () => {
 		it("should return the pairs of names and values", () => {
-			const entries = SampleEnum.getEntries();
+			const entries = SampleEnum.entries();
 			equal(entries.size, 4);
 
 			const [zero, one, two, three] = entries;

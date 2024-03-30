@@ -26,7 +26,7 @@ export function coerce<T extends object>(enumType: T, value: unknown, defaultVal
  * @param enumType An enumerated type.
  * @returns The names and values of the constants in the enumeration.
  */
-export function getEntries<T extends object>(enumType: T): Map<string, T[keyof T]> {
+export function entries<T extends object>(enumType: T): Map<string, T[keyof T]> {
 	return new Map<string, T[keyof T]>(Object.entries(enumType));
 }
 

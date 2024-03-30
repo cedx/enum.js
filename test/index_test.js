@@ -17,7 +17,7 @@ describe("createEnum()", () => {
 		ok(Object.isFrozen(SampleEnum)));
 
 	it("should create types having the `Enum` interface", () => {
-		const methods = ["assert", "coerce", "getEntries", "getName", "hasValue", "keys", "values"];
+		const methods = ["assert", "coerce", "entries", "getName", "hasValue", "keys", "values"];
 		ok(methods.every(method => typeof Reflect.get(SampleEnum, method) == "function"));
 	});
 });

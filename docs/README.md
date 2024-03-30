@@ -68,7 +68,7 @@ DayOfWeek.getName("foo"); // "" (empty string)
 Get information about the enumerated type:
 
 ```js
-DayOfWeek.getEntries();
+DayOfWeek.entries();
 // Map(7) {"sunday" => 0, "monday" => 1, "tuesday" => 2, "wednesday" => 3, "thursday" => 4, "friday" => 5, "saturday" => 6}
 
 DayOfWeek.keys();
