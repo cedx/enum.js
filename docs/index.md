@@ -7,7 +7,7 @@ and augments it with helper methods to ease working with its values.
 ## Quick start
 Install the latest version of **Enums for JS** with [npm](https://www.npmjs.com) package manager:
 
-```shell
+``` shell
 npm install @cedx/enum
 ```
 
@@ -18,7 +18,7 @@ For detailed instructions, see the [installation guide](installation.md).
 ### Create the enumeration
 Just use the `Enum()` function (or whatever you want to name it) with an object literal containing primitive values (i.e. bigints, booleans, numbers, strings and symbols):
 
-```js
+``` js
 import Enum from "@cedx/enum";
 
 /**
@@ -43,21 +43,21 @@ The newly created object is also frozen to prevent any attempt at modifying its 
 ### Inspect the enumeration
 Check whether a name is defined among the enumerated type:
 
-```js
+``` js
 DayOfWeek.has("sunday"); // true
 DayOfWeek.has("foo"); // false
 ```
 
 Check whether a value is defined among the enumerated type:
 
-```js
+``` js
 DayOfWeek.hasValue(DayOfWeek.sunday); // true
 DayOfWeek.hasValue("foo"); // false
 ```
 
 Ensure that a value is defined among the enumerated type:
 
-```js
+``` js
 DayOfWeek.assert(DayOfWeek.monday); // DayOfWeek.monday
 DayOfWeek.assert("foo"); // (throws TypeError)
 
@@ -67,14 +67,14 @@ DayOfWeek.coerce("foo", DayOfWeek.tuesday); // DayOfWeek.tuesday
 
 Get the name associated with an enumerated value:
 
-```js
+``` js
 DayOfWeek.getName(DayOfWeek.thursday); // "thursday"
 DayOfWeek.getName("foo"); // "" (empty string)
 ```
 
 Get information about the enumerated type:
 
-```js
+``` js
 DayOfWeek.entries();
 // Map(7) {"sunday" => 0, "monday" => 1, "tuesday" => 2, "wednesday" => 3, "thursday" => 4, "friday" => 5, "saturday" => 6}
 
