@@ -1,8 +1,8 @@
 # Enums for JS
 
 ## Yet another implementation of enumerated types
-This implementation provides a factory function that takes an object literal representing an enumerated type,
-and augments it with helper methods to ease working with its values.
+This implementation provides a factory function that takes a [JavaScript](https://developer.mozilla.org/docs/Web/JavaScript)
+object literal representing an enumerated type, and augments it with helper methods to ease working with its values.
 
 ## Quick start
 Install the latest version of **Enums for JS** with [npm](https://www.npmjs.com) package manager:
@@ -16,7 +16,8 @@ For detailed instructions, see the [installation guide](installation.md).
 ## Usage
 
 ### Create the enumeration
-Just use the `Enum()` function (or whatever you want to name it) with an object literal containing primitive values (i.e. bigints, booleans, numbers, strings and symbols):
+Just use the `Enum()` function (or whatever you want to name it) with an object literal containing primitive values
+(i.e. big integers, booleans, numbers, strings and symbols):
 
 ```js
 import Enum from "@cedx/enum";
@@ -38,7 +39,8 @@ const DayOfWeek = Enum({
 This function creates a new object from the enumerable properties of the specified one, having the same values and some additional helper methods.
 The newly created object is also frozen to prevent any attempt at modifying its shape.
 
-> Only primitive values are retained when iterating on the enumerable properties of the provided object.
+!!! note
+    Only primitive values are retained when iterating on the enumerable properties of the provided object.
 
 ### Inspect the enumeration
 Check whether a name is defined among the enumerated type:
@@ -84,7 +86,3 @@ DayOfWeek.keys();
 DayOfWeek.values();
 // [0, 1, 2, 3, 4, 5, 6]
 ```
-
-## See also
-- [API reference](api/)
-- [npm package](https://www.npmjs.com/package/@cedx/enum)
