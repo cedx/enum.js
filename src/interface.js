@@ -1,5 +1,7 @@
 /**
  * Provides methods for inspecting an enumeration.
+ * @template T
+ * @typedef {T extends object} Enum
  */
 export interface Enum<T extends object> {
 
