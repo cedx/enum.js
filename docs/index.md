@@ -22,9 +22,7 @@ Just use the `Enum()` function (or whatever you want to name it) with an object 
 ```js
 import Enum from "@cedx/enum";
 
-/**
- * Defines the days of the week.
- */
+// Defines the days of the week.
 const DayOfWeek = Enum({
   sunday: 0,
   monday: 1,
