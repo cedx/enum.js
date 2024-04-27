@@ -9,5 +9,5 @@ export default {
 	name: "Enums for JS",
 	out: "../docs/api",
 	readme: "none",
-	tsconfig: "../src/jsconfig.json"
+	tsconfig: "../src/tsconfig.json"
 };
