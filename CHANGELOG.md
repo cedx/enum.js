@@ -1,5 +1,8 @@
 # Changelog
 
+## Version [9.0.1](https://github.com/cedx/enum.js/compare/v9.0.0...v9.0.1)
+- Migrated the documentation to the [GitHub wiki](https://github.com/cedx/enum.js/wiki).
+
 ## Version [9.0.0](https://github.com/cedx/enum.js/compare/v8.1.0...v9.0.0)
 - Breaking change: renamed the `getNames()`, `getValues()` and `isDefined()` functions to `keys()`, `values()` and `hasValue()`.
 - Breaking change: removed the `getIndex()` function.
