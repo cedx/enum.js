@@ -8,14 +8,12 @@ import type {Enum} from "./interface.js";
  * @returns The newly created enumeration.
  */
 export default function createEnum<T extends object>(typedef: T): Readonly<Enum<T> & T> {
-	const enumType = Object.create(null);
-
+	const enumType = Object.create(null) as Enum<T> & T;
 	const scalarTypes = new Set(["bigint", "boolean", "number", "string", "symbol"]);
 	for (const [key, value] of Object.entries(typedef))
-		if (scalarTypes.has(typeof value)) Reflect.defineProperty(enumType, key, {enumerable: true, value});
+		if (scalarTypes.has(typeof value)) Reflect.defineProperty(enumType, key, {enumerable: true, value: value as T[keyof T]});
 
-	for (const [key, value] of Object.entries(methods))
-		Reflect.defineProperty(enumType, key, {value: (value as Function).bind(methods, enumType)});
-
+	// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-function-type
+	for (const [key, value] of Object.entries(methods)) Reflect.defineProperty(enumType, key, {value: (value as Function).bind(methods, enumType)});
 	return Object.freeze(enumType);
 }
