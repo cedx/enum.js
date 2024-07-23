@@ -1,7 +1,7 @@
 /* eslint-disable max-lines-per-function */
+import createEnum from "@cedx/enum";
 import {deepEqual, equal, ok, throws} from "node:assert/strict";
 import {describe, it} from "node:test";
-import createEnum from "@cedx/enum";
 
 /**
  * Tests the features of the {@link Enum} interface.
