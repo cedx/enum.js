@@ -65,7 +65,7 @@ export function hasValue<T extends object>(enumType: T, value: unknown): value i
  * @param enumType An enumerated type.
  * @returns The names of the constants in the specified enumeration.
  */
-export function keys(enumType: object): string[] {
+export function keys(enumType: object): Array<string> {
 	return Object.keys(enumType);
 }
 
@@ -74,6 +74,6 @@ export function keys(enumType: object): string[] {
  * @param enumType An enumerated type.
  * @returns The values of the constants in the specified enumeration.
  */
-export function values<T extends object>(enumType: T): T[keyof T][] {
-	return Object.values(enumType) as T[keyof T][];
+export function values<T extends object>(enumType: T): Array<T[keyof T]> {
+	return Object.values(enumType) as Array<T[keyof T]>;
 }

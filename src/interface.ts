@@ -49,11 +49,11 @@ export interface Enum<T extends object> {
 	 * Gets an array of the names of the constants in the specified enumeration.
 	 * @returns The names of the constants in the specified enumeration.
 	 */
-	keys: () => string[];
+	keys: () => Array<string>;
 
 	/**
 	 * Gets an array of the values of the constants in the specified enumeration.
 	 * @returns The values of the constants in the specified enumeration.
 	 */
-	values: () => T[keyof T][];
+	values: () => Array<T[keyof T]>;
 }
