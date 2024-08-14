@@ -9,7 +9,7 @@ import type {Enum} from "./interface.js";
  */
 export default function createEnum<T extends object>(typedef: T): Readonly<Enum<T> & T> {
 	const enumType = Object.create(null) as Enum<T> & T;
-	const scalarTypes = new Set(["bigint", "boolean", "number", "string", "symbol"]);
+	const scalarTypes = new Set<string>(["bigint", "boolean", "number", "string", "symbol"]);
 	for (const [key, value] of Object.entries(typedef))
 		if (scalarTypes.has(typeof value)) Reflect.defineProperty(enumType, key, {enumerable: true, value: value as T[keyof T]});
 
