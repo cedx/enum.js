@@ -7,7 +7,7 @@ import type {Enum} from "./interface.js";
  * @param typedef A plain object defining the shape of the enumerated type.
  * @returns The newly created enumeration.
  */
-export default function createEnum<T extends object>(typedef: T): Readonly<Enum<T> & T> {
+export default function Enum<T extends object>(typedef: T): Readonly<Enum<T> & T> {
 	const enumType = Object.create(null) as Enum<T> & T;
 	const scalarTypes = new Set<string>(["bigint", "boolean", "number", "string", "symbol"]);
 	for (const [key, value] of Object.entries(typedef))

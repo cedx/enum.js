@@ -1,12 +1,13 @@
-import createEnum from "@cedx/enum";
+/* eslint-disable new-cap */
+import Enum from "@cedx/enum";
 import {ok} from "node:assert/strict";
 import {describe, it} from "node:test";
 
 /**
- * Tests the features of the {@link createEnum} function.
+ * Tests the features of the {@link Enum} function.
  */
-describe("createEnum()", () => {
-	const SampleEnum = createEnum({
+describe("Enum()", () => {
+	const SampleEnum = Enum({
 		zero: false,
 		one: 1,
 		two: "TWO",

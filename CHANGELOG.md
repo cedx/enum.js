@@ -1,7 +1,7 @@
 # Changelog
 
 ## Version [9.1.0](https://github.com/cedx/enum.js/compare/v9.0.1...v9.1.0)
-- Optimized the performance of the `createEnum()` function.
+- Optimized the performance of the `Enum()` function.
 
 ## Version [9.0.1](https://github.com/cedx/enum.js/compare/v9.0.0...v9.0.1)
 - Migrated the documentation to the [GitHub wiki](https://github.com/cedx/enum.js/wiki).
