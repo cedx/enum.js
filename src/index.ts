@@ -1,4 +1,4 @@
-export * from "./interface.js";
+export type * from "./interface.js";
 import * as methods from "./implementation.js";
 import type {Enum} from "./interface.js";
 
