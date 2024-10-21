@@ -1,7 +1,7 @@
 /**
  * Provides methods for inspecting an enumeration.
  */
-export interface Enum<T extends object> {
+export type Enum<T extends object> = Readonly<{
 
 	/**
 	 * Returns the specified value if it exists in the specified enumeration, otherwise throws an error.
@@ -56,4 +56,4 @@ export interface Enum<T extends object> {
 	 * @returns The values of the constants in the specified enumeration.
 	 */
 	values: () => Array<T[keyof T]>;
-}
+}>;
