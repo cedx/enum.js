@@ -1,5 +1,9 @@
 # Changelog
 
+## Version [10.0.0](https://github.com/cedx/enum.js/compare/v9.1.0...v10.0.0)
+- Breaking change: the `Enum()` function now uses a named export instead of a default export.
+- Ported the source code to [CoffeeScript](https://coffeescript.org).
+
 ## Version [9.1.0](https://github.com/cedx/enum.js/compare/v9.0.1...v9.1.0)
 - Optimized the performance of the `Enum()` function.
 
