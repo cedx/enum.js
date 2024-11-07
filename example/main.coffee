@@ -20,13 +20,13 @@ DayOfWeek.hasValue "foo" # no
 
 # Ensure that a value is defined among the enumerated type.
 DayOfWeek.assert DayOfWeek.monday # DayOfWeek.monday
-DayOfWeek.assert "foo" # (throws TypeError)
+DayOfWeek.assert "foo" # (throws a TypeError)
 DayOfWeek.coerce DayOfWeek.monday, DayOfWeek.tuesday # DayOfWeek.monday
 DayOfWeek.coerce "foo", DayOfWeek.tuesday # DayOfWeek.tuesday
 
 # Get the name associated with an enumerated value.
 DayOfWeek.getName DayOfWeek.thursday # "thursday"
-DayOfWeek.getName "foo" # "" (empty string)
+DayOfWeek.getName "foo" # "" (an empty string)
 
 # Get information about the enumerated type.
 DayOfWeek.entries() # Map(7) {"sunday" => 0, "monday" => 1, "tuesday" => 2, "wednesday" => 3, "thursday" => 4, "friday" => 5, "saturday" => 6}
