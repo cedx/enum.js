@@ -6,7 +6,7 @@
 	"name": "@cedx/enum",
 	"repository": "cedx/enum.js",
 	"type": "module",
-	"version": "9.1.0",
+	"version": "10.0.0",
 	"author": {
 		"email": "cedric@belin.io",
 		"name": "Cédric Belin",
