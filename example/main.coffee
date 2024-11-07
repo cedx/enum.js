@@ -1,4 +1,4 @@
-import Enum from "@cedx/enum"
+import {Enum} from "@cedx/enum"
 
 # Defines the days of the week.
 DayOfWeek = Enum
