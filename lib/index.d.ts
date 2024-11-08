@@ -6,4 +6,4 @@ export * from "./interface.js";
  * @param typedef A plain object defining the shape of the enumerated type.
  * @returns The newly created enumeration.
  */
-export function Enum<T extends object>(typedef: T): Readonly<Enum<T> & T>;
+export function Enum<T extends object>(typedef: T): Enum<T> & Readonly<T>;
