@@ -10,7 +10,7 @@ export coerce = (enumType, value, defaultValue) ->
 export entries = (enumType) -> new Map Object.entries enumType
 
 # Gets the name of the constant in the specified enumeration that has the specified value.
-export getName = (enumType, value) -> keys(enumType).find((name) -> enumType[name] is value) ? ""
+export getName = (enumType, value) -> keys(enumType).find((name) -> enumType[name] is value) or ""
 
 # Gets a value indicating whether a constant with the specified name exists in the specified enumeration.
 export has = (enumType, name) -> keys(enumType).includes name
