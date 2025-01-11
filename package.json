@@ -36,6 +36,9 @@
 		"reflection",
 		"type"
 	],
+	"publishConfig": {
+		"access": "public"
+	},
 	"scripts": {
 		"test": "gulp test"
 	}
