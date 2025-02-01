@@ -1,5 +1,8 @@
 # Changelog
 
+## Version [10.1.0](https://github.com/cedx/enum.js/compare/v10.0.0...v10.1.0)
+- Ported the source code to [TypeScript](https://www.typescriptlang.org).
+
 ## Version [10.0.0](https://github.com/cedx/enum.js/compare/v9.1.0...v10.0.0)
 - Breaking change: the `Enum()` function now uses a named export instead of a default export.
 - Ported the source code to [CoffeeScript](https://coffeescript.org).
