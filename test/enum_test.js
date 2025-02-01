@@ -1,4 +1,4 @@
-/* eslint-disable max-lines-per-function */
+/* eslint-disable max-lines-per-function, new-cap */
 import {Enum} from "@cedx/enum";
 import {deepEqual, equal, ok, throws} from "node:assert/strict";
 import {describe, it} from "node:test";
@@ -7,7 +7,7 @@ import {describe, it} from "node:test";
  * Tests the features of the {@link Enum} type.
  */
 describe("Enum", () => {
-	const SampleEnum = Enum({ // eslint-disable-line new-cap
+	const SampleEnum = Enum({
 		zero: false,
 		one: 1,
 		two: "TWO",
