@@ -1,7 +1,7 @@
 /**
  * Provides methods for inspecting an enumeration.
  */
-export type Enum<T extends object> = Readonly<{
+export type EnumType<T extends object> = Readonly<{
 
 	/**
 	 * Returns the specified value if it exists in the specified enumeration, otherwise throws an error.
