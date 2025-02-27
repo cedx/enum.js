@@ -1,6 +1,0 @@
-<Solution>
-	<Project Path="enum.esproj">
-		<Build />
-		<Deploy />
-	</Project>
-</Solution>
