@@ -1,6 +1,6 @@
-import * as methods from "./implementation.js";
-import type {EnumType} from "./interface.js";
-export type * from "./interface.js";
+import * as methods from "./Implementation.js";
+import type {EnumType} from "./Interface.js";
+export type * from "./Interface.js";
 
 /**
  * The list of supported scalar types.
